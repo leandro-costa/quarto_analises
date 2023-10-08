@@ -1,0 +1,45 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/rocker-org/devcontainer-features/pandoc:1": {},
+		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {		
+			"installTinyTex": true
+		},
+		"ghcr.io/rocker-org/devcontainer-features/r-apt:0": {
+			"vscodeRSupport": "full",
+			"installDevTools": true,
+			"installVscDebugger": true,
+			"installRMarkdown": true,
+			"installREnv": true
+		},
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"streetsidesoftware.code-spell-checker-portuguese-brazilian",
+				"streetsidesoftware.code-spell-checker",
+				"quarto.quarto",
+				"REditorSupport.r",
+				"MS-CEINTL.vscode-language-pack-pt-BR",
+				"ritwickdey.LiveServer"
+			]
+		}
+	}
+}

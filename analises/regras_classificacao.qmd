@@ -1,0 +1,385 @@
+---
+title: "Regras para classificação"
+lang: pt
+format: 
+  html:
+    fig-width: 8
+    fig-height: 12
+execute:
+  echo: false
+#  freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
+  freeze: auto
+  cache: true 
+---
+
+```{r}
+
+if(!require('ggplot2')) {install.packages('ggplot2', repos='http://cran-r.c3sl.ufpr.br/')}
+library(ggplot2)
+library(knitr)
+
+#carrega datasett
+datasetfull<-readRDS("../rds/datasetfull.rds")
+
+#normaliza coordendas de latitude o longitude
+min_intervalo_y <- 1
+max_intervalo_y <- length(unique(datasetfull$POINT_Y))
+datasetfull["POINT_Y_normalizado"] <- ((datasetfull$POINT_Y - min(datasetfull$POINT_Y)) / (max(datasetfull$POINT_Y) - min(datasetfull$POINT_Y))) * (max_intervalo_y - min_intervalo_y) + min_intervalo_y
+
+
+min_intervalo_x <- 1
+max_intervalo_x <- length(unique(datasetfull$POINT_X))
+datasetfull["POINT_X_normalizado"] <- ((datasetfull$POINT_X - min(datasetfull$POINT_X)) / (max(datasetfull$POINT_X) - min(datasetfull$POINT_X))) * (max_intervalo_x - min_intervalo_x) + min_intervalo_x
+
+#unique(datasetfull$uso)
+datasetfull["aptidao"] <- 0
+
+```
+
+## Regra -- BOA (4-Verde)
+
+### Regra 8 {#sec-Regra-8}
+
+
+"textura" IN ('argilosa_muito_argilosa', 'media_argilosa', 'media_argilosa_argilosa') AND "drenagem" = 'boa' AND "erodibilid" IN ('baixa', 'muito_baixa') AND "declividad" \<=20 AND "pluviosida" \>=1500 AND "amostragem" \<\>1 AND "amostragem" \<\>2
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'argilosa_ muito_argilosa' | 
+            datasetfull$textura == 'media_argilosa' | 
+            datasetfull$textura == 'media_argilosa_argilosa'
+        ) 
+        & (datasetfull$drenagem == 'boa')
+        & (
+            datasetfull$erodibilidade == 'baixa'|
+            datasetfull$erodibilidade == 'muito_baixa'
+        )
+        & (datasetfull$declividade_valor <= 20)
+        & (datasetfull$pluviosidade_valor > 1500)
+        ] <- 4
+
+kable(table(datasetfull$aptidao))
+
+```
+
+### Regra 9  {#sec-Regra-9}
+
+"textura" IN ('argilosa_muito_argilosa', 'media_argilosa', 'media_argilosa_argilosa') AND "drenagem" = 'boa' AND "erodibilid" IN ('baixa', 'muito_baixa', 'media') AND "declividad" \<=20 AND "pluviosida" \>=1500 AND "amostragem" \<\>1 AND "amostragem" \<\>2 AND "amostragem" \<\>3
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'argilosa_ muito_argilosa' | 
+            datasetfull$textura == 'media_argilosa' | 
+            datasetfull$textura == 'media_argilosa_argilosa'
+        ) 
+        & (datasetfull$drenagem == 'boa')
+        & (
+            datasetfull$erodibilidade == 'baixa'|
+            datasetfull$erodibilidade == 'muito_baixa'|
+            datasetfull$erodibilidade == 'media'
+        )
+        & (datasetfull$declividade_valor <= 20)
+        & (datasetfull$pluviosidade_valor >= 1500)
+        ] <- 4
+
+kable(table(datasetfull$aptidao))
+```
+
+### Regra 10  {#sec-Regra-10}
+
+"textura" IN ('argilosa_muito_argilosa', 'media_argilosa', 'media_argilosa_argilosa') AND "drenagem" = 'boa' AND "erodibilid" IN ('baixa', 'muito_baixa') AND "declividad" \>20 AND "declividad" \<=45 AND "pluviosida" \>=1500 AND "amostragem" \<\>1 AND "amostragem" \<\>2 AND "amostragem" \<\>3
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'argilosa_ muito_argilosa' | 
+            datasetfull$textura == 'media_argilosa' | 
+            datasetfull$textura == 'media_argilosa_argilosa'
+        ) 
+        & (datasetfull$drenagem == 'boa')
+        & (
+            datasetfull$erodibilidade == 'baixa'|
+            datasetfull$erodibilidade == 'muito_baixa'
+        )
+        & (
+            datasetfull$declividade_valor > 20 & 
+            datasetfull$declividade_valor <= 45
+        )
+        & (datasetfull$pluviosidade_valor >= 1500)
+        ] <- 4
+
+kable(table(datasetfull$aptidao))
+```
+
+### Regra 11  {#sec-Regra-11}
+
+"textura" IN ('argilosa_muito_argilosa', 'media_argilosa', 'media_argilosa_argilosa') AND "drenagem" = 'boa' AND "erodibilid" IN ('baixa', 'muito_baixa') AND "declividad" \<=20 AND "pluviosida" \<1500 AND "amostragem" \<\>1 AND "amostragem" \<\>2 AND "amostragem" \<\>3
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'argilosa_ muito_argilosa' | 
+            datasetfull$textura == 'media_argilosa' | 
+            datasetfull$textura == 'media_argilosa_argilosa'
+        ) 
+        & (datasetfull$drenagem == 'boa')
+        & (
+            datasetfull$erodibilidade == 'baixa'|
+            datasetfull$erodibilidade == 'muito_baixa'
+        )
+        & (datasetfull$declividade_valor <=20)
+        & (datasetfull$pluviosidade_valor < 1500)
+        ] <- 4
+kable(table(datasetfull$aptidao))
+```
+
+@fig-boa mostra o resultado da aplicação das regras @sec-Regra-8, @sec-Regra-9, @sec-Regra-10 e @sec-Regra-11  
+
+```{r}
+#| label: fig-boa
+#| fig-cap: "Plotagem da area classificada como BOA pelas regras."
+#| warning: false
+nomeregra = "BOA"
+
+ggplot(datasetfull, aes(x = datasetfull$POINT_X_normalizado, y = datasetfull$POINT_Y_normalizado, color = as.factor(datasetfull$aptidao))) +
+    geom_point() +
+    scale_color_manual(values = c("0" = "lightgray", "1" = "red", "2" = "yellow", "3" = "blue", "4" = "green")) +
+    theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
+```
+
+## Regra -- REGULAR (3-Azul)
+
+### Regra 3  {#sec-Regra-3}
+
+"drenagem" = 'moderada_boa' AND "erodibilid" = 'media' AND "declividad" >20 AND "declividad" <=45 AND "pluviosida" <1500 AND "amostragem" <>1 AND "amostragem" <>2 AND "amostragem" <>4
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$drenagem == 'moderada_boa') 
+        & (datasetfull$erodibilidade == 'media')
+        & (
+            datasetfull$declividade_valor > 20 & 
+            datasetfull$declividade_valor <= 45
+        )
+        & (datasetfull$pluviosidade_valor < 1500)
+        & (datasetfull$aptidao != 4)
+        ] <- 3
+kable(table(datasetfull$aptidao))
+```
+
+### Regra 4  {#sec-Regra-4}
+ 
+"drenagem" = 'moderada_boa' AND "erodibilid" = 'media' AND "declividad" >20 AND "declividad" <=45 AND "pluviosida" >=1500 AND "amostragem" <>1 AND "amostragem" <>2 AND "amostragem" <>4
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$drenagem == 'moderada_boa') 
+        & (datasetfull$erodibilidade == 'media')
+        & (
+            datasetfull$declividade_valor > 20 & 
+            datasetfull$declividade_valor <= 45
+        )
+        & (datasetfull$pluviosidade_valor >= 1500)
+        & (datasetfull$aptidao != 4)
+        ] <- 3
+kable(table(datasetfull$aptidao))
+```
+
+### Regra 5  {#sec-Regra-5}
+
+"drenagem" = 'moderada_boa' AND "erodibilid" = 'media' AND "pluviosida" <1500 AND "amostragem" <>1 AND "amostragem" <>2 AND "amostragem" <>4
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$drenagem == 'moderada_boa') 
+        & (datasetfull$erodibilidade == 'media')
+        & (datasetfull$pluviosidade_valor < 1500)
+        & (datasetfull$aptidao != 4)
+        ] <- 3
+kable(table(datasetfull$aptidao))
+```
+
+### Regra 6  {#sec-Regra-6}
+
+"drenagem" = 'moderada_boa' AND "declividad" >20 AND "declividad" <=45 AND "pluviosida" <1500 AND "amostragem" <>1 AND "amostragem" <>2 AND "amostragem" <>4
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$drenagem == 'moderada_boa') 
+        & (
+            datasetfull$declividade_valor > 20 & 
+            datasetfull$declividade_valor <= 45
+        )
+        & (datasetfull$pluviosidade_valor < 1500)
+        & (datasetfull$aptidao != 4)
+        ] <- 3
+kable(table(datasetfull$aptidao))
+```
+### Regra 7  {#sec-Regra-7}
+
+"erodibilid" = 'media' AND "declividad" >20 AND "declividad" <=45 AND "pluviosida" <1500 AND "amostragem" <>1 AND "amostragem" <>2 AND "amostragem" <>4
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$erodibilidade == 'media')
+        & (
+            datasetfull$declividade_valor > 20 & 
+            datasetfull$declividade_valor <= 45
+        )
+        & (datasetfull$pluviosidade_valor < 1500)
+        & (datasetfull$aptidao != 4)
+        ] <- 3
+kable(table(datasetfull$aptidao))
+```
+
+
+@fig-regular mostra o resultado da aplicação das regras @sec-Regra-3, @sec-Regra-4, @sec-Regra-5, @sec-Regra-6  e @sec-Regra-7
+
+```{r}
+#| label: fig-regular
+#| fig-cap: "Plotagem da area classificada como BOA e REGULAR pelas regras."
+#| warning: false
+nomeregra = "BOA e REGULAR"
+
+ggplot(datasetfull, aes(x = datasetfull$POINT_X_normalizado, y = datasetfull$POINT_Y_normalizado, color = as.factor(datasetfull$aptidao))) +
+    geom_point() +
+    scale_color_manual(values = c("0" = "lightgray", "1" = "red", "2" = "yellow", "3" = "blue", "4" = "green")) +
+    theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
+```
+
+
+## Regra -- RESTRITA (2-Amarelo)
+
+### Regra 2  {#sec-Regra-2}
+"erodibilid" = 'alta' AND "amostragem" <> 1
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$erodibilidade == 'alta')
+        ] <- 2
+kable(table(datasetfull$aptidao))
+
+```
+
+### Regra 3
+
+("declividad" >45 AND "declividad" <=75) AND "amostragem" <> 1
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+
+datasetfull$aptidao[
+            datasetfull$declividade_valor > 45 & 
+            datasetfull$declividade_valor <= 75
+        ] <- 2
+kable(table(datasetfull$aptidao))
+```
+
+
+@fig-restrita mostra o resultado da aplicação da regra @sec-Regra-2
+
+```{r}
+#| label: fig-restrita
+#| fig-cap: "Plotagem da area classificada como BOA, REGULAR e RESTRITA pelas regras."
+#| warning: false
+nomeregra = "BOA, REGULAR e RESTRITA"
+
+ggplot(datasetfull, aes(x = datasetfull$POINT_X_normalizado, y = datasetfull$POINT_Y_normalizado, color = as.factor(datasetfull$aptidao))) +
+    geom_point() +
+    scale_color_manual(values = c("0" = "lightgray", "1" = "red", "2" = "yellow", "3" = "blue", "4" = "green")) +
+    theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
+```
+
+
+## Regra -- IMPRÓPRIO (1-Vermelho)
+
+### Regra 1  {#sec-Regra-1}
+
+"textura" IN ('indiscriminada', 'arenosa', 'corpos_dagua') OR "drenagem" IN ('corpos_dagua', 'mal_drenado', 'excessiva', 'imperfeita') OR "erodibilid" = 'muito_alta' OR "declividad">75
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'indiscriminada'|
+            datasetfull$textura == 'arenosa'|
+            datasetfull$textura == 'corpos_dagua'
+        ) 
+        | (
+            datasetfull$drenagem == 'corpos_dagua'|
+            datasetfull$textura == 'mal_drenado'|
+            datasetfull$textura == 'excessiva'|
+            datasetfull$textura == 'imperfeita'
+        ) 
+        |(datasetfull$erodibilidade == 'muito_alta' )
+        |(datasetfull$declividade_valor >75 )
+        ] <- 1
+kable(table(datasetfull$aptidao))
+```
+
+@fig-improprio mostra o resultado da aplicação da regra @sec-Regra-1
+
+```{r}
+#| label: fig-improprio
+#| fig-cap: "Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras."
+#| warning: false
+nomeregra = "TODAS"
+
+ggplot(datasetfull, aes(x = datasetfull$POINT_X_normalizado, y = datasetfull$POINT_Y_normalizado, color = as.factor(datasetfull$aptidao))) +
+    geom_point() +
+    scale_color_manual(values = c("0" = "lightgray", "1" = "red", "2" = "yellow", "3" = "blue", "4" = "green")) +
+    theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
+```
+
+```{r}
+if(!file.exists("../rds/datasetfull_regras.rds")){
+    saveRDS(datasetfull, "./rds/datasetfull_regras.rds")
+}
+```
+
+## Rpart
+
+@fig-rpart mostra o resultado da aplicação do rpart 
+
+```{r}
+#| label: fig-rpart
+#| fig-cap: "Plotagem da area classificada com as regras aprendidas."
+#| warning: false
+#| echo: false
+nomeregra = "RPART"
+if(!file.exists("../rds/modelo_arvore_full.rds")){
+    indice_treino <- which(datasetfull$aptidao != 0)
+    conjunto_treino <- datasetfull[indice_treino, ]
+    conjunto_teste <- datasetfull[-indice_treino, ]
+
+    if(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}
+    library(rpart)
+    modelo_arvore <- rpart(aptidao ~ ., data = conjunto_treino, method = "class")
+    saveRDS(modelo_arvore, "../rds/modelo_arvore_full.rds")
+}else{
+    modelo_arvore <- readRDS("../rds/modelo_arvore_full.rds")
+}
+previsoes <- predict(modelo_arvore, newdata = conjunto_teste, type = "class")
+datasetfull[-indice_treino, "aptidao"] <- previsoes
+
+if(!file.exists("../rds/datasetfull_regras_rpart.rds")){
+    saveRDS(datasetfull, "../rds/datasetfull_regras_rpart.rds")
+}
+
+ggplot(datasetfull, aes(x = datasetfull$POINT_X_normalizado, y = datasetfull$POINT_Y_normalizado, color = as.factor(datasetfull$aptidao))) +
+    geom_point() +
+    scale_color_manual(values = c("0" = "lightgray", "1" = "red", "2" = "yellow", "3" = "blue", "4" = "green")) +
+    theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
+```

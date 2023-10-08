@@ -1,0 +1,81 @@
+---
+title: "Matriz de confusão"
+lang: pt
+execute:
+  echo: false
+  freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
+  cache: true 
+---
+
+Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.
+
+Carregando dataset
+
+```{r}
+datasetfull<-readRDS("../rds/datasetfull_regras.rds")
+```
+
+Carregando libs
+
+```{r}
+#| warning: false
+if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}
+library(caret)
+if(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}
+library(rpart)
+```
+
+Amostra dos dados
+
+```{r}
+#| label: tbl-example-datasetfull
+#| tbl-cap: "Exemplos dos dados"
+
+library(knitr)
+kable(head(datasetfull))
+```
+
+Selecionando dados para treino e teste
+```{r}
+if(!file.exists("../rds/modelo_arvore.rds")){
+    # Selecionando os dados classificados
+    conjunto_de_dados <- subset(datasetfull, aptidao != 0)
+
+    # Defina a proporção desejada para treinamento (70%) e teste (30%)
+    proporcao_treinamento <- 0.7
+
+    # Calcule o número de observações para treinamento
+    tamanho_treinamento <- round(nrow(conjunto_de_dados) * proporcao_treinamento)
+
+    # Crie um vetor de índices aleatórios para as observações
+    indices_aleatorios <- sample(1:nrow(conjunto_de_dados))
+
+    # Selecione as observações de treinamento com base nos índices aleatórios
+    conjunto_treinamento <- conjunto_de_dados[indices_aleatorios[1:tamanho_treinamento], ]
+
+    # Selecione as observações de teste com base nos índices aleatórios restantes
+    conjunto_teste <- conjunto_de_dados[indices_aleatorios[(tamanho_treinamento + 1):nrow(conjunto_de_dados)], ]
+    modelo_arvore <- rpart(aptidao ~ ., data = conjunto_treinamento, method = "class")
+    saveRDS(modelo_arvore, "../rds/modelo_arvore.rds")
+}else{
+    modelo_arvore <- readRDS("../rds/modelo_arvore.rds")
+}
+
+previsoes <- predict(modelo_arvore, newdata = conjunto_teste, type = "class")
+
+```
+
+Calculando matriz de confusão
+```{r}
+#| label: tbl-matriz-confusao
+#| tbl-cap: "Matriz de confusão"
+matriz_confusao <- table(Real = conjunto_teste$aptidao, Previsto = previsoes)
+kable(matriz_confusao)
+```
+
+Taxa de acerto
+```{r}
+taxa_acerto <- sum(diag(matriz_confusao)) / sum(matriz_confusao)
+sprintf("%.2f%%", taxa_acerto*100) 
+```
+
