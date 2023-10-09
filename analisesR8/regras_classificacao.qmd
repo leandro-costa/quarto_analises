@@ -283,10 +283,10 @@ if(!file.exists("../rds/datasetfull_regras_r8.rds")){
 #| warning: false
 #| echo: false
 nomeregra = "RPART"
+indice_treino <- which(datasetfull$aptidao != 0)
+conjunto_treino <- datasetfull[indice_treino, ]
+conjunto_teste <- datasetfull[-indice_treino, ]
 if(!file.exists("../rds/modelo_arvore_r8_full.rds")){
-    indice_treino <- which(datasetfull$aptidao != 0)
-    conjunto_treino <- datasetfull[indice_treino, ]
-    conjunto_teste <- datasetfull[-indice_treino, ]
 
     if(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}
     library(rpart)

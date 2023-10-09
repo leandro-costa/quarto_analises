@@ -37,24 +37,24 @@ kable(head(datasetfull))
 
 Selecionando dados para treino e teste
 ```{r}
+# Selecionando os dados classificados
+conjunto_de_dados <- subset(datasetfull, aptidao != 0)
+
+# Defina a proporção desejada para treinamento (70%) e teste (30%)
+proporcao_treinamento <- 0.7
+
+# Calcule o número de observações para treinamento
+tamanho_treinamento <- round(nrow(conjunto_de_dados) * proporcao_treinamento)
+
+# Crie um vetor de índices aleatórios para as observações
+indices_aleatorios <- sample(1:nrow(conjunto_de_dados))
+
+# Selecione as observações de treinamento com base nos índices aleatórios
+conjunto_treinamento <- conjunto_de_dados[indices_aleatorios[1:tamanho_treinamento], ]
+
+# Selecione as observações de teste com base nos índices aleatórios restantes
+conjunto_teste <- conjunto_de_dados[indices_aleatorios[(tamanho_treinamento + 1):nrow(conjunto_de_dados)], ]
 if(!file.exists("../rds/modelo_arvore.rds")){
-    # Selecionando os dados classificados
-    conjunto_de_dados <- subset(datasetfull, aptidao != 0)
-
-    # Defina a proporção desejada para treinamento (70%) e teste (30%)
-    proporcao_treinamento <- 0.7
-
-    # Calcule o número de observações para treinamento
-    tamanho_treinamento <- round(nrow(conjunto_de_dados) * proporcao_treinamento)
-
-    # Crie um vetor de índices aleatórios para as observações
-    indices_aleatorios <- sample(1:nrow(conjunto_de_dados))
-
-    # Selecione as observações de treinamento com base nos índices aleatórios
-    conjunto_treinamento <- conjunto_de_dados[indices_aleatorios[1:tamanho_treinamento], ]
-
-    # Selecione as observações de teste com base nos índices aleatórios restantes
-    conjunto_teste <- conjunto_de_dados[indices_aleatorios[(tamanho_treinamento + 1):nrow(conjunto_de_dados)], ]
     modelo_arvore <- rpart(aptidao ~ ., data = conjunto_treinamento, method = "class")
     saveRDS(modelo_arvore, "../rds/modelo_arvore.rds")
 }else{

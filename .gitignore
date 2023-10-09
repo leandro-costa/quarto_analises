@@ -1,2 +1,9 @@
 /.quarto/
 /rds/
+/analises/regras_classificacao_cache
+/analises/regras_classificacao_files
+/analises/matriz_confusao_cache
+/analisesR8/regras_classificacao_cache
+/analisesR8/regras_classificacao_files
+/analisesR8/matriz_confusao_cache
+/_freeze

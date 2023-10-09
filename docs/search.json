@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Análises",
+    "section": "",
+    "text": "Analises da aptdão do guaraná"
+  },
+  {
+    "objectID": "analisesR8/regras_classificacao.html",
+    "href": "analisesR8/regras_classificacao.html",
+    "title": "Regras para classificação R8",
+    "section": "",
+    "text": "Loading required package: ggplot2"
+  },
+  {
+    "objectID": "analisesR8/regras_classificacao.html#regra-boa-4-verde",
+    "href": "analisesR8/regras_classificacao.html#regra-boa-4-verde",
+    "title": "Regras para classificação R8",
+    "section": "Regra – BOA (4-Verde)",
+    "text": "Regra – BOA (4-Verde)\n\nRegra 8\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2757610\n\n\n4\n1476058\n\n\n\n\n\nFigura 1 mostra o resultado da aplicação da regra Seção 1.1\n\n\n\n\n\nFigura 1: Plotagem da area classificada como BOA pelas regras."
+  },
+  {
+    "objectID": "analisesR8/regras_classificacao.html#regra-regular-3-azul",
+    "href": "analisesR8/regras_classificacao.html#regra-regular-3-azul",
+    "title": "Regras para classificação R8",
+    "section": "Regra – REGULAR (3-Azul)",
+    "text": "Regra – REGULAR (3-Azul)\n\nRegra 3\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2738515\n\n\n3\n19095\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 4\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2705888\n\n\n3\n51722\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 5\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2647897\n\n\n3\n109713\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 6\n“drenagem” = ‘moderada_boa’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2647890\n\n\n3\n109720\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 7\n“erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2640012\n\n\n3\n117598\n\n\n4\n1476058\n\n\n\n\n\nFigura 2 mostra o resultado da aplicação das regras Seção 2.1, Seção 2.2, Seção 2.3, Seção 2.4 e Seção 2.5\n\n\n\n\n\nFigura 2: Plotagem da area classificada como BOA e REGULAR pelas regras."
+  },
+  {
+    "objectID": "analisesR8/regras_classificacao.html#regra-restrita-2-amarelo",
+    "href": "analisesR8/regras_classificacao.html#regra-restrita-2-amarelo",
+    "title": "Regras para classificação R8",
+    "section": "Regra – RESTRITA (2-Amarelo)",
+    "text": "Regra – RESTRITA (2-Amarelo)\n\nRegra 2\n“erodibilid” = ‘alta’ AND “amostragem” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2337493\n\n\n2\n302519\n\n\n3\n117598\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 3\n(“declividad” &gt;45 AND “declividad” &lt;=75) AND “amostragem” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2309974\n\n\n2\n330116\n\n\n3\n117520\n\n\n4\n1476058\n\n\n\n\n\nFigura 3 mostra o resultado da aplicação da regra Seção 3.1\n\n\n\n\n\nFigura 3: Plotagem da area classificada como BOA, REGULAR e RESTRITA pelas regras."
+  },
+  {
+    "objectID": "analisesR8/regras_classificacao.html#regra-impróprio-1-vermelho",
+    "href": "analisesR8/regras_classificacao.html#regra-impróprio-1-vermelho",
+    "title": "Regras para classificação R8",
+    "section": "Regra – IMPRÓPRIO (1-Vermelho)",
+    "text": "Regra – IMPRÓPRIO (1-Vermelho)\n\nRegra 1\n“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1650044\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n1476058\n\n\n\n\n\nFigura 4 mostra o resultado da aplicação da regra Seção 4.1\n\n\n\n\n\nFigura 4: Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras."
+  },
+  {
+    "objectID": "analisesR8/regras_classificacao.html#rpart",
+    "href": "analisesR8/regras_classificacao.html#rpart",
+    "title": "Regras para classificação R8",
+    "section": "Rpart",
+    "text": "Rpart\nFigura 5 mostra o resultado da aplicação do rpart\n\n\n\n\n\nFigura 5: Plotagem da area classificada com as regras aprendidas."
+  },
+  {
+    "objectID": "analises/matriz_confusao.html",
+    "href": "analises/matriz_confusao.html",
+    "title": "Matriz de confusão",
+    "section": "",
+    "text": "Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.\nCarregando dataset\nCarregando libs\nAmostra dos dados\n\n\n\n\nTabela 1: Exemplos dos dados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ndeclividade_valor\ndeclividade_revelo\ndeclividade_aptidao\ndeclividade_cd_aptidao\ndef_hid_valor\ndef_hid_interval\ndef_hid_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_valor\ndist_sede_municipal_interval\ndist_sede_municipal_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_valor\ndist_vias_municipais_interval\ndist_vias_municipais_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem\ndrenagem_aptidao\ndrenagem_cd_aptidao\nerodibilidade\nerodibilidade_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\npluviosidade_interval\npluviosidade_aptidao\npluviosidade_cd_aptidao\ntemperatura_valor\ntemperatura_interval\ntemperatura_aptidao\ntemperatura_cd_aptidao\ntextura\ntextura_aptidao\ntextura_cd_aptidao\numidade_valor\numidade_interval\numidade_aptidao\numidade_cd_aptidao\nuso\nuso_aptidao\nuso_cd_aptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\naptidao\n\n\n\n\n1\n463484.4\n8540826\n0\nplano\nalta\n4\n51.70340\n0_100\nmuito_alta\n5\n34107.89\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.620\n1500_1700\nalta\n4\n24.58993\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37140\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n516\n4\n\n\n2\n463514.4\n8540826\n0\nplano\nalta\n4\n51.68119\n0_100\nmuito_alta\n5\n34082.75\n30000_40000\nbaixa\n2\n180\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.859\n1500_1700\nalta\n4\n24.59034\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37177\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n517\n4\n\n\n3\n463544.4\n8540826\n0\nplano\nalta\n4\n51.65906\n0_100\nmuito_alta\n5\n34057.61\n30000_40000\nbaixa\n2\n210\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.099\n1500_1700\nalta\n4\n24.59076\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37214\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n518\n4\n\n\n4\n463574.4\n8540826\n0\nplano\nalta\n4\n51.63700\n0_100\nmuito_alta\n5\n34032.48\n30000_40000\nbaixa\n2\n240\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.341\n1500_1700\nalta\n4\n24.59118\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37251\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n519\n4\n\n\n5\n463454.4\n8540796\n0\nplano\nalta\n4\n51.60953\n0_100\nmuito_alta\n5\n34116.70\n30000_40000\nbaixa\n2\n120\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.219\n1500_1700\nalta\n4\n24.58881\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37157\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n515\n4\n\n\n6\n463484.4\n8540796\n0\nplano\nalta\n4\n51.58762\n0_100\nmuito_alta\n5\n34091.54\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.458\n1500_1700\nalta\n4\n24.58922\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37194\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n516\n4\n\n\n\n\n\n\nSelecionando dados para treino e teste\nCalculando matriz de confusão\n\n\n\n\nTabela 2: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n265975\n95\n29\n0\n\n\n0\n30231\n85\n0\n\n\n0\n0\n33123\n2380\n\n\n0\n0\n0\n739471\n\n\n\n\n\n\nTaxa de acerto\n\n\n[1] \"99.76%\""
+  },
+  {
+    "objectID": "analises/regras_classificacao.html",
+    "href": "analises/regras_classificacao.html",
+    "title": "Regras para classificação",
+    "section": "",
+    "text": "Loading required package: ggplot2"
+  },
+  {
+    "objectID": "analises/regras_classificacao.html#regra-boa-4-verde",
+    "href": "analises/regras_classificacao.html#regra-boa-4-verde",
+    "title": "Regras para classificação",
+    "section": "Regra – BOA (4-Verde)",
+    "text": "Regra – BOA (4-Verde)\n\nRegra 8\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2757610\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 9\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’, ‘media’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;3\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2701316\n\n\n4\n1532352\n\n\n\n\n\n\n\nRegra 10\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;3\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1973858\n\n\n4\n2259810\n\n\n\n\n\n\n\nRegra 11\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;3\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1769939\n\n\n4\n2463729\n\n\n\n\n\nFigura 1 mostra o resultado da aplicação das regras Seção 1.1, Seção 1.2, Seção 1.3 e Seção 1.4\n\n\n\n\n\nFigura 1: Plotagem da area classificada como BOA pelas regras."
+  },
+  {
+    "objectID": "analises/regras_classificacao.html#regra-regular-3-azul",
+    "href": "analises/regras_classificacao.html#regra-regular-3-azul",
+    "title": "Regras para classificação",
+    "section": "Regra – REGULAR (3-Azul)",
+    "text": "Regra – REGULAR (3-Azul)\n\nRegra 3\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1750844\n\n\n3\n19095\n\n\n4\n2463729\n\n\n\n\n\n\n\nRegra 4\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1718217\n\n\n3\n51722\n\n\n4\n2463729\n\n\n\n\n\n\n\nRegra 5\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1660226\n\n\n3\n109713\n\n\n4\n2463729\n\n\n\n\n\n\n\nRegra 6\n“drenagem” = ‘moderada_boa’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1660219\n\n\n3\n109720\n\n\n4\n2463729\n\n\n\n\n\n\n\nRegra 7\n“erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1652341\n\n\n3\n117598\n\n\n4\n2463729\n\n\n\n\n\nFigura 2 mostra o resultado da aplicação das regras Seção 2.1, Seção 2.2, Seção 2.3, Seção 2.4 e Seção 2.5\n\n\n\n\n\nFigura 2: Plotagem da area classificada como BOA e REGULAR pelas regras."
+  },
+  {
+    "objectID": "analises/regras_classificacao.html#regra-restrita-2-amarelo",
+    "href": "analises/regras_classificacao.html#regra-restrita-2-amarelo",
+    "title": "Regras para classificação",
+    "section": "Regra – RESTRITA (2-Amarelo)",
+    "text": "Regra – RESTRITA (2-Amarelo)\n\nRegra 2\n“erodibilid” = ‘alta’ AND “amostragem” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1349822\n\n\n2\n302519\n\n\n3\n117598\n\n\n4\n2463729\n\n\n\n\n\n\n\nRegra 3\n(“declividad” &gt;45 AND “declividad” &lt;=75) AND “amostragem” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1322303\n\n\n2\n330116\n\n\n3\n117520\n\n\n4\n2463729\n\n\n\n\n\nFigura 3 mostra o resultado da aplicação da regra Seção 3.1\n\n\n\n\n\nFigura 3: Plotagem da area classificada como BOA, REGULAR e RESTRITA pelas regras."
+  },
+  {
+    "objectID": "analises/regras_classificacao.html#regra-impróprio-1-vermelho",
+    "href": "analises/regras_classificacao.html#regra-impróprio-1-vermelho",
+    "title": "Regras para classificação",
+    "section": "Regra – IMPRÓPRIO (1-Vermelho)",
+    "text": "Regra – IMPRÓPRIO (1-Vermelho)\n\nRegra 1\n“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n662373\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2463729\n\n\n\n\n\nFigura 4 mostra o resultado da aplicação da regra Seção 4.1\n\n\n\n\n\nFigura 4: Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras."
+  },
+  {
+    "objectID": "analises/regras_classificacao.html#rpart",
+    "href": "analises/regras_classificacao.html#rpart",
+    "title": "Regras para classificação",
+    "section": "Rpart",
+    "text": "Rpart\nFigura 5 mostra o resultado da aplicação do rpart\n\n\n\n\n\nFigura 5: Plotagem da area classificada com as regras aprendidas."
+  },
+  {
+    "objectID": "analisesR8/matriz_confusao.html",
+    "href": "analisesR8/matriz_confusao.html",
+    "title": "Matriz de confusão R8",
+    "section": "",
+    "text": "Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.\nCarregando dataset\nCarregando libs\nAmostra dos dados\n\n\n\n\nTabela 1: Exemplos dos dados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ndeclividade_valor\ndeclividade_revelo\ndeclividade_aptidao\ndeclividade_cd_aptidao\ndef_hid_valor\ndef_hid_interval\ndef_hid_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_valor\ndist_sede_municipal_interval\ndist_sede_municipal_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_valor\ndist_vias_municipais_interval\ndist_vias_municipais_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem\ndrenagem_aptidao\ndrenagem_cd_aptidao\nerodibilidade\nerodibilidade_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\npluviosidade_interval\npluviosidade_aptidao\npluviosidade_cd_aptidao\ntemperatura_valor\ntemperatura_interval\ntemperatura_aptidao\ntemperatura_cd_aptidao\ntextura\ntextura_aptidao\ntextura_cd_aptidao\numidade_valor\numidade_interval\numidade_aptidao\numidade_cd_aptidao\nuso\nuso_aptidao\nuso_cd_aptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\naptidao\n\n\n\n\n1\n463484.4\n8540826\n0\nplano\nalta\n4\n51.70340\n0_100\nmuito_alta\n5\n34107.89\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.620\n1500_1700\nalta\n4\n24.58993\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37140\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n516\n4\n\n\n2\n463514.4\n8540826\n0\nplano\nalta\n4\n51.68119\n0_100\nmuito_alta\n5\n34082.75\n30000_40000\nbaixa\n2\n180\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.859\n1500_1700\nalta\n4\n24.59034\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37177\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n517\n4\n\n\n3\n463544.4\n8540826\n0\nplano\nalta\n4\n51.65906\n0_100\nmuito_alta\n5\n34057.61\n30000_40000\nbaixa\n2\n210\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.099\n1500_1700\nalta\n4\n24.59076\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37214\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n518\n4\n\n\n4\n463574.4\n8540826\n0\nplano\nalta\n4\n51.63700\n0_100\nmuito_alta\n5\n34032.48\n30000_40000\nbaixa\n2\n240\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.341\n1500_1700\nalta\n4\n24.59118\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37251\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n519\n4\n\n\n5\n463454.4\n8540796\n0\nplano\nalta\n4\n51.60953\n0_100\nmuito_alta\n5\n34116.70\n30000_40000\nbaixa\n2\n120\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.219\n1500_1700\nalta\n4\n24.58881\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37157\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n515\n4\n\n\n6\n463484.4\n8540796\n0\nplano\nalta\n4\n51.58762\n0_100\nmuito_alta\n5\n34091.54\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.458\n1500_1700\nalta\n4\n24.58922\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37194\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n516\n4\n\n\n\n\n\n\nSelecionando dados para treino e teste\nCalculando matriz de confusão\n\n\n\n\nTabela 2: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n266535\n103\n49\n34\n\n\n0\n29219\n1267\n0\n\n\n0\n1\n35256\n0\n\n\n0\n0\n0\n442623\n\n\n\n\n\n\nTaxa de acerto\n\n\n[1] \"99.81%\""
+  },
+  {
+    "objectID": "rds/Readme.html",
+    "href": "rds/Readme.html",
+    "title": "Aptidão Guaraná",
+    "section": "",
+    "text": "dataset\ndescrição\n\n\n\n\ndatasetfull.rds\ndataset completo\n\n\ndatasetfull_regras_r8.rds\ndataset com a aplicação das regras (R8)\n\n\ndatasetfull_regras_r8_rpart.rds\ndataset com a aplicação das regras (R8) e classificação rpart\n\n\ndatasetfull_regras.rds\ndataset com a aplicação de todas as regras\n\n\ndatasetfull_regras_rpart.rds\ndataset com a aplicação de todas as regras e classificação rpart\n\n\nmodelo_arvore_r8.rds\narvore rpart com 70% treino 30% teste no datasetfull_regras_r8\n\n\nmodelo_arvore.rds\narvore rpart com 70% treino 30% teste no datasetfull_regras\n\n\nmodelo_arvore_r8_full.rds\narvore rpart no datasetfull_regras_r8\n\n\nmodelo_arvore_full.rds\narvore rpart no datasetfull_regras"
+  }
+]
