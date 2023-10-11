@@ -1,5 +1,5 @@
 ---
-title: "Regressão linear"
+title: "Regressão linear CD"
 lang: pt
 execute:
   warning: false
@@ -16,28 +16,30 @@ library(caret)
 if(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}
 library(knitr)
 datasetfull<-readRDS("../rds/datasetfull_regras_rpart.rds")
-datasetfull <- datasetfull[, c("declividade_valor"
-                                  ,"def_hid_valor"
-                                  ,"dist_sede_municipal_valor"
-                                  ,"dist_vias_municipais_valor"
+datasetfull <- datasetfull[, c("declividade_cd_aptidao"
+                                  ,"def_hid_cd_aptidao"
+                                  ,"dist_sede_municipal_cd_aptidao"
+                                  ,"dist_vias_municipais_cd_aptidao"
                                   ,"drenagem_cd_aptidao"
                                   ,"erodibilidade_cd_aptidao"
-                                  ,"pluviosidade_valor"
-                                  ,"temperatura_valor"
+                                  ,"pluviosidade_cd_aptidao"
+                                  ,"temperatura_cd_aptidao"
                                   ,"textura_cd_aptidao"
-                                  ,"umidade_valor"
+                                  ,"umidade_cd_aptidao"
                                   ,"uso_cd_aptidao"
                                   ,"aptidao"
                                   )]
 kable(head(datasetfull))
 ```
 
+
+
 ## Regressão linear
 
 ```{r}
 #| tbl-cap: "Pesos associados a cada variável"
 
-modelo <- lm(aptidao ~  declividade_valor + def_hid_valor + dist_sede_municipal_valor + dist_vias_municipais_valor + drenagem_cd_aptidao + erodibilidade_cd_aptidao + pluviosidade_valor + temperatura_valor + textura_cd_aptidao + umidade_valor + uso_cd_aptidao, data = datasetfull)
+modelo <- lm(aptidao ~ declividade_cd_aptidao + def_hid_cd_aptidao + dist_sede_municipal_cd_aptidao + dist_vias_municipais_cd_aptidao + drenagem_cd_aptidao + erodibilidade_cd_aptidao + pluviosidade_cd_aptidao + temperatura_cd_aptidao + textura_cd_aptidao + umidade_cd_aptidao + uso_cd_aptidao, data = datasetfull)
 
 kable(modelo$coefficients)
 ```
@@ -72,17 +74,18 @@ cat("MSE:", mse, "\n")
 ## Formula
 ```{r}
 dados <- data.frame(
-    previsoes = datasetfull$declividade_valor*coef(modelo)["declividade_valor"]+
-    datasetfull$def_hid_valor*coef(modelo)["def_hid_valor"]+
-    datasetfull$dist_sede_municipal_valor*coef(modelo)["dist_sede_municipal_valor"]+
-    datasetfull$dist_vias_municipais_valor*coef(modelo)["dist_vias_municipais_valor"]+
+    previsoes =  datasetfull$declividade_cd_aptidao*coef(modelo)["declividade_cd_aptidao"]+
+    datasetfull$def_hid_cd_aptidao*coef(modelo)["def_hid_cd_aptidao"]+
+    datasetfull$dist_sede_municipal_cd_aptidao*coef(modelo)["dist_sede_municipal_cd_aptidao"]+
+    datasetfull$dist_vias_municipais_cd_aptidao*coef(modelo)["dist_vias_municipais_cd_aptidao"]+
     datasetfull$drenagem_cd_aptidao*coef(modelo)["drenagem_cd_aptidao"]+
     datasetfull$erodibilidade_cd_aptidao*coef(modelo)["erodibilidade_cd_aptidao"]+
-    datasetfull$pluviosidade_valor*coef(modelo)["pluviosidade_valor"]+
-    datasetfull$temperatura_valor*coef(modelo)["temperatura_valor"]+
+    datasetfull$pluviosidade_cd_aptidao*coef(modelo)["pluviosidade_cd_aptidao"]+
+    datasetfull$temperatura_cd_aptidao*coef(modelo)["temperatura_cd_aptidao"]+
     datasetfull$textura_cd_aptidao*coef(modelo)["textura_cd_aptidao"]+
-    datasetfull$umidade_valor*coef(modelo)["umidade_valor"]+
-    datasetfull$uso_cd_aptidao*coef(modelo)["uso_cd_aptidao"]+coef(modelo)["(Intercept)"]
+    datasetfull$umidade_cd_aptidao*coef(modelo)["umidade_cd_aptidao"]+
+    datasetfull$uso_cd_aptidao*coef(modelo)["uso_cd_aptidao"]+    
+    coef(modelo)["(Intercept)"]
 )
 
 #clusters <- kmeans(dados$previsoes, centers = 4)
@@ -103,8 +106,11 @@ dados$previsoes <- cut(dados$previsoes, breaks = faixas, labels = c(1, 2, 3, 4))
 conf_matrix <- confusionMatrix(factor(dados$previsoes), factor(datasetfull$aptidao))
 #conf_matrix <- confusionMatrix(factor(predicted_values), factor(datasetfull$aptidao))
 #head((predicted_values+coef(modelo)["(Intercept)"]))
+
 #head(dados$previsoes)
+
 #head(datasetfull$aptidao)
+
 
 kable(conf_matrix$table)
 ```
