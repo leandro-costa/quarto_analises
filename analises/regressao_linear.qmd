@@ -1,0 +1,111 @@
+---
+title: "Regressão linear"
+lang: pt
+execute:
+  warning: false
+  freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
+  cache: true 
+---
+
+## Carregando dataset
+
+```{r}
+if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}
+library(caret)
+
+if(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}
+library(knitr)
+datasetfull<-readRDS("../rds/datasetfull_regras_rpart.rds")
+novo_dataset <- scale(datasetfull[, c("declividade_valor"
+                                  ,"def_hid_valor"
+                                  ,"dist_sede_municipal_valor"
+                                  ,"dist_vias_municipais_valor"
+                                  ,"drenagem_cd_aptidao"
+                                  ,"erodibilidade_cd_aptidao"
+                                  ,"pluviosidade_valor"
+                                  ,"temperatura_valor"
+                                  ,"textura_cd_aptidao"
+                                  ,"umidade_valor"
+                                  ,"uso_cd_aptidao"
+                                  ,"aptidao"
+                                  )])
+kable(head(datasetfull))
+```
+
+## Regressão linear
+
+```{r}
+#| tbl-cap: "Pesos associados a cada variável"
+
+#modelo <- lm(Target ~ Variavel1 + Variavel2 + Variavel3, data = datasetfull)
+
+modelo <- lm(aptidao ~  declividade_valor + def_hid_valor + dist_sede_municipal_valor + dist_vias_municipais_valor + drenagem_cd_aptidao + erodibilidade_cd_aptidao + pluviosidade_valor + temperatura_valor + textura_cd_aptidao + umidade_valor + uso_cd_aptidao, data = datasetfull)
+
+kable(modelo$coefficients)
+```
+
+## Calcule o R-quadrado
+
+O R-quadrado mede a proporção da variabilidade na variável de resposta que é explicada pelo modelo. Um valor mais próximo de 1 indica um bom ajuste.
+```{r}
+#| tbl-cap: "R-quadrado"
+
+r_squared <- summary(modelo)$r.squared
+cat("R-squared:", r_squared, "\n")
+```
+
+## Erro Quadrático Médio (MSE):
+
+O MSE mede a média dos erros quadrados entre os valores reais e previstos. Um MSE menor indica um modelo mais preciso.
+
+```{r}
+#| tbl-cap: "MSE"
+# Calcule o MSE
+predicted_values <- predict(modelo)
+# Defina as faixas desejadas
+#faixas <- c(0, 1.49, 2.49, 3.50, Inf)
+# Use a função cut() para categorizar os valores nas faixas
+#predicted_values <- cut(predicted_values, breaks = faixas, labels = c(1, 2, 3, 4))
+mse <- mean((datasetfull$aptidao - as.numeric(predicted_values))^2)
+cat("MSE:", mse, "\n")
+```
+
+
+## Formula
+```{r}
+dados <- data.frame(
+    previsoes = datasetfull$declividade_valor*coef(modelo)["declividade_valor"]+datasetfull$def_hid_valor*coef(modelo)["def_hid_valor"]+datasetfull$dist_sede_municipal_valor*coef(modelo)["dist_sede_municipal_valor"]+datasetfull$dist_vias_municipais_valor*coef(modelo)["dist_vias_municipais_valor"]+datasetfull$drenagem_cd_aptidao*coef(modelo)["drenagem_cd_aptidao"]+datasetfull$erodibilidade_cd_aptidao*coef(modelo)["erodibilidade_cd_aptidao"]+datasetfull$pluviosidade_valor*coef(modelo)["pluviosidade_valor"]+datasetfull$temperatura_valor*coef(modelo)["temperatura_valor"]+datasetfull$textura_cd_aptidao*coef(modelo)["textura_cd_aptidao"]+datasetfull$umidade_valor*coef(modelo)["umidade_valor"]+datasetfull$uso_cd_aptidao*coef(modelo)["uso_cd_aptidao"]
+)
+
+#clusters <- kmeans(dados$previsoes, centers = 4)
+#dados$previsoes <- clusters$cluster
+
+# Defina as faixas desejadas
+faixas <- c(0, 1.2, 2.3, 3.3, Inf)
+# Use a função cut() para categorizar os valores nas faixas
+dados$previsoes <- cut(dados$previsoes, breaks = faixas, labels = c(1, 2, 3, 4))
+
+```
+
+
+## Calculando matriz de confusão
+```{r}
+#| label: tbl-matriz-confusao
+#| tbl-cap: "Matriz de confusão"
+conf_matrix <- confusionMatrix(factor(dados$previsoes), factor(datasetfull$aptidao))
+kable(conf_matrix$table)
+```
+
+## Obtenha a precisão global
+
+```{r}
+accuracy <- conf_matrix$overall["Accuracy"]
+cat("Precisão Global:", accuracy, "\n")
+```
+
+## Obtenha o índice kappa
+
+```{r}
+kappa <- conf_matrix$overall["Kappa"]
+cat("Índice Kappa:", kappa, "\n")
+```

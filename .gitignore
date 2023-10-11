@@ -3,6 +3,11 @@
 /analises/regras_classificacao_cache
 /analises/regras_classificacao_files
 /analises/matriz_confusao_cache
+/analises/correlacao_entre_atributos_cache
+/analises/Precisao_global_kappa_cache
+/analises/correlacao_entre_atributos_files
+/analises/regressao_linear_cache
+
 /analisesR8/regras_classificacao_cache
 /analisesR8/regras_classificacao_files
 /analisesR8/matriz_confusao_cache

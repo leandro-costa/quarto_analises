@@ -1,37 +1,17 @@
 ---
-title: "Matriz de confusão"
+title: "Precisão global kappa"
 lang: pt
 execute:
   freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
   cache: true 
 ---
 
-Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.
+A precisão global e o índice kappa são métricas comuns usadas para avaliar a precisão de modelos de classificação em R. O índice kappa leva em consideração a concordância observada entre as previsões do modelo e as classes reais, ajustando-a para a concordância esperada ao acaso. Ele fornece uma medida da precisão do modelo que leva em consideração a chance de acerto aleatório.
 
-Carregando dataset
+## Carregando dataset
 
 ```{r}
 datasetfull<-readRDS("../rds/datasetfull_regras.rds")
-```
-
-Carregando libs
-
-```{r}
-#| warning: false
-if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}
-library(caret)
-if(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}
-library(rpart)
-```
-
-Amostra dos dados
-
-```{r}
-#| label: tbl-example-datasetfull
-#| tbl-cap: "Exemplos dos dados"
-
-library(knitr)
-kable(head(datasetfull))
 
 novo_dataset <- scale(datasetfull[, c("declividade_valor"
                                   ,"def_hid_valor"
@@ -46,9 +26,32 @@ novo_dataset <- scale(datasetfull[, c("declividade_valor"
                                   ,"uso_cd_aptidao"
                                   ,"aptidao"
                                   )])
+
 ```
 
-Selecionando dados para treino e teste
+## Carregando libs
+
+```{r}
+#| warning: false
+if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}
+library(caret)
+if(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}
+library(rpart)
+if(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}
+library(knitr)
+```
+
+## Amostra dos dados
+
+```{r}
+#| label: tbl-example-datasetfull
+#| tbl-cap: "Exemplos dos dados"
+
+library(knitr)
+kable(head(datasetfull))
+```
+
+## Selecionando dados para treino e teste
 ```{r}
 # Selecionando os dados classificados
 conjunto_de_dados <- subset(datasetfull, aptidao != 0)
@@ -78,17 +81,25 @@ previsoes <- predict(modelo_arvore, newdata = conjunto_teste, type = "class")
 
 ```
 
-Calculando matriz de confusão
+## Calculando matriz de confusão
 ```{r}
 #| label: tbl-matriz-confusao
 #| tbl-cap: "Matriz de confusão"
-matriz_confusao <- table(Real = conjunto_teste$aptidao, Previsto = previsoes)
-kable(matriz_confusao)
+conf_matrix <- confusionMatrix(previsoes, factor(conjunto_teste$aptidao))
+
+kable(conf_matrix$table)
 ```
 
-Taxa de acerto
+## Obtenha a precisão global
+
 ```{r}
-taxa_acerto <- sum(diag(matriz_confusao)) / sum(matriz_confusao)
-sprintf("%.2f%%", taxa_acerto*100) 
+accuracy <- conf_matrix$overall["Accuracy"]
+cat("Precisão Global:", accuracy, "\n")
 ```
 
+## Obtenha o índice kappa
+
+```{r}
+kappa <- conf_matrix$overall["Kappa"]
+cat("Índice Kappa:", kappa, "\n")
+```

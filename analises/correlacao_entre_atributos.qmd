@@ -1,0 +1,59 @@
+---
+title: "Gráfico de correlação entre os atributos"
+lang: pt
+execute:
+  echo: false
+  warning: false
+  freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
+  cache: true 
+---
+
+## Carregando dataset
+
+```{r}
+if(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}
+library(knitr)
+datasetfull<-readRDS("../rds/datasetfull_regras_rpart.rds")
+
+novo_dataset <- scale(datasetfull[, c("declividade_valor"
+                                  ,"def_hid_valor"
+                                  ,"dist_sede_municipal_valor"
+                                  ,"dist_vias_municipais_valor"
+                                  ,"drenagem_cd_aptidao"
+                                  ,"erodibilidade_cd_aptidao"
+                                  ,"pluviosidade_valor"
+                                  ,"temperatura_valor"
+                                  ,"textura_cd_aptidao"
+                                  ,"umidade_valor"
+                                  ,"uso_cd_aptidao"
+                                 # ,"aptidao"
+                                  )])
+
+kable(head(novo_dataset))
+```
+
+## Matriz de Correlação
+
+```{r}
+#| tbl-cap: "Correlação das variáveis"
+
+matriz_correlacao <- cor(novo_dataset)
+kable(matriz_correlacao)
+```
+
+## Mapa de calor
+
+```{r}
+#| fig-cap: Mapa de calor das 
+if(!require('ggplot2')) {install.packages('ggplot2', repos='http://cran-r.c3sl.ufpr.br/')}
+library(ggplot2)
+if(!require('reshape2')) {install.packages('reshape2', repos='http://cran-r.c3sl.ufpr.br/')}
+library(reshape2)
+
+
+ggplot(data = melt(matriz_correlacao), aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile() +
+  scale_fill_gradient(low = "blue", high = "red") +
+  theme_minimal() +
+  labs(title = "Matriz de Correlação")
+```

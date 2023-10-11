@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Aptidão Guaraná - Regras para classificação</title>
+<title>Aptidão Guaraná - Gráfico de correlação entre os atributos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analises/correlacao_entre_atributos.html">Analises</a></li><li class="breadcrumb-item"><a href="../analises/regras_classificacao.html">Regras para classificação</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analises/correlacao_entre_atributos.html">Analises</a></li><li class="breadcrumb-item"><a href="../analises/correlacao_entre_atributos.html">Gráfico de correlação entre os atributos</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -145,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analises/correlacao_entre_atributos.html" class="sidebar-item-text sidebar-link">
+  <a href="../analises/correlacao_entre_atributos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Gráfico de correlação entre os atributos</span></a>
   </div>
 </li>
@@ -163,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analises/regras_classificacao.html" class="sidebar-item-text sidebar-link active">
+  <a href="../analises/regras_classificacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regras para classificação</span></a>
   </div>
 </li>
@@ -225,31 +225,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#regra-boa-4-verde" id="toc-regra-boa-4-verde" class="nav-link active" data-scroll-target="#regra-boa-4-verde">Regra – BOA (4-Verde)</a>
-  <ul class="collapse">
-  <li><a href="#sec-Regra-8" id="toc-sec-Regra-8" class="nav-link" data-scroll-target="#sec-Regra-8">Regra 8</a></li>
-  <li><a href="#sec-Regra-9" id="toc-sec-Regra-9" class="nav-link" data-scroll-target="#sec-Regra-9">Regra 9</a></li>
-  <li><a href="#sec-Regra-10" id="toc-sec-Regra-10" class="nav-link" data-scroll-target="#sec-Regra-10">Regra 10</a></li>
-  <li><a href="#sec-Regra-11" id="toc-sec-Regra-11" class="nav-link" data-scroll-target="#sec-Regra-11">Regra 11</a></li>
-  </ul></li>
-  <li><a href="#regra-regular-3-azul" id="toc-regra-regular-3-azul" class="nav-link" data-scroll-target="#regra-regular-3-azul">Regra – REGULAR (3-Azul)</a>
-  <ul class="collapse">
-  <li><a href="#sec-Regra-3" id="toc-sec-Regra-3" class="nav-link" data-scroll-target="#sec-Regra-3">Regra 3</a></li>
-  <li><a href="#sec-Regra-4" id="toc-sec-Regra-4" class="nav-link" data-scroll-target="#sec-Regra-4">Regra 4</a></li>
-  <li><a href="#sec-Regra-5" id="toc-sec-Regra-5" class="nav-link" data-scroll-target="#sec-Regra-5">Regra 5</a></li>
-  <li><a href="#sec-Regra-6" id="toc-sec-Regra-6" class="nav-link" data-scroll-target="#sec-Regra-6">Regra 6</a></li>
-  <li><a href="#sec-Regra-7" id="toc-sec-Regra-7" class="nav-link" data-scroll-target="#sec-Regra-7">Regra 7</a></li>
-  </ul></li>
-  <li><a href="#regra-restrita-2-amarelo" id="toc-regra-restrita-2-amarelo" class="nav-link" data-scroll-target="#regra-restrita-2-amarelo">Regra – RESTRITA (2-Amarelo)</a>
-  <ul class="collapse">
-  <li><a href="#sec-Regra-2" id="toc-sec-Regra-2" class="nav-link" data-scroll-target="#sec-Regra-2">Regra 2</a></li>
-  <li><a href="#regra-3" id="toc-regra-3" class="nav-link" data-scroll-target="#regra-3">Regra 3</a></li>
-  </ul></li>
-  <li><a href="#regra-impróprio-1-vermelho" id="toc-regra-impróprio-1-vermelho" class="nav-link" data-scroll-target="#regra-impróprio-1-vermelho">Regra – IMPRÓPRIO (1-Vermelho)</a>
-  <ul class="collapse">
-  <li><a href="#sec-Regra-1" id="toc-sec-Regra-1" class="nav-link" data-scroll-target="#sec-Regra-1">Regra 1</a></li>
-  </ul></li>
-  <li><a href="#rpart" id="toc-rpart" class="nav-link" data-scroll-target="#rpart">Rpart</a></li>
+  <li><a href="#carregando-dataset" id="toc-carregando-dataset" class="nav-link active" data-scroll-target="#carregando-dataset">Carregando dataset</a></li>
+  <li><a href="#matriz-de-correlação" id="toc-matriz-de-correlação" class="nav-link" data-scroll-target="#matriz-de-correlação">Matriz de Correlação</a></li>
+  <li><a href="#mapa-de-calor" id="toc-mapa-de-calor" class="nav-link" data-scroll-target="#mapa-de-calor">Mapa de calor</a></li>
   </ul>
 </nav>
     </div>
@@ -258,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Regras para classificação</h1>
+<h1 class="title">Gráfico de correlação entre os atributos</h1>
 </div>
 
 
@@ -273,448 +251,327 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-1_642f7f1b7b1e65e73da46d027a249287">
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: ggplot2</code></pre>
-</div>
-</div>
-<section id="regra-boa-4-verde" class="level2">
-<h2 class="anchored" data-anchor-id="regra-boa-4-verde">Regra – BOA (4-Verde)</h2>
-<section id="sec-Regra-8" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-8">Regra 8</h3>
-<p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-2_f11f20cb1404531bc7a6632349f9d98b">
+<section id="carregando-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="carregando-dataset">Carregando dataset</h2>
+<div class="cell" data-hash="correlacao_entre_atributos_cache/html/unnamed-chunk-1_97a36701c56fa569b14c16d2dc56c380">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
+<th style="text-align: right;">declividade_valor</th>
+<th style="text-align: right;">def_hid_valor</th>
+<th style="text-align: right;">dist_sede_municipal_valor</th>
+<th style="text-align: right;">dist_vias_municipais_valor</th>
+<th style="text-align: right;">drenagem_cd_aptidao</th>
+<th style="text-align: right;">erodibilidade_cd_aptidao</th>
+<th style="text-align: right;">pluviosidade_valor</th>
+<th style="text-align: right;">temperatura_valor</th>
+<th style="text-align: right;">textura_cd_aptidao</th>
+<th style="text-align: right;">umidade_valor</th>
+<th style="text-align: right;">uso_cd_aptidao</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">2757610</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">51.70340</td>
+<td style="text-align: right;">34107.89</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1525.620</td>
+<td style="text-align: right;">24.58993</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">79.37140</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">1476058</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">51.68119</td>
+<td style="text-align: right;">34082.75</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1525.859</td>
+<td style="text-align: right;">24.59034</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">79.37177</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">51.65906</td>
+<td style="text-align: right;">34057.61</td>
+<td style="text-align: right;">210</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1526.099</td>
+<td style="text-align: right;">24.59076</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">79.37214</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">51.63700</td>
+<td style="text-align: right;">34032.48</td>
+<td style="text-align: right;">240</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1526.341</td>
+<td style="text-align: right;">24.59118</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">79.37251</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">51.60953</td>
+<td style="text-align: right;">34116.70</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1525.219</td>
+<td style="text-align: right;">24.58881</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">79.37157</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">51.58762</td>
+<td style="text-align: right;">34091.54</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1525.458</td>
+<td style="text-align: right;">24.58922</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">79.37194</td>
+<td style="text-align: right;">5</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
-<section id="sec-Regra-9" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-9">Regra 9</h3>
-<p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’, ‘media’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;3</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-3_ce73ec6b926efa919b00b607f6163fe4">
+<section id="matriz-de-correlação" class="level2">
+<h2 class="anchored" data-anchor-id="matriz-de-correlação">Matriz de Correlação</h2>
+<div class="cell" data-hash="correlacao_entre_atributos_cache/html/unnamed-chunk-2_7c3d3d54625a68cf33ed1ab0b58936f2">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
+<caption>Correlação das variáveis </caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 6%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
+<th style="text-align: left;"></th>
+<th style="text-align: right;">declividade_valor</th>
+<th style="text-align: right;">def_hid_valor</th>
+<th style="text-align: right;">dist_sede_municipal_valor</th>
+<th style="text-align: right;">dist_vias_municipais_valor</th>
+<th style="text-align: right;">drenagem_cd_aptidao</th>
+<th style="text-align: right;">erodibilidade_cd_aptidao</th>
+<th style="text-align: right;">pluviosidade_valor</th>
+<th style="text-align: right;">temperatura_valor</th>
+<th style="text-align: right;">textura_cd_aptidao</th>
+<th style="text-align: right;">umidade_valor</th>
+<th style="text-align: right;">uso_cd_aptidao</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">2701316</td>
+<td style="text-align: left;">declividade_valor</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.2641515</td>
+<td style="text-align: right;">0.2817667</td>
+<td style="text-align: right;">-0.1818003</td>
+<td style="text-align: right;">0.4923898</td>
+<td style="text-align: right;">0.4872433</td>
+<td style="text-align: right;">-0.3683645</td>
+<td style="text-align: right;">-0.4819479</td>
+<td style="text-align: right;">0.2660336</td>
+<td style="text-align: right;">-0.2014948</td>
+<td style="text-align: right;">0.0356608</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">1532352</td>
+<td style="text-align: left;">def_hid_valor</td>
+<td style="text-align: right;">-0.2641515</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.0943236</td>
+<td style="text-align: right;">0.1114915</td>
+<td style="text-align: right;">-0.3702340</td>
+<td style="text-align: right;">-0.3814862</td>
+<td style="text-align: right;">0.4193171</td>
+<td style="text-align: right;">0.5013748</td>
+<td style="text-align: right;">-0.2351611</td>
+<td style="text-align: right;">-0.2054764</td>
+<td style="text-align: right;">-0.0266022</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dist_sede_municipal_valor</td>
+<td style="text-align: right;">0.2817667</td>
+<td style="text-align: right;">-0.0943236</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.0762483</td>
+<td style="text-align: right;">0.3284476</td>
+<td style="text-align: right;">0.2564773</td>
+<td style="text-align: right;">-0.8095353</td>
+<td style="text-align: right;">-0.6913517</td>
+<td style="text-align: right;">0.1046582</td>
+<td style="text-align: right;">-0.3022294</td>
+<td style="text-align: right;">0.1615564</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dist_vias_municipais_valor</td>
+<td style="text-align: right;">-0.1818003</td>
+<td style="text-align: right;">0.1114915</td>
+<td style="text-align: right;">-0.0762483</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.4448107</td>
+<td style="text-align: right;">-0.3935829</td>
+<td style="text-align: right;">0.1089161</td>
+<td style="text-align: right;">0.2161638</td>
+<td style="text-align: right;">-0.2947839</td>
+<td style="text-align: right;">0.3351656</td>
+<td style="text-align: right;">-0.2155014</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">drenagem_cd_aptidao</td>
+<td style="text-align: right;">0.4923898</td>
+<td style="text-align: right;">-0.3702340</td>
+<td style="text-align: right;">0.3284476</td>
+<td style="text-align: right;">-0.4448107</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9047199</td>
+<td style="text-align: right;">-0.4385747</td>
+<td style="text-align: right;">-0.6401772</td>
+<td style="text-align: right;">0.6910129</td>
+<td style="text-align: right;">-0.3372822</td>
+<td style="text-align: right;">0.2141532</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">erodibilidade_cd_aptidao</td>
+<td style="text-align: right;">0.4872433</td>
+<td style="text-align: right;">-0.3814862</td>
+<td style="text-align: right;">0.2564773</td>
+<td style="text-align: right;">-0.3935829</td>
+<td style="text-align: right;">0.9047199</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.3540407</td>
+<td style="text-align: right;">-0.6167999</td>
+<td style="text-align: right;">0.4557206</td>
+<td style="text-align: right;">-0.3679429</td>
+<td style="text-align: right;">0.1725312</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pluviosidade_valor</td>
+<td style="text-align: right;">-0.3683645</td>
+<td style="text-align: right;">0.4193171</td>
+<td style="text-align: right;">-0.8095353</td>
+<td style="text-align: right;">0.1089161</td>
+<td style="text-align: right;">-0.4385747</td>
+<td style="text-align: right;">-0.3540407</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.8230684</td>
+<td style="text-align: right;">-0.2190392</td>
+<td style="text-align: right;">0.0275877</td>
+<td style="text-align: right;">-0.1351021</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">temperatura_valor</td>
+<td style="text-align: right;">-0.4819479</td>
+<td style="text-align: right;">0.5013748</td>
+<td style="text-align: right;">-0.6913517</td>
+<td style="text-align: right;">0.2161638</td>
+<td style="text-align: right;">-0.6401772</td>
+<td style="text-align: right;">-0.6167999</td>
+<td style="text-align: right;">0.8230684</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.2360922</td>
+<td style="text-align: right;">0.3213455</td>
+<td style="text-align: right;">-0.1610287</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">textura_cd_aptidao</td>
+<td style="text-align: right;">0.2660336</td>
+<td style="text-align: right;">-0.2351611</td>
+<td style="text-align: right;">0.1046582</td>
+<td style="text-align: right;">-0.2947839</td>
+<td style="text-align: right;">0.6910129</td>
+<td style="text-align: right;">0.4557206</td>
+<td style="text-align: right;">-0.2190392</td>
+<td style="text-align: right;">-0.2360922</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.1353107</td>
+<td style="text-align: right;">0.1599242</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">umidade_valor</td>
+<td style="text-align: right;">-0.2014948</td>
+<td style="text-align: right;">-0.2054764</td>
+<td style="text-align: right;">-0.3022294</td>
+<td style="text-align: right;">0.3351656</td>
+<td style="text-align: right;">-0.3372822</td>
+<td style="text-align: right;">-0.3679429</td>
+<td style="text-align: right;">0.0275877</td>
+<td style="text-align: right;">0.3213455</td>
+<td style="text-align: right;">-0.1353107</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.1956118</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">uso_cd_aptidao</td>
+<td style="text-align: right;">0.0356608</td>
+<td style="text-align: right;">-0.0266022</td>
+<td style="text-align: right;">0.1615564</td>
+<td style="text-align: right;">-0.2155014</td>
+<td style="text-align: right;">0.2141532</td>
+<td style="text-align: right;">0.1725312</td>
+<td style="text-align: right;">-0.1351021</td>
+<td style="text-align: right;">-0.1610287</td>
+<td style="text-align: right;">0.1599242</td>
+<td style="text-align: right;">-0.1956118</td>
+<td style="text-align: right;">1.0000000</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
-<section id="sec-Regra-10" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-10">Regra 10</h3>
-<p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;3</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-4_9544f6fe1066f9a521664592d2699c9b">
+<section id="mapa-de-calor" class="level2">
+<h2 class="anchored" data-anchor-id="mapa-de-calor">Mapa de calor</h2>
+<div class="cell" data-hash="correlacao_entre_atributos_cache/html/unnamed-chunk-3_a9695c0f9fa29265beed1f3d249729c2">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1973858</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">2259810</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="sec-Regra-11" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-11">Regra 11</h3>
-<p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;3</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-5_637573fcf94388377bc639872adadcd2">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1769939</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">2463729</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><a href="#fig-boa">Figura&nbsp;1</a> mostra o resultado da aplicação das regras <a href="#sec-Regra-8">Seção&nbsp;1.1</a>, <a href="#sec-Regra-9">Seção&nbsp;1.2</a>, <a href="#sec-Regra-10">Seção&nbsp;1.3</a> e <a href="#sec-Regra-11">Seção&nbsp;1.4</a></p>
-<div class="cell" data-hash="regras_classificacao_cache/html/fig-boa_579800a6a034ceb61cb0adde53efe681">
-<div class="cell-output-display">
-<div id="fig-boa" class="quarto-figure quarto-figure-center anchored">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="regras_classificacao_files/figure-html/fig-boa-1.png" class="img-fluid figure-img" width="768"></p>
-<figcaption class="figure-caption">Figura&nbsp;1: Plotagem da area classificada como BOA pelas regras.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="regra-regular-3-azul" class="level2">
-<h2 class="anchored" data-anchor-id="regra-regular-3-azul">Regra – REGULAR (3-Azul)</h2>
-<section id="sec-Regra-3" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-3">Regra 3</h3>
-<p>“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-7_16c5447160c0dcdcb356cb6d9c062dbd">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1750844</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">19095</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">2463729</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="sec-Regra-4" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-4">Regra 4</h3>
-<p>“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-8_933ede3f874462ea5df65b025632bd78">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1718217</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">51722</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">2463729</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="sec-Regra-5" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-5">Regra 5</h3>
-<p>“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-9_50b050abe5e40f4143a7a11f01fb2c00">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1660226</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">109713</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">2463729</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="sec-Regra-6" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-6">Regra 6</h3>
-<p>“drenagem” = ‘moderada_boa’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-10_028c7ef6b00db3f338edee86b1f7bb76">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1660219</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">109720</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">2463729</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="sec-Regra-7" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-7">Regra 7</h3>
-<p>“erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-11_989e5e7b6a4f757c76ea96c841e0ecfa">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1652341</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">117598</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">2463729</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><a href="#fig-regular">Figura&nbsp;2</a> mostra o resultado da aplicação das regras <a href="#sec-Regra-3">Seção&nbsp;2.1</a>, <a href="#sec-Regra-4">Seção&nbsp;2.2</a>, <a href="#sec-Regra-5">Seção&nbsp;2.3</a>, <a href="#sec-Regra-6">Seção&nbsp;2.4</a> e <a href="#sec-Regra-7">Seção&nbsp;2.5</a></p>
-<div class="cell" data-hash="regras_classificacao_cache/html/fig-regular_563f432d088392c1e97187c87133e09c">
-<div class="cell-output-display">
-<div id="fig-regular" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="regras_classificacao_files/figure-html/fig-regular-1.png" class="img-fluid figure-img" width="768"></p>
-<figcaption class="figure-caption">Figura&nbsp;2: Plotagem da area classificada como BOA e REGULAR pelas regras.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="regra-restrita-2-amarelo" class="level2">
-<h2 class="anchored" data-anchor-id="regra-restrita-2-amarelo">Regra – RESTRITA (2-Amarelo)</h2>
-<section id="sec-Regra-2" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-2">Regra 2</h3>
-<p>“erodibilid” = ‘alta’ AND “amostragem” &lt;&gt; 1</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-13_975ba2d548d1e1ae3cab2f836b6048ec">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1349822</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: right;">302519</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">117598</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">2463729</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="regra-3" class="level3">
-<h3 class="anchored" data-anchor-id="regra-3">Regra 3</h3>
-<p>(“declividad” &gt;45 AND “declividad” &lt;=75) AND “amostragem” &lt;&gt; 1</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-14_aa0b781119aab4f5188da67eb2f5d846">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">1322303</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: right;">330116</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">117520</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">2463729</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><a href="#fig-restrita">Figura&nbsp;3</a> mostra o resultado da aplicação da regra <a href="#sec-Regra-2">Seção&nbsp;3.1</a></p>
-<div class="cell" data-hash="regras_classificacao_cache/html/fig-restrita_5e9d1e748fbe6584481b6a67a979536f">
-<div class="cell-output-display">
-<div id="fig-restrita" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="regras_classificacao_files/figure-html/fig-restrita-1.png" class="img-fluid figure-img" width="768"></p>
-<figcaption class="figure-caption">Figura&nbsp;3: Plotagem da area classificada como BOA, REGULAR e RESTRITA pelas regras.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="regra-impróprio-1-vermelho" class="level2">
-<h2 class="anchored" data-anchor-id="regra-impróprio-1-vermelho">Regra – IMPRÓPRIO (1-Vermelho)</h2>
-<section id="sec-Regra-1" class="level3">
-<h3 class="anchored" data-anchor-id="sec-Regra-1">Regra 1</h3>
-<p>“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-16_07fd27970d235477eaeaf6065ff63ce1">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Evidências classificadas </caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">662373</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">888716</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2</td>
-<td style="text-align: right;">101330</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">117520</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">2463729</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><a href="#fig-improprio">Figura&nbsp;4</a> mostra o resultado da aplicação da regra <a href="#sec-Regra-1">Seção&nbsp;4.1</a></p>
-<div class="cell" data-hash="regras_classificacao_cache/html/fig-improprio_a5e72395517a4e8837347a91b70c4c48">
-<div class="cell-output-display">
-<div id="fig-improprio" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="regras_classificacao_files/figure-html/fig-improprio-1.png" class="img-fluid figure-img" width="768"></p>
-<figcaption class="figure-caption">Figura&nbsp;4: Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="rpart" class="level2">
-<h2 class="anchored" data-anchor-id="rpart">Rpart</h2>
-<p><a href="#fig-rpart">Figura&nbsp;5</a> mostra o resultado da aplicação do rpart</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/fig-rpart_e79b8a2f5cf6c8dfb10ea4c366dfd3b0">
-<div class="cell-output-display">
-<div id="fig-rpart" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="regras_classificacao_files/figure-html/fig-rpart-1.png" class="img-fluid figure-img" width="768"></p>
-<figcaption class="figure-caption">Figura&nbsp;5: Plotagem da area classificada com as regras aprendidas.</figcaption>
+<p><img src="correlacao_entre_atributos_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Mapa de calor das</figcaption>
 </figure>
 </div>
 </div>

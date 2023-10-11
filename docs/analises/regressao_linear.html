@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Aptidão Guaraná - Matriz de confusão</title>
+<title>Aptidão Guaraná - Regressão linear</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -122,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analises/correlacao_entre_atributos.html">Analises</a></li><li class="breadcrumb-item"><a href="../analises/matriz_confusao.html">Matriz de confusão</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analises/correlacao_entre_atributos.html">Analises</a></li><li class="breadcrumb-item"><a href="../analises/regressao_linear.html">Regressão linear</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -151,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analises/matriz_confusao.html" class="sidebar-item-text sidebar-link active">
+  <a href="../analises/matriz_confusao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matriz de confusão</span></a>
   </div>
 </li>
@@ -169,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analises/regressao_linear.html" class="sidebar-item-text sidebar-link">
+  <a href="../analises/regressao_linear.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Regressão linear</span></a>
   </div>
 </li>
@@ -221,14 +255,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#carregando-dataset" id="toc-carregando-dataset" class="nav-link active" data-scroll-target="#carregando-dataset">Carregando dataset</a></li>
+  <li><a href="#regressão-linear" id="toc-regressão-linear" class="nav-link" data-scroll-target="#regressão-linear">Regressão linear</a></li>
+  <li><a href="#calcule-o-r-quadrado" id="toc-calcule-o-r-quadrado" class="nav-link" data-scroll-target="#calcule-o-r-quadrado">Calcule o R-quadrado</a></li>
+  <li><a href="#erro-quadrático-médio-mse" id="toc-erro-quadrático-médio-mse" class="nav-link" data-scroll-target="#erro-quadrático-médio-mse">Erro Quadrático Médio (MSE):</a></li>
+  <li><a href="#formula" id="toc-formula" class="nav-link" data-scroll-target="#formula">Formula</a></li>
+  <li><a href="#calculando-matriz-de-confusão" id="toc-calculando-matriz-de-confusão" class="nav-link" data-scroll-target="#calculando-matriz-de-confusão">Calculando matriz de confusão</a></li>
+  <li><a href="#obtenha-a-precisão-global" id="toc-obtenha-a-precisão-global" class="nav-link" data-scroll-target="#obtenha-a-precisão-global">Obtenha a precisão global</a></li>
+  <li><a href="#obtenha-o-índice-kappa" id="toc-obtenha-o-índice-kappa" class="nav-link" data-scroll-target="#obtenha-o-índice-kappa">Obtenha o índice kappa</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Matriz de confusão</h1>
+<h1 class="title">Regressão linear</h1>
 </div>
 
 
@@ -243,15 +290,31 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.</p>
-<p>Carregando dataset</p>
-<p>Carregando libs</p>
-<p>Amostra dos dados</p>
-<div class="cell" data-hash="matriz_confusao_cache/html/tbl-example-datasetfull_5a5fd891cb22c8bfc0692680aae4b6c7">
+<section id="carregando-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="carregando-dataset">Carregando dataset</h2>
+<div class="cell" data-hash="regressao_linear_cache/html/unnamed-chunk-1_62664e5f47f30dc49a2c53ff341881c4">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">'caret'</span>)) {<span class="fu">install.packages</span>(<span class="st">'caret'</span>, <span class="at">repos=</span><span class="st">'http://cran-r.c3sl.ufpr.br/'</span>)}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">'knitr'</span>)) {<span class="fu">install.packages</span>(<span class="st">'knitr'</span>, <span class="at">repos=</span><span class="st">'http://cran-r.c3sl.ufpr.br/'</span>)}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>datasetfull<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">"../rds/datasetfull_regras_rpart.rds"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>novo_dataset <span class="ot">&lt;-</span> <span class="fu">scale</span>(datasetfull[, <span class="fu">c</span>(<span class="st">"declividade_valor"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"def_hid_valor"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"dist_sede_municipal_valor"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"dist_vias_municipais_valor"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"drenagem_cd_aptidao"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"erodibilidade_cd_aptidao"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"pluviosidade_valor"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"temperatura_valor"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"textura_cd_aptidao"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"umidade_valor"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"uso_cd_aptidao"</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"aptidao"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                                  )])</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(datasetfull))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="tbl-example-datasetfull" class="anchored">
 <table class="table table-sm table-striped small">
-<caption>Tabela&nbsp;1: Exemplos dos dados</caption>
 <colgroup>
 <col style="width: 0%">
 <col style="width: 1%">
@@ -643,14 +706,131 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
+</section>
+<section id="regressão-linear" class="level2">
+<h2 class="anchored" data-anchor-id="regressão-linear">Regressão linear</h2>
+<div class="cell" data-hash="regressao_linear_cache/html/unnamed-chunk-2_f78b2f1a9c1d8c561619c9d1f20ec447">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#modelo &lt;- lm(Target ~ Variavel1 + Variavel2 + Variavel3, data = datasetfull)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>modelo <span class="ot">&lt;-</span> <span class="fu">lm</span>(aptidao <span class="sc">~</span>  declividade_valor <span class="sc">+</span> def_hid_valor <span class="sc">+</span> dist_sede_municipal_valor <span class="sc">+</span> dist_vias_municipais_valor <span class="sc">+</span> drenagem_cd_aptidao <span class="sc">+</span> erodibilidade_cd_aptidao <span class="sc">+</span> pluviosidade_valor <span class="sc">+</span> temperatura_valor <span class="sc">+</span> textura_cd_aptidao <span class="sc">+</span> umidade_valor <span class="sc">+</span> uso_cd_aptidao, <span class="at">data =</span> datasetfull)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(modelo<span class="sc">$</span>coefficients)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Pesos associados a cada variável </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">0.1551059</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">declividade_valor</td>
+<td style="text-align: right;">-0.0036625</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">def_hid_valor</td>
+<td style="text-align: right;">-0.0006003</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dist_sede_municipal_valor</td>
+<td style="text-align: right;">-0.0000030</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dist_vias_municipais_valor</td>
+<td style="text-align: right;">0.0000068</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">drenagem_cd_aptidao</td>
+<td style="text-align: right;">0.5729601</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">erodibilidade_cd_aptidao</td>
+<td style="text-align: right;">0.2544586</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pluviosidade_valor</td>
+<td style="text-align: right;">0.0000138</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">temperatura_valor</td>
+<td style="text-align: right;">-0.0411713</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">textura_cd_aptidao</td>
+<td style="text-align: right;">-0.0023236</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">umidade_valor</td>
+<td style="text-align: right;">0.0111806</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">uso_cd_aptidao</td>
+<td style="text-align: right;">0.0106828</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>Selecionando dados para treino e teste</p>
-<p>Calculando matriz de confusão</p>
-<div class="cell" data-hash="matriz_confusao_cache/html/tbl-matriz-confusao_4353367faafd03d9a6772a398a30d592">
+</div>
+</section>
+<section id="calcule-o-r-quadrado" class="level2">
+<h2 class="anchored" data-anchor-id="calcule-o-r-quadrado">Calcule o R-quadrado</h2>
+<p>O R-quadrado mede a proporção da variabilidade na variável de resposta que é explicada pelo modelo. Um valor mais próximo de 1 indica um bom ajuste.</p>
+<div class="cell" data-tbl-cap="R-quadrado" data-hash="regressao_linear_cache/html/unnamed-chunk-3_fbf8bbf4ff6be57900be5909363bb1db">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>r_squared <span class="ot">&lt;-</span> <span class="fu">summary</span>(modelo)<span class="sc">$</span>r.squared</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"R-squared:"</span>, r_squared, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R-squared: 0.9341604 </code></pre>
+</div>
+</div>
+</section>
+<section id="erro-quadrático-médio-mse" class="level2">
+<h2 class="anchored" data-anchor-id="erro-quadrático-médio-mse">Erro Quadrático Médio (MSE):</h2>
+<p>O MSE mede a média dos erros quadrados entre os valores reais e previstos. Um MSE menor indica um modelo mais preciso.</p>
+<div class="cell" data-tbl-cap="MSE" data-hash="regressao_linear_cache/html/unnamed-chunk-4_3282fbce990b9051ffccda1a691d5a22">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcule o MSE</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>predicted_values <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Defina as faixas desejadas</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#faixas &lt;- c(0, 1.49, 2.49, 3.50, Inf)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a função cut() para categorizar os valores nas faixas</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#predicted_values &lt;- cut(predicted_values, breaks = faixas, labels = c(1, 2, 3, 4))</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>mse <span class="ot">&lt;-</span> <span class="fu">mean</span>((datasetfull<span class="sc">$</span>aptidao <span class="sc">-</span> <span class="fu">as.numeric</span>(predicted_values))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"MSE:"</span>, mse, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>MSE: 0.09651777 </code></pre>
+</div>
+</div>
+</section>
+<section id="formula" class="level2">
+<h2 class="anchored" data-anchor-id="formula">Formula</h2>
+<div class="cell" data-hash="regressao_linear_cache/html/unnamed-chunk-5_88d38acf07a889c404c2418cafe569e3">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">previsoes =</span> datasetfull<span class="sc">$</span>declividade_valor<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"declividade_valor"</span>]<span class="sc">+</span>datasetfull<span class="sc">$</span>def_hid_valor<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"def_hid_valor"</span>]<span class="sc">+</span>datasetfull<span class="sc">$</span>dist_sede_municipal_valor<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"dist_sede_municipal_valor"</span>]<span class="sc">+</span>datasetfull<span class="sc">$</span>dist_vias_municipais_valor<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"dist_vias_municipais_valor"</span>]<span class="sc">+</span>datasetfull<span class="sc">$</span>drenagem_cd_aptidao<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"drenagem_cd_aptidao"</span>]<span class="sc">+</span>datasetfull<span class="sc">$</span>erodibilidade_cd_aptidao<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"erodibilidade_cd_aptidao"</span>]<span class="sc">+</span>datasetfull<span class="sc">$</span>pluviosidade_valor<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"pluviosidade_valor"</span>]<span class="sc">+</span>datasetfull<span class="sc">$</span>temperatura_valor<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"temperatura_valor"</span>]<span class="sc">+</span>datasetfull<span class="sc">$</span>textura_cd_aptidao<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"textura_cd_aptidao"</span>]<span class="sc">+</span>datasetfull<span class="sc">$</span>umidade_valor<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"umidade_valor"</span>]<span class="sc">+</span>datasetfull<span class="sc">$</span>uso_cd_aptidao<span class="sc">*</span><span class="fu">coef</span>(modelo)[<span class="st">"uso_cd_aptidao"</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#clusters &lt;- kmeans(dados$previsoes, centers = 4)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#dados$previsoes &lt;- clusters$cluster</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Defina as faixas desejadas</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>faixas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1.2</span>, <span class="fl">2.3</span>, <span class="fl">3.3</span>, <span class="cn">Inf</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a função cut() para categorizar os valores nas faixas</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>dados<span class="sc">$</span>previsoes <span class="ot">&lt;-</span> <span class="fu">cut</span>(dados<span class="sc">$</span>previsoes, <span class="at">breaks =</span> faixas, <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="calculando-matriz-de-confusão" class="level2">
+<h2 class="anchored" data-anchor-id="calculando-matriz-de-confusão">Calculando matriz de confusão</h2>
+<div class="cell" data-hash="regressao_linear_cache/html/tbl-matriz-confusao_f424680fdd826efd0ffdbba8f56cbd5a">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(<span class="fu">factor</span>(dados<span class="sc">$</span>previsoes), <span class="fu">factor</span>(datasetfull<span class="sc">$</span>aptidao))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(conf_matrix<span class="sc">$</span>table)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-matriz-confusao" class="anchored">
 <table class="table table-sm table-striped small">
-<caption>Tabela&nbsp;2: Matriz de confusão</caption>
+<caption>Tabela&nbsp;1: Matriz de confusão</caption>
 <thead>
 <tr class="header">
 <th style="text-align: right;">1</th>
@@ -661,42 +841,57 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">265975</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: right;">29</td>
+<td style="text-align: right;">659325</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
+<td style="text-align: right;">228937</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">30231</td>
-<td style="text-align: right;">85</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">33123</td>
-<td style="text-align: right;">2380</td>
+<td style="text-align: right;">144</td>
+<td style="text-align: right;">77309</td>
+<td style="text-align: right;">520154</td>
+<td style="text-align: right;">2932</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">739471</td>
+<td style="text-align: right;">310</td>
+<td style="text-align: right;">24021</td>
+<td style="text-align: right;">7914</td>
+<td style="text-align: right;">2712622</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<p>Taxa de acerto</p>
-<div class="cell" data-hash="matriz_confusao_cache/html/unnamed-chunk-6_a876738760aae463289a8a862ecad337">
+</section>
+<section id="obtenha-a-precisão-global" class="level2">
+<h2 class="anchored" data-anchor-id="obtenha-a-precisão-global">Obtenha a precisão global</h2>
+<div class="cell" data-hash="regressao_linear_cache/html/unnamed-chunk-7_8df4b938d82f86f1462cb62b3d994b79">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> conf_matrix<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Precisão Global:"</span>, accuracy, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "99.76%"</code></pre>
+<pre><code>Precisão Global: 0.9193213 </code></pre>
+</div>
+</div>
+</section>
+<section id="obtenha-o-índice-kappa" class="level2">
+<h2 class="anchored" data-anchor-id="obtenha-o-índice-kappa">Obtenha o índice kappa</h2>
+<div class="cell" data-hash="regressao_linear_cache/html/unnamed-chunk-8_b232bb17690ac16e84435fd7e36cfe4f">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>kappa <span class="ot">&lt;-</span> conf_matrix<span class="sc">$</span>overall[<span class="st">"Kappa"</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Índice Kappa:"</span>, kappa, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Índice Kappa: 0.84848 </code></pre>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -49,11 +49,88 @@
     "text": "Rpart\nFigura 5 mostra o resultado da aplicação do rpart\n\n\n\n\n\nFigura 5: Plotagem da area classificada com as regras aprendidas."
   },
   {
-    "objectID": "analises/matriz_confusao.html",
-    "href": "analises/matriz_confusao.html",
-    "title": "Matriz de confusão",
+    "objectID": "analises/correlacao_entre_atributos.html",
+    "href": "analises/correlacao_entre_atributos.html",
+    "title": "Gráfico de correlação entre os atributos",
     "section": "",
-    "text": "Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.\nCarregando dataset\nCarregando libs\nAmostra dos dados\n\n\n\n\nTabela 1: Exemplos dos dados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ndeclividade_valor\ndeclividade_revelo\ndeclividade_aptidao\ndeclividade_cd_aptidao\ndef_hid_valor\ndef_hid_interval\ndef_hid_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_valor\ndist_sede_municipal_interval\ndist_sede_municipal_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_valor\ndist_vias_municipais_interval\ndist_vias_municipais_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem\ndrenagem_aptidao\ndrenagem_cd_aptidao\nerodibilidade\nerodibilidade_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\npluviosidade_interval\npluviosidade_aptidao\npluviosidade_cd_aptidao\ntemperatura_valor\ntemperatura_interval\ntemperatura_aptidao\ntemperatura_cd_aptidao\ntextura\ntextura_aptidao\ntextura_cd_aptidao\numidade_valor\numidade_interval\numidade_aptidao\numidade_cd_aptidao\nuso\nuso_aptidao\nuso_cd_aptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\naptidao\n\n\n\n\n1\n463484.4\n8540826\n0\nplano\nalta\n4\n51.70340\n0_100\nmuito_alta\n5\n34107.89\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.620\n1500_1700\nalta\n4\n24.58993\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37140\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n516\n4\n\n\n2\n463514.4\n8540826\n0\nplano\nalta\n4\n51.68119\n0_100\nmuito_alta\n5\n34082.75\n30000_40000\nbaixa\n2\n180\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.859\n1500_1700\nalta\n4\n24.59034\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37177\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n517\n4\n\n\n3\n463544.4\n8540826\n0\nplano\nalta\n4\n51.65906\n0_100\nmuito_alta\n5\n34057.61\n30000_40000\nbaixa\n2\n210\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.099\n1500_1700\nalta\n4\n24.59076\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37214\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n518\n4\n\n\n4\n463574.4\n8540826\n0\nplano\nalta\n4\n51.63700\n0_100\nmuito_alta\n5\n34032.48\n30000_40000\nbaixa\n2\n240\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.341\n1500_1700\nalta\n4\n24.59118\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37251\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n519\n4\n\n\n5\n463454.4\n8540796\n0\nplano\nalta\n4\n51.60953\n0_100\nmuito_alta\n5\n34116.70\n30000_40000\nbaixa\n2\n120\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.219\n1500_1700\nalta\n4\n24.58881\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37157\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n515\n4\n\n\n6\n463484.4\n8540796\n0\nplano\nalta\n4\n51.58762\n0_100\nmuito_alta\n5\n34091.54\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.458\n1500_1700\nalta\n4\n24.58922\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37194\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n516\n4\n\n\n\n\n\n\nSelecionando dados para treino e teste\nCalculando matriz de confusão\n\n\n\n\nTabela 2: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n265975\n95\n29\n0\n\n\n0\n30231\n85\n0\n\n\n0\n0\n33123\n2380\n\n\n0\n0\n0\n739471\n\n\n\n\n\n\nTaxa de acerto\n\n\n[1] \"99.76%\""
+    "text": "declividade_valor\ndef_hid_valor\ndist_sede_municipal_valor\ndist_vias_municipais_valor\ndrenagem_cd_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\ntemperatura_valor\ntextura_cd_aptidao\numidade_valor\nuso_cd_aptidao\n\n\n\n\n0\n51.70340\n34107.89\n150\n5\n4\n1525.620\n24.58993\n3\n79.37140\n5\n\n\n0\n51.68119\n34082.75\n180\n5\n4\n1525.859\n24.59034\n3\n79.37177\n5\n\n\n0\n51.65906\n34057.61\n210\n5\n4\n1526.099\n24.59076\n3\n79.37214\n5\n\n\n0\n51.63700\n34032.48\n240\n5\n4\n1526.341\n24.59118\n3\n79.37251\n5\n\n\n0\n51.60953\n34116.70\n120\n5\n4\n1525.219\n24.58881\n3\n79.37157\n5\n\n\n0\n51.58762\n34091.54\n150\n5\n4\n1525.458\n24.58922\n3\n79.37194\n5"
+  },
+  {
+    "objectID": "analises/correlacao_entre_atributos.html#carregando-dataset",
+    "href": "analises/correlacao_entre_atributos.html#carregando-dataset",
+    "title": "Gráfico de correlação entre os atributos",
+    "section": "",
+    "text": "declividade_valor\ndef_hid_valor\ndist_sede_municipal_valor\ndist_vias_municipais_valor\ndrenagem_cd_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\ntemperatura_valor\ntextura_cd_aptidao\numidade_valor\nuso_cd_aptidao\n\n\n\n\n0\n51.70340\n34107.89\n150\n5\n4\n1525.620\n24.58993\n3\n79.37140\n5\n\n\n0\n51.68119\n34082.75\n180\n5\n4\n1525.859\n24.59034\n3\n79.37177\n5\n\n\n0\n51.65906\n34057.61\n210\n5\n4\n1526.099\n24.59076\n3\n79.37214\n5\n\n\n0\n51.63700\n34032.48\n240\n5\n4\n1526.341\n24.59118\n3\n79.37251\n5\n\n\n0\n51.60953\n34116.70\n120\n5\n4\n1525.219\n24.58881\n3\n79.37157\n5\n\n\n0\n51.58762\n34091.54\n150\n5\n4\n1525.458\n24.58922\n3\n79.37194\n5"
+  },
+  {
+    "objectID": "analises/correlacao_entre_atributos.html#matriz-de-correlação",
+    "href": "analises/correlacao_entre_atributos.html#matriz-de-correlação",
+    "title": "Gráfico de correlação entre os atributos",
+    "section": "Matriz de Correlação",
+    "text": "Matriz de Correlação\n\n\n\nCorrelação das variáveis \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndeclividade_valor\ndef_hid_valor\ndist_sede_municipal_valor\ndist_vias_municipais_valor\ndrenagem_cd_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\ntemperatura_valor\ntextura_cd_aptidao\numidade_valor\nuso_cd_aptidao\n\n\n\n\ndeclividade_valor\n1.0000000\n-0.2641515\n0.2817667\n-0.1818003\n0.4923898\n0.4872433\n-0.3683645\n-0.4819479\n0.2660336\n-0.2014948\n0.0356608\n\n\ndef_hid_valor\n-0.2641515\n1.0000000\n-0.0943236\n0.1114915\n-0.3702340\n-0.3814862\n0.4193171\n0.5013748\n-0.2351611\n-0.2054764\n-0.0266022\n\n\ndist_sede_municipal_valor\n0.2817667\n-0.0943236\n1.0000000\n-0.0762483\n0.3284476\n0.2564773\n-0.8095353\n-0.6913517\n0.1046582\n-0.3022294\n0.1615564\n\n\ndist_vias_municipais_valor\n-0.1818003\n0.1114915\n-0.0762483\n1.0000000\n-0.4448107\n-0.3935829\n0.1089161\n0.2161638\n-0.2947839\n0.3351656\n-0.2155014\n\n\ndrenagem_cd_aptidao\n0.4923898\n-0.3702340\n0.3284476\n-0.4448107\n1.0000000\n0.9047199\n-0.4385747\n-0.6401772\n0.6910129\n-0.3372822\n0.2141532\n\n\nerodibilidade_cd_aptidao\n0.4872433\n-0.3814862\n0.2564773\n-0.3935829\n0.9047199\n1.0000000\n-0.3540407\n-0.6167999\n0.4557206\n-0.3679429\n0.1725312\n\n\npluviosidade_valor\n-0.3683645\n0.4193171\n-0.8095353\n0.1089161\n-0.4385747\n-0.3540407\n1.0000000\n0.8230684\n-0.2190392\n0.0275877\n-0.1351021\n\n\ntemperatura_valor\n-0.4819479\n0.5013748\n-0.6913517\n0.2161638\n-0.6401772\n-0.6167999\n0.8230684\n1.0000000\n-0.2360922\n0.3213455\n-0.1610287\n\n\ntextura_cd_aptidao\n0.2660336\n-0.2351611\n0.1046582\n-0.2947839\n0.6910129\n0.4557206\n-0.2190392\n-0.2360922\n1.0000000\n-0.1353107\n0.1599242\n\n\numidade_valor\n-0.2014948\n-0.2054764\n-0.3022294\n0.3351656\n-0.3372822\n-0.3679429\n0.0275877\n0.3213455\n-0.1353107\n1.0000000\n-0.1956118\n\n\nuso_cd_aptidao\n0.0356608\n-0.0266022\n0.1615564\n-0.2155014\n0.2141532\n0.1725312\n-0.1351021\n-0.1610287\n0.1599242\n-0.1956118\n1.0000000"
+  },
+  {
+    "objectID": "analises/correlacao_entre_atributos.html#mapa-de-calor",
+    "href": "analises/correlacao_entre_atributos.html#mapa-de-calor",
+    "title": "Gráfico de correlação entre os atributos",
+    "section": "Mapa de calor",
+    "text": "Mapa de calor\n\n\n\n\n\nMapa de calor das"
+  },
+  {
+    "objectID": "analises/Precisao_global_kappa.html",
+    "href": "analises/Precisao_global_kappa.html",
+    "title": "Precisão global kappa",
+    "section": "",
+    "text": "A precisão global e o índice kappa são métricas comuns usadas para avaliar a precisão de modelos de classificação em R. O índice kappa leva em consideração a concordância observada entre as previsões do modelo e as classes reais, ajustando-a para a concordância esperada ao acaso. Ele fornece uma medida da precisão do modelo que leva em consideração a chance de acerto aleatório."
+  },
+  {
+    "objectID": "analises/Precisao_global_kappa.html#carregando-dataset",
+    "href": "analises/Precisao_global_kappa.html#carregando-dataset",
+    "title": "Precisão global kappa",
+    "section": "Carregando dataset",
+    "text": "Carregando dataset"
+  },
+  {
+    "objectID": "analises/Precisao_global_kappa.html#carregando-libs",
+    "href": "analises/Precisao_global_kappa.html#carregando-libs",
+    "title": "Precisão global kappa",
+    "section": "Carregando libs",
+    "text": "Carregando libs"
+  },
+  {
+    "objectID": "analises/Precisao_global_kappa.html#amostra-dos-dados",
+    "href": "analises/Precisao_global_kappa.html#amostra-dos-dados",
+    "title": "Precisão global kappa",
+    "section": "Amostra dos dados",
+    "text": "Amostra dos dados\n\n\n\n\nTabela 1: Exemplos dos dados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ndeclividade_valor\ndeclividade_revelo\ndeclividade_aptidao\ndeclividade_cd_aptidao\ndef_hid_valor\ndef_hid_interval\ndef_hid_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_valor\ndist_sede_municipal_interval\ndist_sede_municipal_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_valor\ndist_vias_municipais_interval\ndist_vias_municipais_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem\ndrenagem_aptidao\ndrenagem_cd_aptidao\nerodibilidade\nerodibilidade_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\npluviosidade_interval\npluviosidade_aptidao\npluviosidade_cd_aptidao\ntemperatura_valor\ntemperatura_interval\ntemperatura_aptidao\ntemperatura_cd_aptidao\ntextura\ntextura_aptidao\ntextura_cd_aptidao\numidade_valor\numidade_interval\numidade_aptidao\numidade_cd_aptidao\nuso\nuso_aptidao\nuso_cd_aptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\naptidao\n\n\n\n\n1\n463484.4\n8540826\n0\nplano\nalta\n4\n51.70340\n0_100\nmuito_alta\n5\n34107.89\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.620\n1500_1700\nalta\n4\n24.58993\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37140\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n516\n4\n\n\n2\n463514.4\n8540826\n0\nplano\nalta\n4\n51.68119\n0_100\nmuito_alta\n5\n34082.75\n30000_40000\nbaixa\n2\n180\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.859\n1500_1700\nalta\n4\n24.59034\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37177\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n517\n4\n\n\n3\n463544.4\n8540826\n0\nplano\nalta\n4\n51.65906\n0_100\nmuito_alta\n5\n34057.61\n30000_40000\nbaixa\n2\n210\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.099\n1500_1700\nalta\n4\n24.59076\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37214\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n518\n4\n\n\n4\n463574.4\n8540826\n0\nplano\nalta\n4\n51.63700\n0_100\nmuito_alta\n5\n34032.48\n30000_40000\nbaixa\n2\n240\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.341\n1500_1700\nalta\n4\n24.59118\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37251\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n519\n4\n\n\n5\n463454.4\n8540796\n0\nplano\nalta\n4\n51.60953\n0_100\nmuito_alta\n5\n34116.70\n30000_40000\nbaixa\n2\n120\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.219\n1500_1700\nalta\n4\n24.58881\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37157\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n515\n4\n\n\n6\n463484.4\n8540796\n0\nplano\nalta\n4\n51.58762\n0_100\nmuito_alta\n5\n34091.54\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.458\n1500_1700\nalta\n4\n24.58922\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37194\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n516\n4"
+  },
+  {
+    "objectID": "analises/Precisao_global_kappa.html#selecionando-dados-para-treino-e-teste",
+    "href": "analises/Precisao_global_kappa.html#selecionando-dados-para-treino-e-teste",
+    "title": "Precisão global kappa",
+    "section": "Selecionando dados para treino e teste",
+    "text": "Selecionando dados para treino e teste"
+  },
+  {
+    "objectID": "analises/Precisao_global_kappa.html#calculando-matriz-de-confusão",
+    "href": "analises/Precisao_global_kappa.html#calculando-matriz-de-confusão",
+    "title": "Precisão global kappa",
+    "section": "Calculando matriz de confusão",
+    "text": "Calculando matriz de confusão\n\n\n\n\nTabela 2: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n265718\n0\n0\n0\n\n\n99\n30304\n0\n0\n\n\n35\n83\n32807\n0\n\n\n1\n0\n2366\n739976"
+  },
+  {
+    "objectID": "analises/Precisao_global_kappa.html#obtenha-a-precisão-global",
+    "href": "analises/Precisao_global_kappa.html#obtenha-a-precisão-global",
+    "title": "Precisão global kappa",
+    "section": "Obtenha a precisão global",
+    "text": "Obtenha a precisão global\n\n\nPrecisão Global: 0.9975882"
+  },
+  {
+    "objectID": "analises/Precisao_global_kappa.html#obtenha-o-índice-kappa",
+    "href": "analises/Precisao_global_kappa.html#obtenha-o-índice-kappa",
+    "title": "Precisão global kappa",
+    "section": "Obtenha o índice kappa",
+    "text": "Obtenha o índice kappa\n\n\nÍndice Kappa: 0.9947351"
   },
   {
     "objectID": "analises/regras_classificacao.html",
@@ -96,6 +173,76 @@
     "title": "Regras para classificação",
     "section": "Rpart",
     "text": "Rpart\nFigura 5 mostra o resultado da aplicação do rpart\n\n\n\n\n\nFigura 5: Plotagem da area classificada com as regras aprendidas."
+  },
+  {
+    "objectID": "analises/matriz_confusao.html",
+    "href": "analises/matriz_confusao.html",
+    "title": "Matriz de confusão",
+    "section": "",
+    "text": "Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.\nCarregando dataset\nCarregando libs\nAmostra dos dados\n\n\n\n\nTabela 1: Exemplos dos dados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ndeclividade_valor\ndeclividade_revelo\ndeclividade_aptidao\ndeclividade_cd_aptidao\ndef_hid_valor\ndef_hid_interval\ndef_hid_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_valor\ndist_sede_municipal_interval\ndist_sede_municipal_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_valor\ndist_vias_municipais_interval\ndist_vias_municipais_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem\ndrenagem_aptidao\ndrenagem_cd_aptidao\nerodibilidade\nerodibilidade_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\npluviosidade_interval\npluviosidade_aptidao\npluviosidade_cd_aptidao\ntemperatura_valor\ntemperatura_interval\ntemperatura_aptidao\ntemperatura_cd_aptidao\ntextura\ntextura_aptidao\ntextura_cd_aptidao\numidade_valor\numidade_interval\numidade_aptidao\numidade_cd_aptidao\nuso\nuso_aptidao\nuso_cd_aptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\naptidao\n\n\n\n\n1\n463484.4\n8540826\n0\nplano\nalta\n4\n51.70340\n0_100\nmuito_alta\n5\n34107.89\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.620\n1500_1700\nalta\n4\n24.58993\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37140\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n516\n4\n\n\n2\n463514.4\n8540826\n0\nplano\nalta\n4\n51.68119\n0_100\nmuito_alta\n5\n34082.75\n30000_40000\nbaixa\n2\n180\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.859\n1500_1700\nalta\n4\n24.59034\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37177\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n517\n4\n\n\n3\n463544.4\n8540826\n0\nplano\nalta\n4\n51.65906\n0_100\nmuito_alta\n5\n34057.61\n30000_40000\nbaixa\n2\n210\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.099\n1500_1700\nalta\n4\n24.59076\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37214\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n518\n4\n\n\n4\n463574.4\n8540826\n0\nplano\nalta\n4\n51.63700\n0_100\nmuito_alta\n5\n34032.48\n30000_40000\nbaixa\n2\n240\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.341\n1500_1700\nalta\n4\n24.59118\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37251\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n519\n4\n\n\n5\n463454.4\n8540796\n0\nplano\nalta\n4\n51.60953\n0_100\nmuito_alta\n5\n34116.70\n30000_40000\nbaixa\n2\n120\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.219\n1500_1700\nalta\n4\n24.58881\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37157\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n515\n4\n\n\n6\n463484.4\n8540796\n0\nplano\nalta\n4\n51.58762\n0_100\nmuito_alta\n5\n34091.54\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.458\n1500_1700\nalta\n4\n24.58922\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37194\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n516\n4\n\n\n\n\n\n\nSelecionando dados para treino e teste\nCalculando matriz de confusão\n\n\n\n\nTabela 2: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n265975\n95\n29\n0\n\n\n0\n30231\n85\n0\n\n\n0\n0\n33123\n2380\n\n\n0\n0\n0\n739471\n\n\n\n\n\n\nTaxa de acerto\n\n\n[1] \"99.76%\""
+  },
+  {
+    "objectID": "analises/regressao_linear.html",
+    "href": "analises/regressao_linear.html",
+    "title": "Regressão linear",
+    "section": "",
+    "text": "if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(caret)\n\nif(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(knitr)\ndatasetfull&lt;-readRDS(\"../rds/datasetfull_regras_rpart.rds\")\nnovo_dataset &lt;- scale(datasetfull[, c(\"declividade_valor\"\n                                  ,\"def_hid_valor\"\n                                  ,\"dist_sede_municipal_valor\"\n                                  ,\"dist_vias_municipais_valor\"\n                                  ,\"drenagem_cd_aptidao\"\n                                  ,\"erodibilidade_cd_aptidao\"\n                                  ,\"pluviosidade_valor\"\n                                  ,\"temperatura_valor\"\n                                  ,\"textura_cd_aptidao\"\n                                  ,\"umidade_valor\"\n                                  ,\"uso_cd_aptidao\"\n                                  ,\"aptidao\"\n                                  )])\nkable(head(datasetfull))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ndeclividade_valor\ndeclividade_revelo\ndeclividade_aptidao\ndeclividade_cd_aptidao\ndef_hid_valor\ndef_hid_interval\ndef_hid_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_valor\ndist_sede_municipal_interval\ndist_sede_municipal_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_valor\ndist_vias_municipais_interval\ndist_vias_municipais_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem\ndrenagem_aptidao\ndrenagem_cd_aptidao\nerodibilidade\nerodibilidade_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\npluviosidade_interval\npluviosidade_aptidao\npluviosidade_cd_aptidao\ntemperatura_valor\ntemperatura_interval\ntemperatura_aptidao\ntemperatura_cd_aptidao\ntextura\ntextura_aptidao\ntextura_cd_aptidao\numidade_valor\numidade_interval\numidade_aptidao\numidade_cd_aptidao\nuso\nuso_aptidao\nuso_cd_aptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\naptidao\n\n\n\n\n1\n463484.4\n8540826\n0\nplano\nalta\n4\n51.70340\n0_100\nmuito_alta\n5\n34107.89\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.620\n1500_1700\nalta\n4\n24.58993\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37140\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n516\n4\n\n\n2\n463514.4\n8540826\n0\nplano\nalta\n4\n51.68119\n0_100\nmuito_alta\n5\n34082.75\n30000_40000\nbaixa\n2\n180\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.859\n1500_1700\nalta\n4\n24.59034\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37177\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n517\n4\n\n\n3\n463544.4\n8540826\n0\nplano\nalta\n4\n51.65906\n0_100\nmuito_alta\n5\n34057.61\n30000_40000\nbaixa\n2\n210\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.099\n1500_1700\nalta\n4\n24.59076\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37214\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n518\n4\n\n\n4\n463574.4\n8540826\n0\nplano\nalta\n4\n51.63700\n0_100\nmuito_alta\n5\n34032.48\n30000_40000\nbaixa\n2\n240\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.341\n1500_1700\nalta\n4\n24.59118\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37251\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n519\n4\n\n\n5\n463454.4\n8540796\n0\nplano\nalta\n4\n51.60953\n0_100\nmuito_alta\n5\n34116.70\n30000_40000\nbaixa\n2\n120\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.219\n1500_1700\nalta\n4\n24.58881\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37157\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n515\n4\n\n\n6\n463484.4\n8540796\n0\nplano\nalta\n4\n51.58762\n0_100\nmuito_alta\n5\n34091.54\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.458\n1500_1700\nalta\n4\n24.58922\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37194\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n516\n4"
+  },
+  {
+    "objectID": "analises/regressao_linear.html#carregando-dataset",
+    "href": "analises/regressao_linear.html#carregando-dataset",
+    "title": "Regressão linear",
+    "section": "",
+    "text": "if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(caret)\n\nif(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(knitr)\ndatasetfull&lt;-readRDS(\"../rds/datasetfull_regras_rpart.rds\")\nnovo_dataset &lt;- scale(datasetfull[, c(\"declividade_valor\"\n                                  ,\"def_hid_valor\"\n                                  ,\"dist_sede_municipal_valor\"\n                                  ,\"dist_vias_municipais_valor\"\n                                  ,\"drenagem_cd_aptidao\"\n                                  ,\"erodibilidade_cd_aptidao\"\n                                  ,\"pluviosidade_valor\"\n                                  ,\"temperatura_valor\"\n                                  ,\"textura_cd_aptidao\"\n                                  ,\"umidade_valor\"\n                                  ,\"uso_cd_aptidao\"\n                                  ,\"aptidao\"\n                                  )])\nkable(head(datasetfull))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ndeclividade_valor\ndeclividade_revelo\ndeclividade_aptidao\ndeclividade_cd_aptidao\ndef_hid_valor\ndef_hid_interval\ndef_hid_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_valor\ndist_sede_municipal_interval\ndist_sede_municipal_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_valor\ndist_vias_municipais_interval\ndist_vias_municipais_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem\ndrenagem_aptidao\ndrenagem_cd_aptidao\nerodibilidade\nerodibilidade_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\npluviosidade_interval\npluviosidade_aptidao\npluviosidade_cd_aptidao\ntemperatura_valor\ntemperatura_interval\ntemperatura_aptidao\ntemperatura_cd_aptidao\ntextura\ntextura_aptidao\ntextura_cd_aptidao\numidade_valor\numidade_interval\numidade_aptidao\numidade_cd_aptidao\nuso\nuso_aptidao\nuso_cd_aptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\naptidao\n\n\n\n\n1\n463484.4\n8540826\n0\nplano\nalta\n4\n51.70340\n0_100\nmuito_alta\n5\n34107.89\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.620\n1500_1700\nalta\n4\n24.58993\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37140\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n516\n4\n\n\n2\n463514.4\n8540826\n0\nplano\nalta\n4\n51.68119\n0_100\nmuito_alta\n5\n34082.75\n30000_40000\nbaixa\n2\n180\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.859\n1500_1700\nalta\n4\n24.59034\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37177\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n517\n4\n\n\n3\n463544.4\n8540826\n0\nplano\nalta\n4\n51.65906\n0_100\nmuito_alta\n5\n34057.61\n30000_40000\nbaixa\n2\n210\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.099\n1500_1700\nalta\n4\n24.59076\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37214\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n518\n4\n\n\n4\n463574.4\n8540826\n0\nplano\nalta\n4\n51.63700\n0_100\nmuito_alta\n5\n34032.48\n30000_40000\nbaixa\n2\n240\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.341\n1500_1700\nalta\n4\n24.59118\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37251\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n519\n4\n\n\n5\n463454.4\n8540796\n0\nplano\nalta\n4\n51.60953\n0_100\nmuito_alta\n5\n34116.70\n30000_40000\nbaixa\n2\n120\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.219\n1500_1700\nalta\n4\n24.58881\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37157\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n515\n4\n\n\n6\n463484.4\n8540796\n0\nplano\nalta\n4\n51.58762\n0_100\nmuito_alta\n5\n34091.54\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.458\n1500_1700\nalta\n4\n24.58922\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37194\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n516\n4"
+  },
+  {
+    "objectID": "analises/regressao_linear.html#regressão-linear",
+    "href": "analises/regressao_linear.html#regressão-linear",
+    "title": "Regressão linear",
+    "section": "Regressão linear",
+    "text": "Regressão linear\n\n#modelo &lt;- lm(Target ~ Variavel1 + Variavel2 + Variavel3, data = datasetfull)\n\nmodelo &lt;- lm(aptidao ~  declividade_valor + def_hid_valor + dist_sede_municipal_valor + dist_vias_municipais_valor + drenagem_cd_aptidao + erodibilidade_cd_aptidao + pluviosidade_valor + temperatura_valor + textura_cd_aptidao + umidade_valor + uso_cd_aptidao, data = datasetfull)\n\nkable(modelo$coefficients)\n\n\nPesos associados a cada variável \n\n\n\nx\n\n\n\n\n(Intercept)\n0.1551059\n\n\ndeclividade_valor\n-0.0036625\n\n\ndef_hid_valor\n-0.0006003\n\n\ndist_sede_municipal_valor\n-0.0000030\n\n\ndist_vias_municipais_valor\n0.0000068\n\n\ndrenagem_cd_aptidao\n0.5729601\n\n\nerodibilidade_cd_aptidao\n0.2544586\n\n\npluviosidade_valor\n0.0000138\n\n\ntemperatura_valor\n-0.0411713\n\n\ntextura_cd_aptidao\n-0.0023236\n\n\numidade_valor\n0.0111806\n\n\nuso_cd_aptidao\n0.0106828"
+  },
+  {
+    "objectID": "analises/regressao_linear.html#calcule-o-r-quadrado",
+    "href": "analises/regressao_linear.html#calcule-o-r-quadrado",
+    "title": "Regressão linear",
+    "section": "Calcule o R-quadrado",
+    "text": "Calcule o R-quadrado\nO R-quadrado mede a proporção da variabilidade na variável de resposta que é explicada pelo modelo. Um valor mais próximo de 1 indica um bom ajuste.\n\nr_squared &lt;- summary(modelo)$r.squared\ncat(\"R-squared:\", r_squared, \"\\n\")\n\nR-squared: 0.9341604"
+  },
+  {
+    "objectID": "analises/regressao_linear.html#erro-quadrático-médio-mse",
+    "href": "analises/regressao_linear.html#erro-quadrático-médio-mse",
+    "title": "Regressão linear",
+    "section": "Erro Quadrático Médio (MSE):",
+    "text": "Erro Quadrático Médio (MSE):\nO MSE mede a média dos erros quadrados entre os valores reais e previstos. Um MSE menor indica um modelo mais preciso.\n\n# Calcule o MSE\npredicted_values &lt;- predict(modelo)\n# Defina as faixas desejadas\n#faixas &lt;- c(0, 1.49, 2.49, 3.50, Inf)\n# Use a função cut() para categorizar os valores nas faixas\n#predicted_values &lt;- cut(predicted_values, breaks = faixas, labels = c(1, 2, 3, 4))\nmse &lt;- mean((datasetfull$aptidao - as.numeric(predicted_values))^2)\ncat(\"MSE:\", mse, \"\\n\")\n\nMSE: 0.09651777"
+  },
+  {
+    "objectID": "analises/regressao_linear.html#formula",
+    "href": "analises/regressao_linear.html#formula",
+    "title": "Regressão linear",
+    "section": "Formula",
+    "text": "Formula\n\ndados &lt;- data.frame(\n    previsoes = datasetfull$declividade_valor*coef(modelo)[\"declividade_valor\"]+datasetfull$def_hid_valor*coef(modelo)[\"def_hid_valor\"]+datasetfull$dist_sede_municipal_valor*coef(modelo)[\"dist_sede_municipal_valor\"]+datasetfull$dist_vias_municipais_valor*coef(modelo)[\"dist_vias_municipais_valor\"]+datasetfull$drenagem_cd_aptidao*coef(modelo)[\"drenagem_cd_aptidao\"]+datasetfull$erodibilidade_cd_aptidao*coef(modelo)[\"erodibilidade_cd_aptidao\"]+datasetfull$pluviosidade_valor*coef(modelo)[\"pluviosidade_valor\"]+datasetfull$temperatura_valor*coef(modelo)[\"temperatura_valor\"]+datasetfull$textura_cd_aptidao*coef(modelo)[\"textura_cd_aptidao\"]+datasetfull$umidade_valor*coef(modelo)[\"umidade_valor\"]+datasetfull$uso_cd_aptidao*coef(modelo)[\"uso_cd_aptidao\"]\n)\n\n#clusters &lt;- kmeans(dados$previsoes, centers = 4)\n#dados$previsoes &lt;- clusters$cluster\n\n# Defina as faixas desejadas\nfaixas &lt;- c(0, 1.2, 2.3, 3.3, Inf)\n# Use a função cut() para categorizar os valores nas faixas\ndados$previsoes &lt;- cut(dados$previsoes, breaks = faixas, labels = c(1, 2, 3, 4))"
+  },
+  {
+    "objectID": "analises/regressao_linear.html#calculando-matriz-de-confusão",
+    "href": "analises/regressao_linear.html#calculando-matriz-de-confusão",
+    "title": "Regressão linear",
+    "section": "Calculando matriz de confusão",
+    "text": "Calculando matriz de confusão\n\nconf_matrix &lt;- confusionMatrix(factor(dados$previsoes), factor(datasetfull$aptidao))\nkable(conf_matrix$table)\n\n\n\nTabela 1: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n659325\n0\n0\n0\n\n\n228937\n0\n0\n0\n\n\n144\n77309\n520154\n2932\n\n\n310\n24021\n7914\n2712622"
+  },
+  {
+    "objectID": "analises/regressao_linear.html#obtenha-a-precisão-global",
+    "href": "analises/regressao_linear.html#obtenha-a-precisão-global",
+    "title": "Regressão linear",
+    "section": "Obtenha a precisão global",
+    "text": "Obtenha a precisão global\n\naccuracy &lt;- conf_matrix$overall[\"Accuracy\"]\ncat(\"Precisão Global:\", accuracy, \"\\n\")\n\nPrecisão Global: 0.9193213"
+  },
+  {
+    "objectID": "analises/regressao_linear.html#obtenha-o-índice-kappa",
+    "href": "analises/regressao_linear.html#obtenha-o-índice-kappa",
+    "title": "Regressão linear",
+    "section": "Obtenha o índice kappa",
+    "text": "Obtenha o índice kappa\n\nkappa &lt;- conf_matrix$overall[\"Kappa\"]\ncat(\"Índice Kappa:\", kappa, \"\\n\")\n\nÍndice Kappa: 0.84848"
   },
   {
     "objectID": "analisesR8/matriz_confusao.html",
