@@ -2,7 +2,7 @@
 title: "Precisão global kappa"
 lang: pt
 execute:
-  freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
+  freeze: auto  # never re-render during project render #  freeze: auto  # re-render only when source changes
   cache: true 
 ---
 

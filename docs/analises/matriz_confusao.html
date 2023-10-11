@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -245,9 +279,20 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.</p>
 <p>Carregando dataset</p>
+<div class="cell" data-hash="matriz_confusao_cache/html/unnamed-chunk-1_db22e45cb3b69a7332028afd87f4d6de">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>datasetfull<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">"../rds/datasetfull_regras.rds"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Carregando libs</p>
+<div class="cell" data-hash="matriz_confusao_cache/html/unnamed-chunk-2_2aa9dc1aa5e09ed9d2f199ca750c448b">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">'caret'</span>)) {<span class="fu">install.packages</span>(<span class="st">'caret'</span>, <span class="at">repos=</span><span class="st">'http://cran-r.c3sl.ufpr.br/'</span>)}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">'rpart'</span>)) {<span class="fu">install.packages</span>(<span class="st">'rpart'</span>, <span class="at">repos=</span><span class="st">'http://cran-r.c3sl.ufpr.br/'</span>)}</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Amostra dos dados</p>
-<div class="cell" data-hash="matriz_confusao_cache/html/tbl-example-datasetfull_5a5fd891cb22c8bfc0692680aae4b6c7">
+<div class="cell" data-hash="matriz_confusao_cache/html/tbl-example-datasetfull_d22d6177d996c9c32b64083741cd1e07">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(datasetfull))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-example-datasetfull" class="anchored">
 <table class="table table-sm table-striped small">
@@ -643,10 +688,52 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>novo_dataset <span class="ot">&lt;-</span> <span class="fu">scale</span>(datasetfull[, <span class="fu">c</span>(<span class="st">"declividade_valor"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"def_hid_valor"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"dist_sede_municipal_valor"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"dist_vias_municipais_valor"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"drenagem_cd_aptidao"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"erodibilidade_cd_aptidao"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"pluviosidade_valor"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"temperatura_valor"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"textura_cd_aptidao"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"umidade_valor"</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"uso_cd_aptidao"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"aptidao"</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                                  )])</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Selecionando dados para treino e teste</p>
+<div class="cell" data-hash="matriz_confusao_cache/html/unnamed-chunk-4_7967bd136ef33cbb67528d5b17c9e049">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando os dados classificados</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>conjunto_de_dados <span class="ot">&lt;-</span> <span class="fu">subset</span>(datasetfull, aptidao <span class="sc">!=</span> <span class="dv">0</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Defina a proporção desejada para treinamento (70%) e teste (30%)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>proporcao_treinamento <span class="ot">&lt;-</span> <span class="fl">0.7</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcule o número de observações para treinamento</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>tamanho_treinamento <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">nrow</span>(conjunto_de_dados) <span class="sc">*</span> proporcao_treinamento)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Crie um vetor de índices aleatórios para as observações</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>indices_aleatorios <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(conjunto_de_dados))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecione as observações de treinamento com base nos índices aleatórios</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>conjunto_treinamento <span class="ot">&lt;-</span> conjunto_de_dados[indices_aleatorios[<span class="dv">1</span><span class="sc">:</span>tamanho_treinamento], ]</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecione as observações de teste com base nos índices aleatórios restantes</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>conjunto_teste <span class="ot">&lt;-</span> conjunto_de_dados[indices_aleatorios[(tamanho_treinamento <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span><span class="fu">nrow</span>(conjunto_de_dados)], ]</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"../rds/modelo_arvore.rds"</span>)){</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    modelo_arvore <span class="ot">&lt;-</span> <span class="fu">rpart</span>(aptidao <span class="sc">~</span> ., <span class="at">data =</span> conjunto_treinamento, <span class="at">method =</span> <span class="st">"class"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saveRDS</span>(modelo_arvore, <span class="st">"../rds/modelo_arvore.rds"</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    modelo_arvore <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../rds/modelo_arvore.rds"</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>previsoes <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo_arvore, <span class="at">newdata =</span> conjunto_teste, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Calculando matriz de confusão</p>
-<div class="cell" data-hash="matriz_confusao_cache/html/tbl-matriz-confusao_4353367faafd03d9a6772a398a30d592">
+<div class="cell" data-hash="matriz_confusao_cache/html/tbl-matriz-confusao_094276337a89a02af2a36b9363df7de9">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>matriz_confusao <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">Real =</span> conjunto_teste<span class="sc">$</span>aptidao, <span class="at">Previsto =</span> previsoes)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(matriz_confusao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-matriz-confusao" class="anchored">
 <table class="table table-sm table-striped small">
@@ -661,28 +748,28 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">265975</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">266750</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">30231</td>
-<td style="text-align: right;">85</td>
+<td style="text-align: right;">30126</td>
+<td style="text-align: right;">88</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">33123</td>
-<td style="text-align: right;">2380</td>
+<td style="text-align: right;">32959</td>
+<td style="text-align: right;">2370</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">739471</td>
+<td style="text-align: right;">738957</td>
 </tr>
 </tbody>
 </table>
@@ -690,7 +777,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Taxa de acerto</p>
-<div class="cell" data-hash="matriz_confusao_cache/html/unnamed-chunk-6_a876738760aae463289a8a862ecad337">
+<div class="cell" data-hash="matriz_confusao_cache/html/unnamed-chunk-6_4fd2291738db440fe74dacff47e50038">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>taxa_acerto <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">diag</span>(matriz_confusao)) <span class="sc">/</span> <span class="fu">sum</span>(matriz_confusao)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"%.2f%%"</span>, taxa_acerto<span class="sc">*</span><span class="dv">100</span>) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "99.76%"</code></pre>
 </div>

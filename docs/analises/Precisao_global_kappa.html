@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -258,13 +292,40 @@ ul.task-list li input[type="checkbox"] {
 <p>A precisão global e o índice kappa são métricas comuns usadas para avaliar a precisão de modelos de classificação em R. O índice kappa leva em consideração a concordância observada entre as previsões do modelo e as classes reais, ajustando-a para a concordância esperada ao acaso. Ele fornece uma medida da precisão do modelo que leva em consideração a chance de acerto aleatório.</p>
 <section id="carregando-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="carregando-dataset">Carregando dataset</h2>
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-1_8fb7281fa46d3d8dc1d301d5190f107b">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>datasetfull<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">"../rds/datasetfull_regras.rds"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>novo_dataset <span class="ot">&lt;-</span> <span class="fu">scale</span>(datasetfull[, <span class="fu">c</span>(<span class="st">"declividade_valor"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"def_hid_valor"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"dist_sede_municipal_valor"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"dist_vias_municipais_valor"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"drenagem_cd_aptidao"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"erodibilidade_cd_aptidao"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"pluviosidade_valor"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"temperatura_valor"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"textura_cd_aptidao"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"umidade_valor"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"uso_cd_aptidao"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"aptidao"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                                  )])</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="carregando-libs" class="level2">
 <h2 class="anchored" data-anchor-id="carregando-libs">Carregando libs</h2>
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-2_604b43cbd949836dd216713a6813a026">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">'caret'</span>)) {<span class="fu">install.packages</span>(<span class="st">'caret'</span>, <span class="at">repos=</span><span class="st">'http://cran-r.c3sl.ufpr.br/'</span>)}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">'rpart'</span>)) {<span class="fu">install.packages</span>(<span class="st">'rpart'</span>, <span class="at">repos=</span><span class="st">'http://cran-r.c3sl.ufpr.br/'</span>)}</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">'knitr'</span>)) {<span class="fu">install.packages</span>(<span class="st">'knitr'</span>, <span class="at">repos=</span><span class="st">'http://cran-r.c3sl.ufpr.br/'</span>)}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="amostra-dos-dados" class="level2">
 <h2 class="anchored" data-anchor-id="amostra-dos-dados">Amostra dos dados</h2>
-<div class="cell" data-hash="Precisao_global_kappa_cache/html/tbl-example-datasetfull_72a18ba95c186601a4df6952d663b2a6">
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/tbl-example-datasetfull_9e5af7d996d26795407a255dc125a386">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(datasetfull))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-example-datasetfull" class="anchored">
 <table class="table table-sm table-striped small">
@@ -664,10 +725,40 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="selecionando-dados-para-treino-e-teste" class="level2">
 <h2 class="anchored" data-anchor-id="selecionando-dados-para-treino-e-teste">Selecionando dados para treino e teste</h2>
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-4_331dcd07c754f196c275305c348bf6f2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando os dados classificados</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>conjunto_de_dados <span class="ot">&lt;-</span> <span class="fu">subset</span>(datasetfull, aptidao <span class="sc">!=</span> <span class="dv">0</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Defina a proporção desejada para treinamento (70%) e teste (30%)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>proporcao_treinamento <span class="ot">&lt;-</span> <span class="fl">0.7</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcule o número de observações para treinamento</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>tamanho_treinamento <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">nrow</span>(conjunto_de_dados) <span class="sc">*</span> proporcao_treinamento)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Crie um vetor de índices aleatórios para as observações</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>indices_aleatorios <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(conjunto_de_dados))</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecione as observações de treinamento com base nos índices aleatórios</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>conjunto_treinamento <span class="ot">&lt;-</span> conjunto_de_dados[indices_aleatorios[<span class="dv">1</span><span class="sc">:</span>tamanho_treinamento], ]</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecione as observações de teste com base nos índices aleatórios restantes</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>conjunto_teste <span class="ot">&lt;-</span> conjunto_de_dados[indices_aleatorios[(tamanho_treinamento <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span><span class="fu">nrow</span>(conjunto_de_dados)], ]</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"../rds/modelo_arvore.rds"</span>)){</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    modelo_arvore <span class="ot">&lt;-</span> <span class="fu">rpart</span>(aptidao <span class="sc">~</span> ., <span class="at">data =</span> conjunto_treinamento, <span class="at">method =</span> <span class="st">"class"</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saveRDS</span>(modelo_arvore, <span class="st">"../rds/modelo_arvore.rds"</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    modelo_arvore <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../rds/modelo_arvore.rds"</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>previsoes <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo_arvore, <span class="at">newdata =</span> conjunto_teste, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="calculando-matriz-de-confusão" class="level2">
 <h2 class="anchored" data-anchor-id="calculando-matriz-de-confusão">Calculando matriz de confusão</h2>
-<div class="cell" data-hash="Precisao_global_kappa_cache/html/tbl-matriz-confusao_fb6f35e92e954337b84db7b7ded90a28">
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/tbl-matriz-confusao_6f306405a2ff8c02e57da45125efbbb2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(previsoes, <span class="fu">factor</span>(conjunto_teste<span class="sc">$</span>aptidao))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(conf_matrix<span class="sc">$</span>table)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-matriz-confusao" class="anchored">
 <table class="table table-sm table-striped small">
@@ -682,28 +773,28 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">265718</td>
+<td style="text-align: right;">266718</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">30304</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">30397</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">35</td>
-<td style="text-align: right;">83</td>
-<td style="text-align: right;">32807</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">33081</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2366</td>
-<td style="text-align: right;">739976</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2379</td>
+<td style="text-align: right;">738594</td>
 </tr>
 </tbody>
 </table>
@@ -713,17 +804,21 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="obtenha-a-precisão-global" class="level2">
 <h2 class="anchored" data-anchor-id="obtenha-a-precisão-global">Obtenha a precisão global</h2>
-<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-6_e1569b05c8db1803400337dd3722f9a5">
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-6_21f84bb6ddcf452d17e3462f16843217">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> conf_matrix<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Precisão Global:"</span>, accuracy, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Precisão Global: 0.9975882 </code></pre>
+<pre><code>Precisão Global: 0.9975742 </code></pre>
 </div>
 </div>
 </section>
 <section id="obtenha-o-índice-kappa" class="level2">
 <h2 class="anchored" data-anchor-id="obtenha-o-índice-kappa">Obtenha o índice kappa</h2>
-<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-7_b9a6bca63597e5e23ac709fa0ba7c2e4">
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-7_b0cb1ae04bd515218444877f2df6d009">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>kappa <span class="ot">&lt;-</span> conf_matrix<span class="sc">$</span>overall[<span class="st">"Kappa"</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Índice Kappa:"</span>, kappa, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Índice Kappa: 0.9947351 </code></pre>
+<pre><code>Índice Kappa: 0.9947194 </code></pre>
 </div>
 </div>
 
