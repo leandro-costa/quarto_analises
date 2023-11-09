@@ -1,21 +1,16 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "!analises/"
+    - "!analisesR8/"
   
 website:
   title: "Aptidão Guaraná"
   navbar:
     background: primary
     search: true
-    left:
-      - text: "Analises BOA Full"
-        menu:
-          - analises/regras_classificacao.qmd
-          - analises/matriz_confusao.qmd
-      - text: "Analises BOA R8"
-        menu:
-          - analisesR8/regras_classificacao.qmd
-          - analisesR8/matriz_confusao.qmd
   sidebar:
     contents: auto
 

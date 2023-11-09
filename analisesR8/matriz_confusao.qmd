@@ -5,6 +5,7 @@ execute:
   echo: false
   freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
   cache: true 
+draft: true
 ---
 
 Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.

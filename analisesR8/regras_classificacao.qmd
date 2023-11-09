@@ -10,6 +10,7 @@ execute:
 #  freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
   freeze: auto
   cache: true 
+draft: true
 ---
 
 ```{r}

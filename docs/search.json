@@ -7,363 +7,6 @@
     "text": "Analises da aptdão do guaraná"
   },
   {
-    "objectID": "analisesR8/regras_classificacao.html",
-    "href": "analisesR8/regras_classificacao.html",
-    "title": "Regras para classificação R8",
-    "section": "",
-    "text": "Loading required package: ggplot2"
-  },
-  {
-    "objectID": "analisesR8/regras_classificacao.html#regra-boa-4-verde",
-    "href": "analisesR8/regras_classificacao.html#regra-boa-4-verde",
-    "title": "Regras para classificação R8",
-    "section": "Regra – BOA (4-Verde)",
-    "text": "Regra – BOA (4-Verde)\n\nRegra 8\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2757610\n\n\n4\n1476058\n\n\n\n\n\nFigura 1 mostra o resultado da aplicação da regra Seção 1.1\n\n\n\n\n\nFigura 1: Plotagem da area classificada como BOA pelas regras."
-  },
-  {
-    "objectID": "analisesR8/regras_classificacao.html#regra-regular-3-azul",
-    "href": "analisesR8/regras_classificacao.html#regra-regular-3-azul",
-    "title": "Regras para classificação R8",
-    "section": "Regra – REGULAR (3-Azul)",
-    "text": "Regra – REGULAR (3-Azul)\n\nRegra 3\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2738515\n\n\n3\n19095\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 4\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2705888\n\n\n3\n51722\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 5\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2647897\n\n\n3\n109713\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 6\n“drenagem” = ‘moderada_boa’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2647890\n\n\n3\n109720\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 7\n“erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2640012\n\n\n3\n117598\n\n\n4\n1476058\n\n\n\n\n\nFigura 2 mostra o resultado da aplicação das regras Seção 2.1, Seção 2.2, Seção 2.3, Seção 2.4 e Seção 2.5\n\n\n\n\n\nFigura 2: Plotagem da area classificada como BOA e REGULAR pelas regras."
-  },
-  {
-    "objectID": "analisesR8/regras_classificacao.html#regra-restrita-2-amarelo",
-    "href": "analisesR8/regras_classificacao.html#regra-restrita-2-amarelo",
-    "title": "Regras para classificação R8",
-    "section": "Regra – RESTRITA (2-Amarelo)",
-    "text": "Regra – RESTRITA (2-Amarelo)\n\nRegra 2\n“erodibilid” = ‘alta’ AND “amostragem” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2337493\n\n\n2\n302519\n\n\n3\n117598\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 3\n(“declividad” &gt;45 AND “declividad” &lt;=75) AND “amostragem” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2309974\n\n\n2\n330116\n\n\n3\n117520\n\n\n4\n1476058\n\n\n\n\n\nFigura 3 mostra o resultado da aplicação da regra Seção 3.1\n\n\n\n\n\nFigura 3: Plotagem da area classificada como BOA, REGULAR e RESTRITA pelas regras."
-  },
-  {
-    "objectID": "analisesR8/regras_classificacao.html#regra-impróprio-1-vermelho",
-    "href": "analisesR8/regras_classificacao.html#regra-impróprio-1-vermelho",
-    "title": "Regras para classificação R8",
-    "section": "Regra – IMPRÓPRIO (1-Vermelho)",
-    "text": "Regra – IMPRÓPRIO (1-Vermelho)\n\nRegra 1\n“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1650044\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n1476058\n\n\n\n\n\nFigura 4 mostra o resultado da aplicação da regra Seção 4.1\n\n\n\n\n\nFigura 4: Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras."
-  },
-  {
-    "objectID": "analisesR8/regras_classificacao.html#rpart",
-    "href": "analisesR8/regras_classificacao.html#rpart",
-    "title": "Regras para classificação R8",
-    "section": "Rpart",
-    "text": "Rpart\nFigura 5 mostra o resultado da aplicação do rpart\n\n\n\n\n\nFigura 5: Plotagem da area classificada com as regras aprendidas."
-  },
-  {
-    "objectID": "analises/regressao_linear_cd.html",
-    "href": "analises/regressao_linear_cd.html",
-    "title": "Regressão linear CD",
-    "section": "",
-    "text": "if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(caret)\n\nif(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(knitr)\ndatasetfull&lt;-readRDS(\"../rds/datasetfull_regras_rpart.rds\")\ndatasetfull &lt;- datasetfull[, c(\"declividade_cd_aptidao\"\n                                  ,\"def_hid_cd_aptidao\"\n                                  ,\"dist_sede_municipal_cd_aptidao\"\n                                  ,\"dist_vias_municipais_cd_aptidao\"\n                                  ,\"drenagem_cd_aptidao\"\n                                  ,\"erodibilidade_cd_aptidao\"\n                                  ,\"pluviosidade_cd_aptidao\"\n                                  ,\"temperatura_cd_aptidao\"\n                                  ,\"textura_cd_aptidao\"\n                                  ,\"umidade_cd_aptidao\"\n                                  ,\"uso_cd_aptidao\"\n                                  ,\"aptidao\"\n                                  )]\nkable(head(datasetfull))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndeclividade_cd_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem_cd_aptidao\nerodibilidade_cd_aptidao\npluviosidade_cd_aptidao\ntemperatura_cd_aptidao\ntextura_cd_aptidao\numidade_cd_aptidao\nuso_cd_aptidao\naptidao\n\n\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4"
-  },
-  {
-    "objectID": "analises/regressao_linear_cd.html#carregando-dataset",
-    "href": "analises/regressao_linear_cd.html#carregando-dataset",
-    "title": "Regressão linear CD",
-    "section": "",
-    "text": "if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(caret)\n\nif(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(knitr)\ndatasetfull&lt;-readRDS(\"../rds/datasetfull_regras_rpart.rds\")\ndatasetfull &lt;- datasetfull[, c(\"declividade_cd_aptidao\"\n                                  ,\"def_hid_cd_aptidao\"\n                                  ,\"dist_sede_municipal_cd_aptidao\"\n                                  ,\"dist_vias_municipais_cd_aptidao\"\n                                  ,\"drenagem_cd_aptidao\"\n                                  ,\"erodibilidade_cd_aptidao\"\n                                  ,\"pluviosidade_cd_aptidao\"\n                                  ,\"temperatura_cd_aptidao\"\n                                  ,\"textura_cd_aptidao\"\n                                  ,\"umidade_cd_aptidao\"\n                                  ,\"uso_cd_aptidao\"\n                                  ,\"aptidao\"\n                                  )]\nkable(head(datasetfull))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndeclividade_cd_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem_cd_aptidao\nerodibilidade_cd_aptidao\npluviosidade_cd_aptidao\ntemperatura_cd_aptidao\ntextura_cd_aptidao\numidade_cd_aptidao\nuso_cd_aptidao\naptidao\n\n\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4\n\n\n4\n5\n2\n5\n5\n4\n4\n4\n3\n4\n5\n4"
-  },
-  {
-    "objectID": "analises/regressao_linear_cd.html#regressão-linear",
-    "href": "analises/regressao_linear_cd.html#regressão-linear",
-    "title": "Regressão linear CD",
-    "section": "Regressão linear",
-    "text": "Regressão linear\n\nmodelo &lt;- lm(aptidao ~ declividade_cd_aptidao + def_hid_cd_aptidao + dist_sede_municipal_cd_aptidao + dist_vias_municipais_cd_aptidao + drenagem_cd_aptidao + erodibilidade_cd_aptidao + pluviosidade_cd_aptidao + temperatura_cd_aptidao + textura_cd_aptidao + umidade_cd_aptidao + uso_cd_aptidao, data = datasetfull)\n\nkable(modelo$coefficients)\n\n\nPesos associados a cada variável \n\n\n\nx\n\n\n\n\n(Intercept)\n-0.6258282\n\n\ndeclividade_cd_aptidao\n0.0135163\n\n\ndef_hid_cd_aptidao\n0.1322294\n\n\ndist_sede_municipal_cd_aptidao\n0.0469253\n\n\ndist_vias_municipais_cd_aptidao\n-0.0486766\n\n\ndrenagem_cd_aptidao\n0.5215676\n\n\nerodibilidade_cd_aptidao\n0.2768759\n\n\npluviosidade_cd_aptidao\n0.0312270\n\n\ntemperatura_cd_aptidao\n-0.1235807\n\n\ntextura_cd_aptidao\n0.0178991\n\n\numidade_cd_aptidao\n0.0949371\n\n\nuso_cd_aptidao\n0.0123110"
-  },
-  {
-    "objectID": "analises/regressao_linear_cd.html#calcule-o-r-quadrado",
-    "href": "analises/regressao_linear_cd.html#calcule-o-r-quadrado",
-    "title": "Regressão linear CD",
-    "section": "Calcule o R-quadrado",
-    "text": "Calcule o R-quadrado\nO R-quadrado mede a proporção da variabilidade na variável de resposta que é explicada pelo modelo. Um valor mais próximo de 1 indica um bom ajuste.\n\nr_squared &lt;- summary(modelo)$r.squared\ncat(\"R-squared:\", r_squared, \"\\n\")\n\nR-squared: 0.9355918"
-  },
-  {
-    "objectID": "analises/regressao_linear_cd.html#erro-quadrático-médio-mse",
-    "href": "analises/regressao_linear_cd.html#erro-quadrático-médio-mse",
-    "title": "Regressão linear CD",
-    "section": "Erro Quadrático Médio (MSE):",
-    "text": "Erro Quadrático Médio (MSE):\nO MSE mede a média dos erros quadrados entre os valores reais e previstos. Um MSE menor indica um modelo mais preciso.\n\n# Calcule o MSE\npredicted_values &lt;- predict(modelo)\n# Defina as faixas desejadas\n#faixas &lt;- c(0, 1.49, 2.49, 3.50, Inf)\n# Use a função cut() para categorizar os valores nas faixas\n#predicted_values &lt;- cut(predicted_values, breaks = faixas, labels = c(1, 2, 3, 4))\nmse &lt;- mean((datasetfull$aptidao - as.numeric(predicted_values))^2)\ncat(\"MSE:\", mse, \"\\n\")\n\nMSE: 0.09441933"
-  },
-  {
-    "objectID": "analises/regressao_linear_cd.html#formula",
-    "href": "analises/regressao_linear_cd.html#formula",
-    "title": "Regressão linear CD",
-    "section": "Formula",
-    "text": "Formula\n\ndados &lt;- data.frame(\n    previsoes =  datasetfull$declividade_cd_aptidao*coef(modelo)[\"declividade_cd_aptidao\"]+\n    datasetfull$def_hid_cd_aptidao*coef(modelo)[\"def_hid_cd_aptidao\"]+\n    datasetfull$dist_sede_municipal_cd_aptidao*coef(modelo)[\"dist_sede_municipal_cd_aptidao\"]+\n    datasetfull$dist_vias_municipais_cd_aptidao*coef(modelo)[\"dist_vias_municipais_cd_aptidao\"]+\n    datasetfull$drenagem_cd_aptidao*coef(modelo)[\"drenagem_cd_aptidao\"]+\n    datasetfull$erodibilidade_cd_aptidao*coef(modelo)[\"erodibilidade_cd_aptidao\"]+\n    datasetfull$pluviosidade_cd_aptidao*coef(modelo)[\"pluviosidade_cd_aptidao\"]+\n    datasetfull$temperatura_cd_aptidao*coef(modelo)[\"temperatura_cd_aptidao\"]+\n    datasetfull$textura_cd_aptidao*coef(modelo)[\"textura_cd_aptidao\"]+\n    datasetfull$umidade_cd_aptidao*coef(modelo)[\"umidade_cd_aptidao\"]+\n    datasetfull$uso_cd_aptidao*coef(modelo)[\"uso_cd_aptidao\"]+    \n    coef(modelo)[\"(Intercept)\"]\n)\n\n#clusters &lt;- kmeans(dados$previsoes, centers = 4)\n#dados$previsoes &lt;- clusters$cluster\n\n# Defina as faixas desejadas\nfaixas &lt;- c(0, 1.2, 2.3, 3.3, Inf)\n# Use a função cut() para categorizar os valores nas faixas\ndados$previsoes &lt;- cut(dados$previsoes, breaks = faixas, labels = c(1, 2, 3, 4))"
-  },
-  {
-    "objectID": "analises/regressao_linear_cd.html#calculando-matriz-de-confusão",
-    "href": "analises/regressao_linear_cd.html#calculando-matriz-de-confusão",
-    "title": "Regressão linear CD",
-    "section": "Calculando matriz de confusão",
-    "text": "Calculando matriz de confusão\n\nconf_matrix &lt;- confusionMatrix(factor(dados$previsoes), factor(datasetfull$aptidao))\n#conf_matrix &lt;- confusionMatrix(factor(predicted_values), factor(datasetfull$aptidao))\n#head((predicted_values+coef(modelo)[\"(Intercept)\"]))\n\n#head(dados$previsoes)\n\n#head(datasetfull$aptidao)\n\n\nkable(conf_matrix$table)\n\n\n\nTabela 1: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n659143\n0\n0\n0\n\n\n229105\n0\n0\n0\n\n\n138\n48192\n520082\n0\n\n\n330\n53138\n7986\n2715554"
-  },
-  {
-    "objectID": "analises/regressao_linear_cd.html#obtenha-a-precisão-global",
-    "href": "analises/regressao_linear_cd.html#obtenha-a-precisão-global",
-    "title": "Regressão linear CD",
-    "section": "Obtenha a precisão global",
-    "text": "Obtenha a precisão global\n\naccuracy &lt;- conf_matrix$overall[\"Accuracy\"]\ncat(\"Precisão Global:\", accuracy, \"\\n\")\n\nPrecisão Global: 0.9199538"
-  },
-  {
-    "objectID": "analises/regressao_linear_cd.html#obtenha-o-índice-kappa",
-    "href": "analises/regressao_linear_cd.html#obtenha-o-índice-kappa",
-    "title": "Regressão linear CD",
-    "section": "Obtenha o índice kappa",
-    "text": "Obtenha o índice kappa\n\nkappa &lt;- conf_matrix$overall[\"Kappa\"]\ncat(\"Índice Kappa:\", kappa, \"\\n\")\n\nÍndice Kappa: 0.8485545"
-  },
-  {
-    "objectID": "analises/regressao_linear.html",
-    "href": "analises/regressao_linear.html",
-    "title": "Regressão linear",
-    "section": "",
-    "text": "if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(caret)\n\nif(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(knitr)\ndatasetfull&lt;-readRDS(\"../rds/datasetfull_regras_rpart.rds\")\ndatasetfull &lt;- scale(datasetfull[, c(\"declividade_valor\"\n                                  ,\"def_hid_valor\"\n                                  ,\"dist_sede_municipal_valor\"\n                                  ,\"dist_vias_municipais_valor\"\n                                  ,\"drenagem_cd_aptidao\"\n                                  ,\"erodibilidade_cd_aptidao\"\n                                  ,\"pluviosidade_valor\"\n                                  ,\"temperatura_valor\"\n                                  ,\"textura_cd_aptidao\"\n                                  ,\"umidade_valor\"\n                                  ,\"uso_cd_aptidao\"\n                                  ,\"aptidao\"\n                                  )])\nkable(head(datasetfull))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndeclividade_valor\ndef_hid_valor\ndist_sede_municipal_valor\ndist_vias_municipais_valor\ndrenagem_cd_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\ntemperatura_valor\ntextura_cd_aptidao\numidade_valor\nuso_cd_aptidao\naptidao\n\n\n\n\n-1.196301\n0.8716703\n2.296254\n-0.8088857\n0.6018595\n0.3662284\n-1.042357\n-0.9574492\n0.0303415\n-1.545017\n1.529723\n0.6626786\n\n\n-1.196301\n0.8706425\n2.293303\n-0.7835307\n0.6018595\n0.3662284\n-1.039810\n-0.9561411\n0.0303415\n-1.544289\n1.529723\n0.6626786\n\n\n-1.196301\n0.8696183\n2.290354\n-0.7581758\n0.6018595\n0.3662284\n-1.037250\n-0.9548269\n0.0303415\n-1.543575\n1.529723\n0.6626786\n\n\n-1.196301\n0.8685972\n2.287405\n-0.7328209\n0.6018595\n0.3662284\n-1.034679\n-0.9534946\n0.0303415\n-1.542862\n1.529723\n0.6626786\n\n\n-1.196301\n0.8673258\n2.297288\n-0.8342406\n0.6018595\n0.3662284\n-1.046623\n-0.9610102\n0.0303415\n-1.544675\n1.529723\n0.6626786\n\n\n-1.196301\n0.8663115\n2.294335\n-0.8088857\n0.6018595\n0.3662284\n-1.044083\n-0.9597142\n0.0303415\n-1.543962\n1.529723\n0.6626786"
-  },
-  {
-    "objectID": "analises/regressao_linear.html#carregando-dataset",
-    "href": "analises/regressao_linear.html#carregando-dataset",
-    "title": "Regressão linear",
-    "section": "",
-    "text": "if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(caret)\n\nif(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(knitr)\ndatasetfull&lt;-readRDS(\"../rds/datasetfull_regras_rpart.rds\")\ndatasetfull &lt;- scale(datasetfull[, c(\"declividade_valor\"\n                                  ,\"def_hid_valor\"\n                                  ,\"dist_sede_municipal_valor\"\n                                  ,\"dist_vias_municipais_valor\"\n                                  ,\"drenagem_cd_aptidao\"\n                                  ,\"erodibilidade_cd_aptidao\"\n                                  ,\"pluviosidade_valor\"\n                                  ,\"temperatura_valor\"\n                                  ,\"textura_cd_aptidao\"\n                                  ,\"umidade_valor\"\n                                  ,\"uso_cd_aptidao\"\n                                  ,\"aptidao\"\n                                  )])\nkable(head(datasetfull))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndeclividade_valor\ndef_hid_valor\ndist_sede_municipal_valor\ndist_vias_municipais_valor\ndrenagem_cd_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\ntemperatura_valor\ntextura_cd_aptidao\numidade_valor\nuso_cd_aptidao\naptidao\n\n\n\n\n-1.196301\n0.8716703\n2.296254\n-0.8088857\n0.6018595\n0.3662284\n-1.042357\n-0.9574492\n0.0303415\n-1.545017\n1.529723\n0.6626786\n\n\n-1.196301\n0.8706425\n2.293303\n-0.7835307\n0.6018595\n0.3662284\n-1.039810\n-0.9561411\n0.0303415\n-1.544289\n1.529723\n0.6626786\n\n\n-1.196301\n0.8696183\n2.290354\n-0.7581758\n0.6018595\n0.3662284\n-1.037250\n-0.9548269\n0.0303415\n-1.543575\n1.529723\n0.6626786\n\n\n-1.196301\n0.8685972\n2.287405\n-0.7328209\n0.6018595\n0.3662284\n-1.034679\n-0.9534946\n0.0303415\n-1.542862\n1.529723\n0.6626786\n\n\n-1.196301\n0.8673258\n2.297288\n-0.8342406\n0.6018595\n0.3662284\n-1.046623\n-0.9610102\n0.0303415\n-1.544675\n1.529723\n0.6626786\n\n\n-1.196301\n0.8663115\n2.294335\n-0.8088857\n0.6018595\n0.3662284\n-1.044083\n-0.9597142\n0.0303415\n-1.543962\n1.529723\n0.6626786"
-  },
-  {
-    "objectID": "analises/regressao_linear.html#regressão-linear",
-    "href": "analises/regressao_linear.html#regressão-linear",
-    "title": "Regressão linear",
-    "section": "Regressão linear",
-    "text": "Regressão linear\n\n#modelo &lt;- lm(Target ~ Variavel1 + Variavel2 + Variavel3, data = datasetfull)\n\nmodelo &lt;- lm(aptidao ~  declividade_valor + def_hid_valor + dist_sede_municipal_valor + dist_vias_municipais_valor + drenagem_cd_aptidao + erodibilidade_cd_aptidao + pluviosidade_valor + temperatura_valor + textura_cd_aptidao + umidade_valor + uso_cd_aptidao, data = datasetfull)\n\nkable(modelo$coefficients)\n\n\nPesos associados a cada variável \n\n\n\nx\n\n\n\n\n(Intercept)\n0.1551059\n\n\ndeclividade_valor\n-0.0036625\n\n\ndef_hid_valor\n-0.0006003\n\n\ndist_sede_municipal_valor\n-0.0000030\n\n\ndist_vias_municipais_valor\n0.0000068\n\n\ndrenagem_cd_aptidao\n0.5729601\n\n\nerodibilidade_cd_aptidao\n0.2544586\n\n\npluviosidade_valor\n0.0000138\n\n\ntemperatura_valor\n-0.0411713\n\n\ntextura_cd_aptidao\n-0.0023236\n\n\numidade_valor\n0.0111806\n\n\nuso_cd_aptidao\n0.0106828"
-  },
-  {
-    "objectID": "analises/regressao_linear.html#calcule-o-r-quadrado",
-    "href": "analises/regressao_linear.html#calcule-o-r-quadrado",
-    "title": "Regressão linear",
-    "section": "Calcule o R-quadrado",
-    "text": "Calcule o R-quadrado\nO R-quadrado mede a proporção da variabilidade na variável de resposta que é explicada pelo modelo. Um valor mais próximo de 1 indica um bom ajuste.\n\nr_squared &lt;- summary(modelo)$r.squared\ncat(\"R-squared:\", r_squared, \"\\n\")\n\nR-squared: 0.9341604"
-  },
-  {
-    "objectID": "analises/regressao_linear.html#erro-quadrático-médio-mse",
-    "href": "analises/regressao_linear.html#erro-quadrático-médio-mse",
-    "title": "Regressão linear",
-    "section": "Erro Quadrático Médio (MSE):",
-    "text": "Erro Quadrático Médio (MSE):\nO MSE mede a média dos erros quadrados entre os valores reais e previstos. Um MSE menor indica um modelo mais preciso.\n\n# Calcule o MSE\npredicted_values &lt;- predict(modelo)\n# Defina as faixas desejadas\n#faixas &lt;- c(0, 1.49, 2.49, 3.50, Inf)\n# Use a função cut() para categorizar os valores nas faixas\n#predicted_values &lt;- cut(predicted_values, breaks = faixas, labels = c(1, 2, 3, 4))\nmse &lt;- mean((datasetfull$aptidao - as.numeric(predicted_values))^2)\ncat(\"MSE:\", mse, \"\\n\")\n\nMSE: 0.09651777"
-  },
-  {
-    "objectID": "analises/regressao_linear.html#formula",
-    "href": "analises/regressao_linear.html#formula",
-    "title": "Regressão linear",
-    "section": "Formula",
-    "text": "Formula\n\ndados &lt;- data.frame(\n    previsoes = datasetfull$declividade_valor*coef(modelo)[\"declividade_valor\"]+datasetfull$def_hid_valor*coef(modelo)[\"def_hid_valor\"]+datasetfull$dist_sede_municipal_valor*coef(modelo)[\"dist_sede_municipal_valor\"]+datasetfull$dist_vias_municipais_valor*coef(modelo)[\"dist_vias_municipais_valor\"]+datasetfull$drenagem_cd_aptidao*coef(modelo)[\"drenagem_cd_aptidao\"]+datasetfull$erodibilidade_cd_aptidao*coef(modelo)[\"erodibilidade_cd_aptidao\"]+datasetfull$pluviosidade_valor*coef(modelo)[\"pluviosidade_valor\"]+datasetfull$temperatura_valor*coef(modelo)[\"temperatura_valor\"]+datasetfull$textura_cd_aptidao*coef(modelo)[\"textura_cd_aptidao\"]+datasetfull$umidade_valor*coef(modelo)[\"umidade_valor\"]+datasetfull$uso_cd_aptidao*coef(modelo)[\"uso_cd_aptidao\"]\n)\n\n#clusters &lt;- kmeans(dados$previsoes, centers = 4)\n#dados$previsoes &lt;- clusters$cluster\n\n# Defina as faixas desejadas\nfaixas &lt;- c(0, 1.2, 2.3, 3.3, Inf)\n# Use a função cut() para categorizar os valores nas faixas\ndados$previsoes &lt;- cut(dados$previsoes, breaks = faixas, labels = c(1, 2, 3, 4))"
-  },
-  {
-    "objectID": "analises/regressao_linear.html#calculando-matriz-de-confusão",
-    "href": "analises/regressao_linear.html#calculando-matriz-de-confusão",
-    "title": "Regressão linear",
-    "section": "Calculando matriz de confusão",
-    "text": "Calculando matriz de confusão\n\nconf_matrix &lt;- confusionMatrix(factor(dados$previsoes), factor(datasetfull$aptidao))\nkable(conf_matrix$table)\n\n\n\nTabela 1: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n659325\n0\n0\n0\n\n\n228937\n0\n0\n0\n\n\n144\n77309\n520154\n2932\n\n\n310\n24021\n7914\n2712622"
-  },
-  {
-    "objectID": "analises/regressao_linear.html#obtenha-a-precisão-global",
-    "href": "analises/regressao_linear.html#obtenha-a-precisão-global",
-    "title": "Regressão linear",
-    "section": "Obtenha a precisão global",
-    "text": "Obtenha a precisão global\n\naccuracy &lt;- conf_matrix$overall[\"Accuracy\"]\ncat(\"Precisão Global:\", accuracy, \"\\n\")\n\nPrecisão Global: 0.9193213"
-  },
-  {
-    "objectID": "analises/regressao_linear.html#obtenha-o-índice-kappa",
-    "href": "analises/regressao_linear.html#obtenha-o-índice-kappa",
-    "title": "Regressão linear",
-    "section": "Obtenha o índice kappa",
-    "text": "Obtenha o índice kappa\n\nkappa &lt;- conf_matrix$overall[\"Kappa\"]\ncat(\"Índice Kappa:\", kappa, \"\\n\")\n\nÍndice Kappa: 0.84848"
-  },
-  {
-    "objectID": "analises/matriz_confusao.html",
-    "href": "analises/matriz_confusao.html",
-    "title": "Matriz de confusão",
-    "section": "",
-    "text": "Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.\nCarregando dataset\n\ndatasetfull&lt;-readRDS(\"../rds/datasetfull_regras.rds\")\n\nCarregando libs\n\nif(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(caret)\nif(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(rpart)\n\nAmostra dos dados\n\nlibrary(knitr)\nkable(head(datasetfull))\n\n\n\nTabela 1: Exemplos dos dados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ndeclividade_valor\ndeclividade_revelo\ndeclividade_aptidao\ndeclividade_cd_aptidao\ndef_hid_valor\ndef_hid_interval\ndef_hid_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_valor\ndist_sede_municipal_interval\ndist_sede_municipal_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_valor\ndist_vias_municipais_interval\ndist_vias_municipais_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem\ndrenagem_aptidao\ndrenagem_cd_aptidao\nerodibilidade\nerodibilidade_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\npluviosidade_interval\npluviosidade_aptidao\npluviosidade_cd_aptidao\ntemperatura_valor\ntemperatura_interval\ntemperatura_aptidao\ntemperatura_cd_aptidao\ntextura\ntextura_aptidao\ntextura_cd_aptidao\numidade_valor\numidade_interval\numidade_aptidao\numidade_cd_aptidao\nuso\nuso_aptidao\nuso_cd_aptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\naptidao\n\n\n\n\n1\n463484.4\n8540826\n0\nplano\nalta\n4\n51.70340\n0_100\nmuito_alta\n5\n34107.89\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.620\n1500_1700\nalta\n4\n24.58993\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37140\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n516\n4\n\n\n2\n463514.4\n8540826\n0\nplano\nalta\n4\n51.68119\n0_100\nmuito_alta\n5\n34082.75\n30000_40000\nbaixa\n2\n180\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.859\n1500_1700\nalta\n4\n24.59034\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37177\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n517\n4\n\n\n3\n463544.4\n8540826\n0\nplano\nalta\n4\n51.65906\n0_100\nmuito_alta\n5\n34057.61\n30000_40000\nbaixa\n2\n210\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.099\n1500_1700\nalta\n4\n24.59076\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37214\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n518\n4\n\n\n4\n463574.4\n8540826\n0\nplano\nalta\n4\n51.63700\n0_100\nmuito_alta\n5\n34032.48\n30000_40000\nbaixa\n2\n240\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.341\n1500_1700\nalta\n4\n24.59118\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37251\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n519\n4\n\n\n5\n463454.4\n8540796\n0\nplano\nalta\n4\n51.60953\n0_100\nmuito_alta\n5\n34116.70\n30000_40000\nbaixa\n2\n120\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.219\n1500_1700\nalta\n4\n24.58881\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37157\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n515\n4\n\n\n6\n463484.4\n8540796\n0\nplano\nalta\n4\n51.58762\n0_100\nmuito_alta\n5\n34091.54\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.458\n1500_1700\nalta\n4\n24.58922\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37194\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n516\n4\n\n\n\n\n\nnovo_dataset &lt;- scale(datasetfull[, c(\"declividade_valor\"\n                                  ,\"def_hid_valor\"\n                                  ,\"dist_sede_municipal_valor\"\n                                  ,\"dist_vias_municipais_valor\"\n                                  ,\"drenagem_cd_aptidao\"\n                                  ,\"erodibilidade_cd_aptidao\"\n                                  ,\"pluviosidade_valor\"\n                                  ,\"temperatura_valor\"\n                                  ,\"textura_cd_aptidao\"\n                                  ,\"umidade_valor\"\n                                  ,\"uso_cd_aptidao\"\n                                  ,\"aptidao\"\n                                  )])\n\nSelecionando dados para treino e teste\n\n# Selecionando os dados classificados\nconjunto_de_dados &lt;- subset(datasetfull, aptidao != 0)\n\n# Defina a proporção desejada para treinamento (70%) e teste (30%)\nproporcao_treinamento &lt;- 0.7\n\n# Calcule o número de observações para treinamento\ntamanho_treinamento &lt;- round(nrow(conjunto_de_dados) * proporcao_treinamento)\n\n# Crie um vetor de índices aleatórios para as observações\nindices_aleatorios &lt;- sample(1:nrow(conjunto_de_dados))\n\n# Selecione as observações de treinamento com base nos índices aleatórios\nconjunto_treinamento &lt;- conjunto_de_dados[indices_aleatorios[1:tamanho_treinamento], ]\n\n# Selecione as observações de teste com base nos índices aleatórios restantes\nconjunto_teste &lt;- conjunto_de_dados[indices_aleatorios[(tamanho_treinamento + 1):nrow(conjunto_de_dados)], ]\nif(!file.exists(\"../rds/modelo_arvore.rds\")){\n    modelo_arvore &lt;- rpart(aptidao ~ ., data = conjunto_treinamento, method = \"class\")\n    saveRDS(modelo_arvore, \"../rds/modelo_arvore.rds\")\n}else{\n    modelo_arvore &lt;- readRDS(\"../rds/modelo_arvore.rds\")\n}\n\nprevisoes &lt;- predict(modelo_arvore, newdata = conjunto_teste, type = \"class\")\n\nCalculando matriz de confusão\n\nmatriz_confusao &lt;- table(Real = conjunto_teste$aptidao, Previsto = previsoes)\nkable(matriz_confusao)\n\n\n\nTabela 2: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n266750\n100\n37\n2\n\n\n0\n30126\n88\n0\n\n\n0\n0\n32959\n2370\n\n\n0\n0\n0\n738957\n\n\n\n\n\n\nTaxa de acerto\n\ntaxa_acerto &lt;- sum(diag(matriz_confusao)) / sum(matriz_confusao)\nsprintf(\"%.2f%%\", taxa_acerto*100) \n\n[1] \"99.76%\""
-  },
-  {
-    "objectID": "analises/regras_classificacao.html",
-    "href": "analises/regras_classificacao.html",
-    "title": "Regras para classificação",
-    "section": "",
-    "text": "Loading required package: ggplot2"
-  },
-  {
-    "objectID": "analises/regras_classificacao.html#regra-boa-4-verde",
-    "href": "analises/regras_classificacao.html#regra-boa-4-verde",
-    "title": "Regras para classificação",
-    "section": "Regra – BOA (4-Verde)",
-    "text": "Regra – BOA (4-Verde)\n\nRegra 8\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2757610\n\n\n4\n1476058\n\n\n\n\n\n\n\nRegra 9\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’, ‘media’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;3\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n2701316\n\n\n4\n1532352\n\n\n\n\n\n\n\nRegra 10\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;3\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1973858\n\n\n4\n2259810\n\n\n\n\n\n\n\nRegra 11\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;3\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1769939\n\n\n4\n2463729\n\n\n\n\n\nFigura 1 mostra o resultado da aplicação das regras Seção 1.1, Seção 1.2, Seção 1.3 e Seção 1.4\n\n\n\n\n\nFigura 1: Plotagem da area classificada como BOA pelas regras."
-  },
-  {
-    "objectID": "analises/regras_classificacao.html#regra-regular-3-azul",
-    "href": "analises/regras_classificacao.html#regra-regular-3-azul",
-    "title": "Regras para classificação",
-    "section": "Regra – REGULAR (3-Azul)",
-    "text": "Regra – REGULAR (3-Azul)\n\nRegra 3\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1750844\n\n\n3\n19095\n\n\n4\n2463729\n\n\n\n\n\n\n\nRegra 4\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1718217\n\n\n3\n51722\n\n\n4\n2463729\n\n\n\n\n\n\n\nRegra 5\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1660226\n\n\n3\n109713\n\n\n4\n2463729\n\n\n\n\n\n\n\nRegra 6\n“drenagem” = ‘moderada_boa’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1660219\n\n\n3\n109720\n\n\n4\n2463729\n\n\n\n\n\n\n\nRegra 7\n“erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “amostragem” &lt;&gt;1 AND “amostragem” &lt;&gt;2 AND “amostragem” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1652341\n\n\n3\n117598\n\n\n4\n2463729\n\n\n\n\n\nFigura 2 mostra o resultado da aplicação das regras Seção 2.1, Seção 2.2, Seção 2.3, Seção 2.4 e Seção 2.5\n\n\n\n\n\nFigura 2: Plotagem da area classificada como BOA e REGULAR pelas regras."
-  },
-  {
-    "objectID": "analises/regras_classificacao.html#regra-restrita-2-amarelo",
-    "href": "analises/regras_classificacao.html#regra-restrita-2-amarelo",
-    "title": "Regras para classificação",
-    "section": "Regra – RESTRITA (2-Amarelo)",
-    "text": "Regra – RESTRITA (2-Amarelo)\n\nRegra 2\n“erodibilid” = ‘alta’ AND “amostragem” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1349822\n\n\n2\n302519\n\n\n3\n117598\n\n\n4\n2463729\n\n\n\n\n\n\n\nRegra 3\n(“declividad” &gt;45 AND “declividad” &lt;=75) AND “amostragem” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1322303\n\n\n2\n330116\n\n\n3\n117520\n\n\n4\n2463729\n\n\n\n\n\nFigura 3 mostra o resultado da aplicação da regra Seção 3.1\n\n\n\n\n\nFigura 3: Plotagem da area classificada como BOA, REGULAR e RESTRITA pelas regras."
-  },
-  {
-    "objectID": "analises/regras_classificacao.html#regra-impróprio-1-vermelho",
-    "href": "analises/regras_classificacao.html#regra-impróprio-1-vermelho",
-    "title": "Regras para classificação",
-    "section": "Regra – IMPRÓPRIO (1-Vermelho)",
-    "text": "Regra – IMPRÓPRIO (1-Vermelho)\n\nRegra 1\n“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n662373\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2463729\n\n\n\n\n\nFigura 4 mostra o resultado da aplicação da regra Seção 4.1\n\n\n\n\n\nFigura 4: Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras."
-  },
-  {
-    "objectID": "analises/regras_classificacao.html#rpart",
-    "href": "analises/regras_classificacao.html#rpart",
-    "title": "Regras para classificação",
-    "section": "Rpart",
-    "text": "Rpart\nFigura 5 mostra o resultado da aplicação do rpart\n\n\n\n\n\nFigura 5: Plotagem da area classificada com as regras aprendidas."
-  },
-  {
-    "objectID": "analises/Precisao_global_kappa.html",
-    "href": "analises/Precisao_global_kappa.html",
-    "title": "Precisão global kappa",
-    "section": "",
-    "text": "A precisão global e o índice kappa são métricas comuns usadas para avaliar a precisão de modelos de classificação em R. O índice kappa leva em consideração a concordância observada entre as previsões do modelo e as classes reais, ajustando-a para a concordância esperada ao acaso. Ele fornece uma medida da precisão do modelo que leva em consideração a chance de acerto aleatório."
-  },
-  {
-    "objectID": "analises/Precisao_global_kappa.html#carregando-dataset",
-    "href": "analises/Precisao_global_kappa.html#carregando-dataset",
-    "title": "Precisão global kappa",
-    "section": "Carregando dataset",
-    "text": "Carregando dataset\n\ndatasetfull&lt;-readRDS(\"../rds/datasetfull_regras.rds\")\n\nnovo_dataset &lt;- scale(datasetfull[, c(\"declividade_valor\"\n                                  ,\"def_hid_valor\"\n                                  ,\"dist_sede_municipal_valor\"\n                                  ,\"dist_vias_municipais_valor\"\n                                  ,\"drenagem_cd_aptidao\"\n                                  ,\"erodibilidade_cd_aptidao\"\n                                  ,\"pluviosidade_valor\"\n                                  ,\"temperatura_valor\"\n                                  ,\"textura_cd_aptidao\"\n                                  ,\"umidade_valor\"\n                                  ,\"uso_cd_aptidao\"\n                                  ,\"aptidao\"\n                                  )])"
-  },
-  {
-    "objectID": "analises/Precisao_global_kappa.html#carregando-libs",
-    "href": "analises/Precisao_global_kappa.html#carregando-libs",
-    "title": "Precisão global kappa",
-    "section": "Carregando libs",
-    "text": "Carregando libs\n\nif(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(caret)\nif(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(rpart)\nif(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(knitr)"
-  },
-  {
-    "objectID": "analises/Precisao_global_kappa.html#amostra-dos-dados",
-    "href": "analises/Precisao_global_kappa.html#amostra-dos-dados",
-    "title": "Precisão global kappa",
-    "section": "Amostra dos dados",
-    "text": "Amostra dos dados\n\nlibrary(knitr)\nkable(head(datasetfull))\n\n\n\nTabela 1: Exemplos dos dados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ndeclividade_valor\ndeclividade_revelo\ndeclividade_aptidao\ndeclividade_cd_aptidao\ndef_hid_valor\ndef_hid_interval\ndef_hid_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_valor\ndist_sede_municipal_interval\ndist_sede_municipal_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_valor\ndist_vias_municipais_interval\ndist_vias_municipais_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem\ndrenagem_aptidao\ndrenagem_cd_aptidao\nerodibilidade\nerodibilidade_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\npluviosidade_interval\npluviosidade_aptidao\npluviosidade_cd_aptidao\ntemperatura_valor\ntemperatura_interval\ntemperatura_aptidao\ntemperatura_cd_aptidao\ntextura\ntextura_aptidao\ntextura_cd_aptidao\numidade_valor\numidade_interval\numidade_aptidao\numidade_cd_aptidao\nuso\nuso_aptidao\nuso_cd_aptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\naptidao\n\n\n\n\n1\n463484.4\n8540826\n0\nplano\nalta\n4\n51.70340\n0_100\nmuito_alta\n5\n34107.89\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.620\n1500_1700\nalta\n4\n24.58993\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37140\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n516\n4\n\n\n2\n463514.4\n8540826\n0\nplano\nalta\n4\n51.68119\n0_100\nmuito_alta\n5\n34082.75\n30000_40000\nbaixa\n2\n180\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.859\n1500_1700\nalta\n4\n24.59034\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37177\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n517\n4\n\n\n3\n463544.4\n8540826\n0\nplano\nalta\n4\n51.65906\n0_100\nmuito_alta\n5\n34057.61\n30000_40000\nbaixa\n2\n210\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.099\n1500_1700\nalta\n4\n24.59076\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37214\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n518\n4\n\n\n4\n463574.4\n8540826\n0\nplano\nalta\n4\n51.63700\n0_100\nmuito_alta\n5\n34032.48\n30000_40000\nbaixa\n2\n240\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.341\n1500_1700\nalta\n4\n24.59118\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37251\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n519\n4\n\n\n5\n463454.4\n8540796\n0\nplano\nalta\n4\n51.60953\n0_100\nmuito_alta\n5\n34116.70\n30000_40000\nbaixa\n2\n120\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.219\n1500_1700\nalta\n4\n24.58881\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37157\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n515\n4\n\n\n6\n463484.4\n8540796\n0\nplano\nalta\n4\n51.58762\n0_100\nmuito_alta\n5\n34091.54\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.458\n1500_1700\nalta\n4\n24.58922\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37194\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n516\n4"
-  },
-  {
-    "objectID": "analises/Precisao_global_kappa.html#selecionando-dados-para-treino-e-teste",
-    "href": "analises/Precisao_global_kappa.html#selecionando-dados-para-treino-e-teste",
-    "title": "Precisão global kappa",
-    "section": "Selecionando dados para treino e teste",
-    "text": "Selecionando dados para treino e teste\n\n# Selecionando os dados classificados\nconjunto_de_dados &lt;- subset(datasetfull, aptidao != 0)\n\n# Defina a proporção desejada para treinamento (70%) e teste (30%)\nproporcao_treinamento &lt;- 0.7\n\n# Calcule o número de observações para treinamento\ntamanho_treinamento &lt;- round(nrow(conjunto_de_dados) * proporcao_treinamento)\n\n# Crie um vetor de índices aleatórios para as observações\nindices_aleatorios &lt;- sample(1:nrow(conjunto_de_dados))\n\n# Selecione as observações de treinamento com base nos índices aleatórios\nconjunto_treinamento &lt;- conjunto_de_dados[indices_aleatorios[1:tamanho_treinamento], ]\n\n# Selecione as observações de teste com base nos índices aleatórios restantes\nconjunto_teste &lt;- conjunto_de_dados[indices_aleatorios[(tamanho_treinamento + 1):nrow(conjunto_de_dados)], ]\nif(!file.exists(\"../rds/modelo_arvore.rds\")){\n    modelo_arvore &lt;- rpart(aptidao ~ ., data = conjunto_treinamento, method = \"class\")\n    saveRDS(modelo_arvore, \"../rds/modelo_arvore.rds\")\n}else{\n    modelo_arvore &lt;- readRDS(\"../rds/modelo_arvore.rds\")\n}\n\nprevisoes &lt;- predict(modelo_arvore, newdata = conjunto_teste, type = \"class\")"
-  },
-  {
-    "objectID": "analises/Precisao_global_kappa.html#calculando-matriz-de-confusão",
-    "href": "analises/Precisao_global_kappa.html#calculando-matriz-de-confusão",
-    "title": "Precisão global kappa",
-    "section": "Calculando matriz de confusão",
-    "text": "Calculando matriz de confusão\n\nconf_matrix &lt;- confusionMatrix(previsoes, factor(conjunto_teste$aptidao))\n\nkable(conf_matrix$table)\n\n\n\nTabela 2: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n266718\n0\n0\n0\n\n\n87\n30397\n0\n0\n\n\n44\n89\n33081\n0\n\n\n0\n0\n2379\n738594"
-  },
-  {
-    "objectID": "analises/Precisao_global_kappa.html#obtenha-a-precisão-global",
-    "href": "analises/Precisao_global_kappa.html#obtenha-a-precisão-global",
-    "title": "Precisão global kappa",
-    "section": "Obtenha a precisão global",
-    "text": "Obtenha a precisão global\n\naccuracy &lt;- conf_matrix$overall[\"Accuracy\"]\ncat(\"Precisão Global:\", accuracy, \"\\n\")\n\nPrecisão Global: 0.9975742"
-  },
-  {
-    "objectID": "analises/Precisao_global_kappa.html#obtenha-o-índice-kappa",
-    "href": "analises/Precisao_global_kappa.html#obtenha-o-índice-kappa",
-    "title": "Precisão global kappa",
-    "section": "Obtenha o índice kappa",
-    "text": "Obtenha o índice kappa\n\nkappa &lt;- conf_matrix$overall[\"Kappa\"]\ncat(\"Índice Kappa:\", kappa, \"\\n\")\n\nÍndice Kappa: 0.9947194"
-  },
-  {
-    "objectID": "analises/correlacao_entre_atributos.html",
-    "href": "analises/correlacao_entre_atributos.html",
-    "title": "Gráfico de correlação entre os atributos",
-    "section": "",
-    "text": "declividade_valor\ndef_hid_valor\ndist_sede_municipal_valor\ndist_vias_municipais_valor\ndrenagem_cd_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\ntemperatura_valor\ntextura_cd_aptidao\numidade_valor\nuso_cd_aptidao\n\n\n\n\n0\n51.70340\n34107.89\n150\n5\n4\n1525.620\n24.58993\n3\n79.37140\n5\n\n\n0\n51.68119\n34082.75\n180\n5\n4\n1525.859\n24.59034\n3\n79.37177\n5\n\n\n0\n51.65906\n34057.61\n210\n5\n4\n1526.099\n24.59076\n3\n79.37214\n5\n\n\n0\n51.63700\n34032.48\n240\n5\n4\n1526.341\n24.59118\n3\n79.37251\n5\n\n\n0\n51.60953\n34116.70\n120\n5\n4\n1525.219\n24.58881\n3\n79.37157\n5\n\n\n0\n51.58762\n34091.54\n150\n5\n4\n1525.458\n24.58922\n3\n79.37194\n5"
-  },
-  {
-    "objectID": "analises/correlacao_entre_atributos.html#carregando-dataset",
-    "href": "analises/correlacao_entre_atributos.html#carregando-dataset",
-    "title": "Gráfico de correlação entre os atributos",
-    "section": "",
-    "text": "declividade_valor\ndef_hid_valor\ndist_sede_municipal_valor\ndist_vias_municipais_valor\ndrenagem_cd_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\ntemperatura_valor\ntextura_cd_aptidao\numidade_valor\nuso_cd_aptidao\n\n\n\n\n0\n51.70340\n34107.89\n150\n5\n4\n1525.620\n24.58993\n3\n79.37140\n5\n\n\n0\n51.68119\n34082.75\n180\n5\n4\n1525.859\n24.59034\n3\n79.37177\n5\n\n\n0\n51.65906\n34057.61\n210\n5\n4\n1526.099\n24.59076\n3\n79.37214\n5\n\n\n0\n51.63700\n34032.48\n240\n5\n4\n1526.341\n24.59118\n3\n79.37251\n5\n\n\n0\n51.60953\n34116.70\n120\n5\n4\n1525.219\n24.58881\n3\n79.37157\n5\n\n\n0\n51.58762\n34091.54\n150\n5\n4\n1525.458\n24.58922\n3\n79.37194\n5"
-  },
-  {
-    "objectID": "analises/correlacao_entre_atributos.html#matriz-de-correlação",
-    "href": "analises/correlacao_entre_atributos.html#matriz-de-correlação",
-    "title": "Gráfico de correlação entre os atributos",
-    "section": "Matriz de Correlação",
-    "text": "Matriz de Correlação\n\n\n\nCorrelação das variáveis \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndeclividade_valor\ndef_hid_valor\ndist_sede_municipal_valor\ndist_vias_municipais_valor\ndrenagem_cd_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\ntemperatura_valor\ntextura_cd_aptidao\numidade_valor\nuso_cd_aptidao\n\n\n\n\ndeclividade_valor\n1.0000000\n-0.2641515\n0.2817667\n-0.1818003\n0.4923898\n0.4872433\n-0.3683645\n-0.4819479\n0.2660336\n-0.2014948\n0.0356608\n\n\ndef_hid_valor\n-0.2641515\n1.0000000\n-0.0943236\n0.1114915\n-0.3702340\n-0.3814862\n0.4193171\n0.5013748\n-0.2351611\n-0.2054764\n-0.0266022\n\n\ndist_sede_municipal_valor\n0.2817667\n-0.0943236\n1.0000000\n-0.0762483\n0.3284476\n0.2564773\n-0.8095353\n-0.6913517\n0.1046582\n-0.3022294\n0.1615564\n\n\ndist_vias_municipais_valor\n-0.1818003\n0.1114915\n-0.0762483\n1.0000000\n-0.4448107\n-0.3935829\n0.1089161\n0.2161638\n-0.2947839\n0.3351656\n-0.2155014\n\n\ndrenagem_cd_aptidao\n0.4923898\n-0.3702340\n0.3284476\n-0.4448107\n1.0000000\n0.9047199\n-0.4385747\n-0.6401772\n0.6910129\n-0.3372822\n0.2141532\n\n\nerodibilidade_cd_aptidao\n0.4872433\n-0.3814862\n0.2564773\n-0.3935829\n0.9047199\n1.0000000\n-0.3540407\n-0.6167999\n0.4557206\n-0.3679429\n0.1725312\n\n\npluviosidade_valor\n-0.3683645\n0.4193171\n-0.8095353\n0.1089161\n-0.4385747\n-0.3540407\n1.0000000\n0.8230684\n-0.2190392\n0.0275877\n-0.1351021\n\n\ntemperatura_valor\n-0.4819479\n0.5013748\n-0.6913517\n0.2161638\n-0.6401772\n-0.6167999\n0.8230684\n1.0000000\n-0.2360922\n0.3213455\n-0.1610287\n\n\ntextura_cd_aptidao\n0.2660336\n-0.2351611\n0.1046582\n-0.2947839\n0.6910129\n0.4557206\n-0.2190392\n-0.2360922\n1.0000000\n-0.1353107\n0.1599242\n\n\numidade_valor\n-0.2014948\n-0.2054764\n-0.3022294\n0.3351656\n-0.3372822\n-0.3679429\n0.0275877\n0.3213455\n-0.1353107\n1.0000000\n-0.1956118\n\n\nuso_cd_aptidao\n0.0356608\n-0.0266022\n0.1615564\n-0.2155014\n0.2141532\n0.1725312\n-0.1351021\n-0.1610287\n0.1599242\n-0.1956118\n1.0000000"
-  },
-  {
-    "objectID": "analises/correlacao_entre_atributos.html#mapa-de-calor",
-    "href": "analises/correlacao_entre_atributos.html#mapa-de-calor",
-    "title": "Gráfico de correlação entre os atributos",
-    "section": "Mapa de calor",
-    "text": "Mapa de calor\n\n\n\n\n\nMapa de calor das"
-  },
-  {
-    "objectID": "analisesR8/matriz_confusao.html",
-    "href": "analisesR8/matriz_confusao.html",
-    "title": "Matriz de confusão R8",
-    "section": "",
-    "text": "Uma matriz de confusão é uma tabela usada para avaliar o desempenho de um modelo de classificação em problemas de aprendizado de máquina supervisionado. Ela compara as previsões do modelo com as classes verdadeiras dos dados para calcular várias métricas de desempenho, como precisão, sensibilidade, especificidade e assim por diante.\nCarregando dataset\nCarregando libs\nAmostra dos dados\n\n\n\n\nTabela 1: Exemplos dos dados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ndeclividade_valor\ndeclividade_revelo\ndeclividade_aptidao\ndeclividade_cd_aptidao\ndef_hid_valor\ndef_hid_interval\ndef_hid_aptidao\ndef_hid_cd_aptidao\ndist_sede_municipal_valor\ndist_sede_municipal_interval\ndist_sede_municipal_aptidao\ndist_sede_municipal_cd_aptidao\ndist_vias_municipais_valor\ndist_vias_municipais_interval\ndist_vias_municipais_aptidao\ndist_vias_municipais_cd_aptidao\ndrenagem\ndrenagem_aptidao\ndrenagem_cd_aptidao\nerodibilidade\nerodibilidade_aptidao\nerodibilidade_cd_aptidao\npluviosidade_valor\npluviosidade_interval\npluviosidade_aptidao\npluviosidade_cd_aptidao\ntemperatura_valor\ntemperatura_interval\ntemperatura_aptidao\ntemperatura_cd_aptidao\ntextura\ntextura_aptidao\ntextura_cd_aptidao\numidade_valor\numidade_interval\numidade_aptidao\numidade_cd_aptidao\nuso\nuso_aptidao\nuso_cd_aptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\naptidao\n\n\n\n\n1\n463484.4\n8540826\n0\nplano\nalta\n4\n51.70340\n0_100\nmuito_alta\n5\n34107.89\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.620\n1500_1700\nalta\n4\n24.58993\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37140\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n516\n4\n\n\n2\n463514.4\n8540826\n0\nplano\nalta\n4\n51.68119\n0_100\nmuito_alta\n5\n34082.75\n30000_40000\nbaixa\n2\n180\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.859\n1500_1700\nalta\n4\n24.59034\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37177\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n517\n4\n\n\n3\n463544.4\n8540826\n0\nplano\nalta\n4\n51.65906\n0_100\nmuito_alta\n5\n34057.61\n30000_40000\nbaixa\n2\n210\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.099\n1500_1700\nalta\n4\n24.59076\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37214\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n518\n4\n\n\n4\n463574.4\n8540826\n0\nplano\nalta\n4\n51.63700\n0_100\nmuito_alta\n5\n34032.48\n30000_40000\nbaixa\n2\n240\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1526.341\n1500_1700\nalta\n4\n24.59118\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37251\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3525\n519\n4\n\n\n5\n463454.4\n8540796\n0\nplano\nalta\n4\n51.60953\n0_100\nmuito_alta\n5\n34116.70\n30000_40000\nbaixa\n2\n120\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.219\n1500_1700\nalta\n4\n24.58881\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37157\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n515\n4\n\n\n6\n463484.4\n8540796\n0\nplano\nalta\n4\n51.58762\n0_100\nmuito_alta\n5\n34091.54\n30000_40000\nbaixa\n2\n150\n0_3000\nmuito_alta\n5\nboa\nmuito_alta\n5\nbaixa\nalta\n4\n1525.458\n1500_1700\nalta\n4\n24.58922\n24_25\nalta\n4\nargilosa_ muito_argilosa\nmedia\n3\n79.37194\n79_80\nalta\n4\nmosaico_usos\nmuito_alta\n5\n3524\n516\n4\n\n\n\n\n\n\nSelecionando dados para treino e teste\nCalculando matriz de confusão\n\n\n\n\nTabela 2: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n266535\n103\n49\n34\n\n\n0\n29219\n1267\n0\n\n\n0\n1\n35256\n0\n\n\n0\n0\n0\n442623\n\n\n\n\n\n\nTaxa de acerto\n\n\n[1] \"99.81%\""
-  },
-  {
-    "objectID": "rds/Readme.html",
-    "href": "rds/Readme.html",
-    "title": "Aptidão Guaraná",
-    "section": "",
-    "text": "dataset\ndescrição\n\n\n\n\ndatasetfull.rds\ndataset completo\n\n\ndatasetfull_regras_r8.rds\ndataset com a aplicação das regras (R8)\n\n\ndatasetfull_regras_r8_rpart.rds\ndataset com a aplicação das regras (R8) e classificação rpart\n\n\ndatasetfull_regras.rds\ndataset com a aplicação de todas as regras\n\n\ndatasetfull_regras_rpart.rds\ndataset com a aplicação de todas as regras e classificação rpart\n\n\nmodelo_arvore_r8.rds\narvore rpart com 70% treino 30% teste no datasetfull_regras_r8\n\n\nmodelo_arvore.rds\narvore rpart com 70% treino 30% teste no datasetfull_regras\n\n\nmodelo_arvore_r8_full.rds\narvore rpart no datasetfull_regras_r8\n\n\nmodelo_arvore_full.rds\narvore rpart no datasetfull_regras"
-  },
-  {
-    "objectID": "analisesv4/regras_classificacao.html",
-    "href": "analisesv4/regras_classificacao.html",
-    "title": "Regras para classificação V4",
-    "section": "",
-    "text": "Loading required package: ggplot2"
-  },
-  {
-    "objectID": "analisesv4/regras_classificacao.html#regra-impróprio-1-vermelho",
-    "href": "analisesv4/regras_classificacao.html#regra-impróprio-1-vermelho",
-    "title": "Regras para classificação V4",
-    "section": "Regra – IMPRÓPRIO (1-Vermelho)",
-    "text": "Regra – IMPRÓPRIO (1-Vermelho)\n\nRegra 1\n“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3344952\n\n\n1\n888716"
-  },
-  {
-    "objectID": "analisesv4/regras_classificacao.html#regra-restrita-2-amarelo",
-    "href": "analisesv4/regras_classificacao.html#regra-restrita-2-amarelo",
-    "title": "Regras para classificação V4",
-    "section": "Regra – RESTRITA (2-Amarelo)",
-    "text": "Regra – RESTRITA (2-Amarelo)\n\nRegra 2\n“erodibilid” = ‘alta’ AND “aptidao” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3271182\n\n\n1\n888716\n\n\n2\n73770\n\n\n\n\n\n\n\nRegra 3\n(“declividad” &gt;45 AND “declividad” &lt;=75) AND “aptidao” &lt;&gt; 1 AND “aptidao” &lt;&gt;2\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3243622\n\n\n1\n888716\n\n\n2\n101330"
-  },
-  {
-    "objectID": "analisesv4/regras_classificacao.html#regra-regular-3-azul",
-    "href": "analisesv4/regras_classificacao.html#regra-regular-3-azul",
-    "title": "Regras para classificação V4",
-    "section": "Regra – REGULAR (3-Azul)",
-    "text": "Regra – REGULAR (3-Azul)\n\nRegra 4\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3224527\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n19095\n\n\n\n\n\n\n\nRegra 5\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;= 1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3191900\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n51722\n\n\n\n\n\n\n\nRegra 6\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3133987\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n109635\n\n\n\n\n\n\n\nRegra 7\n“drenagem” = ‘moderada_boa’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3133980\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n109642\n\n\n\n\n\n\n\nRegra 8\n“erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3126102\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520"
-  },
-  {
-    "objectID": "analisesv4/regras_classificacao.html#regra-boa-4-verde",
-    "href": "analisesv4/regras_classificacao.html#regra-boa-4-verde",
-    "title": "Regras para classificação V4",
-    "section": "Regra – BOA (4-Verde)",
-    "text": "Regra – BOA (4-Verde)\n\nRegra 10\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt; = 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1661640\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n1464462\n\n\n\n\n\n\n\nRegra 11\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’, ‘media’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1605346\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n1520756\n\n\n\n\n\n\n\nRegra 12\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n879393\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2246709\n\n\n\n\n\n\n\nRegra 13\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &lt;1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n675474\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2450628\n\n\n\n\n\n\n\nRegra 14\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &gt; 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n663878\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2462224\n\n\n\n\n\n\n\n\n\n\nFigura 1: Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras."
-  },
-  {
-    "objectID": "analisesv4/regras_classificacao.html#rpart",
-    "href": "analisesv4/regras_classificacao.html#rpart",
-    "title": "Regras para classificação V4",
-    "section": "Rpart",
-    "text": "Rpart\nFigura 2 mostra o resultado da aplicação do rpart\n\n\n\n\n\nFigura 2: Plotagem da area classificada com as regras aprendidas."
-  },
-  {
     "objectID": "analisesv4/Precisao_global_kappa.html",
     "href": "analisesv4/Precisao_global_kappa.html",
     "title": "Precisão global kappa",
@@ -418,5 +61,47 @@
     "title": "Precisão global kappa",
     "section": "Obtenha o índice kappa",
     "text": "Obtenha o índice kappa\n\nkappa &lt;- conf_matrix$overall[\"Kappa\"]\ncat(\"Índice Kappa:\", kappa, \"\\n\")\n\nÍndice Kappa: 0.9946692"
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html",
+    "href": "analisesv4/regras_classificacao.html",
+    "title": "Regras para classificação V4",
+    "section": "",
+    "text": "“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3344952\n\n\n1\n888716"
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html#regra-impróprio-1-vermelho",
+    "href": "analisesv4/regras_classificacao.html#regra-impróprio-1-vermelho",
+    "title": "Regras para classificação V4",
+    "section": "",
+    "text": "“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3344952\n\n\n1\n888716"
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html#regra-restrita-2-amarelo",
+    "href": "analisesv4/regras_classificacao.html#regra-restrita-2-amarelo",
+    "title": "Regras para classificação V4",
+    "section": "Regra – RESTRITA (2-Amarelo)",
+    "text": "Regra – RESTRITA (2-Amarelo)\n\nRegra 2\n“erodibilid” = ‘alta’ AND “aptidao” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3271182\n\n\n1\n888716\n\n\n2\n73770\n\n\n\n\n\n\n\nRegra 3\n(“declividad” &gt;45 AND “declividad” &lt;=75) AND “aptidao” &lt;&gt; 1 AND “aptidao” &lt;&gt;2\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3243622\n\n\n1\n888716\n\n\n2\n101330"
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html#regra-regular-3-azul",
+    "href": "analisesv4/regras_classificacao.html#regra-regular-3-azul",
+    "title": "Regras para classificação V4",
+    "section": "Regra – REGULAR (3-Azul)",
+    "text": "Regra – REGULAR (3-Azul)\n\nRegra 4\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3224527\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n19095\n\n\n\n\n\n\n\nRegra 5\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;= 1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3191900\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n51722\n\n\n\n\n\n\n\nRegra 6\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3133987\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n109635\n\n\n\n\n\n\n\nRegra 7\n“drenagem” = ‘moderada_boa’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3133980\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n109642\n\n\n\n\n\n\n\nRegra 8\n“erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3126102\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520"
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html#regra-boa-4-verde",
+    "href": "analisesv4/regras_classificacao.html#regra-boa-4-verde",
+    "title": "Regras para classificação V4",
+    "section": "Regra – BOA (4-Verde)",
+    "text": "Regra – BOA (4-Verde)\n\nRegra 10\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt; = 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1661640\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n1464462\n\n\n\n\n\n\n\nRegra 11\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’, ‘media’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1605346\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n1520756\n\n\n\n\n\n\n\nRegra 12\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n879393\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2246709\n\n\n\n\n\n\n\nRegra 13\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &lt;1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n675474\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2450628\n\n\n\n\n\n\n\nRegra 14\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &gt; 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n663878\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2462224\n\n\n\n\n\n\n\n\n\n\nFigura 1: Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras."
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html#rpart",
+    "href": "analisesv4/regras_classificacao.html#rpart",
+    "title": "Regras para classificação V4",
+    "section": "Rpart",
+    "text": "Rpart\nFigura 2 mostra o resultado da aplicação do rpart\n\n\n\n\n\nFigura 2: Plotagem da area classificada com as regras aprendidas."
   }
 ]
