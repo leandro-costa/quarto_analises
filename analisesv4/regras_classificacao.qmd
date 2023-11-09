@@ -1,0 +1,393 @@
+---
+title: "Regras para classificação V4"
+lang: pt
+format: 
+  html:
+    fig-width: 8
+    fig-height: 12
+execute:
+  echo: false
+#  freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
+  freeze: auto
+  cache: true 
+---
+
+```{r}
+
+if(!require('ggplot2')) {install.packages('ggplot2', repos='http://cran-r.c3sl.ufpr.br/')}
+library(ggplot2)
+library(knitr)
+
+#carrega datasett
+datasetfull<-readRDS("../dbf/regrasV4_aptidao.rds")
+
+#normaliza coordendas de latitude o longitude
+min_intervalo_y <- 1
+max_intervalo_y <- length(unique(datasetfull$POINT_Y))
+datasetfull["POINT_Y_normalizado"] <- ((datasetfull$POINT_Y - min(datasetfull$POINT_Y)) / (max(datasetfull$POINT_Y) - min(datasetfull$POINT_Y))) * (max_intervalo_y - min_intervalo_y) + min_intervalo_y
+
+
+min_intervalo_x <- 1
+max_intervalo_x <- length(unique(datasetfull$POINT_X))
+datasetfull["POINT_X_normalizado"] <- ((datasetfull$POINT_X - min(datasetfull$POINT_X)) / (max(datasetfull$POINT_X) - min(datasetfull$POINT_X))) * (max_intervalo_x - min_intervalo_x) + min_intervalo_x
+
+#unique(datasetfull$uso)
+datasetfull["aptidao"] <- 0
+
+
+
+```
+
+
+
+## Regra -- IMPRÓPRIO (1-Vermelho)
+
+### Regra 1  {#sec-Regra-1}
+
+"textura" IN ('indiscriminada', 'arenosa', 'corpos_dagua') OR "drenagem" IN ('corpos_dagua', 'mal_drenado', 'excessiva', 'imperfeita') OR "erodibilid" = 'muito_alta' OR "declividad">75
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'indiscriminada'|
+            datasetfull$textura == 'arenosa'|
+            datasetfull$textura == 'corpos_dagua'
+        ) 
+        | (
+            datasetfull$drenagem == 'corpos_dagua'|
+            datasetfull$drenagem == 'mal_drenado'|
+            datasetfull$drenagem == 'excessiva'|
+            datasetfull$drenagem == 'imperfeita'
+        ) 
+        |(datasetfull$erodibilid == 'muito_alta' )
+        |(datasetfull$declividad >75 )
+        ] <- 1
+kable(table(datasetfull$aptidao))
+#kable(table(datasetfull$erodibilid))
+#kable(head(datasetfull))
+#colnames(datasetfull)
+
+```
+
+
+## Regra -- RESTRITA (2-Amarelo)
+
+### Regra 2  {#sec-Regra-2}
+"erodibilid" = 'alta' AND "aptidao" <> 1
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$erodibilid == 'alta')
+        & (datasetfull$aptidao == 0)
+        ] <- 2
+kable(table(datasetfull$aptidao))
+
+```
+
+### Regra 3 {#sec-Regra-3}
+
+("declividad" >45 AND "declividad" <=75) AND "aptidao" <> 1 AND "aptidao" <>2
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+
+datasetfull$aptidao[
+            (datasetfull$declividad > 45)
+            & (datasetfull$declividad <= 75)
+            & (datasetfull$aptidao == 0)
+        ] <- 2
+#colnames(datasetfull)
+kable(table(datasetfull$aptidao))
+```
+
+## Regra -- REGULAR (3-Azul)
+
+### Regra 4  {#sec-Regra-4}
+"drenagem" = 'moderada_boa' AND "erodibilid" = 'media' AND "declividad" >20 AND "declividad" <=45 AND "pluviosida" <1500 AND "aptidao" <>1 AND "aptidao" <>2 AND "aptidao" <>4
+
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+
+datasetfull$aptidao[
+        (datasetfull$drenagem == 'moderada_boa') 
+        & (datasetfull$erodibilid == 'media')
+        & (
+            datasetfull$declividad > 20 & 
+            datasetfull$declividad <= 45
+        )
+        & (datasetfull$pluviosida < 1500)
+        & (datasetfull$aptidao == 0)
+        ] <- 3
+kable(table(datasetfull$aptidao))
+```
+
+### Regra 5  {#sec-Regra-5}
+ 
+"drenagem" = 'moderada_boa' AND "erodibilid" = 'media' AND "declividad" >20 AND "declividad" <=45 AND "pluviosida" >= 1500 AND "aptidao" <>1 AND "aptidao" <>2 AND "aptidao" <>3 AND "aptidao" <>4
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$drenagem == 'moderada_boa') 
+        & (datasetfull$erodibilid == 'media')
+        & (
+            datasetfull$declividad > 20 & 
+            datasetfull$declividad <= 45
+        )
+        & (datasetfull$pluviosida >= 1500)
+        & (datasetfull$aptidao == 0)
+        ] <- 3
+kable(table(datasetfull$aptidao))
+```
+
+### Regra 6  {#sec-Regra-6}
+
+"drenagem" = 'moderada_boa' AND "erodibilid" = 'media' AND pluviosida" <1500 AND "aptidao" <>1 AND "aptidao" <>2 AND "aptidao" <>3 AND "aptidao" <>4
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$drenagem == 'moderada_boa') 
+        & (datasetfull$erodibilid == 'media')
+        & (datasetfull$pluviosida < 1500)
+        & (datasetfull$aptidao == 0)
+        ] <- 3
+kable(table(datasetfull$aptidao))
+```
+
+### Regra 7  {#sec-Regra-7}
+
+"drenagem" = 'moderada_boa' AND  "declividad" >20 AND "declividad" <=45 AND "pluviosida" <1500 AND "aptidao" <>1 AND "aptidao" <>2 AND "aptidao" <>3 AND "aptidao" <>4
+
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$drenagem == 'moderada_boa') 
+        & (
+            datasetfull$declividad > 20 & 
+            datasetfull$declividad <= 45
+        )
+        & (datasetfull$pluviosida < 1500)
+        & (datasetfull$aptidao == 0)
+
+        ] <- 3
+kable(table(datasetfull$aptidao))
+```
+### Regra 8  {#sec-Regra-8}
+
+
+"erodibilid" = 'media'  AND "declividad" >20 AND "declividad" <=45 AND "pluviosida" <1500 AND "aptidao" <>1 AND "aptidao" <>2 AND "aptidao" <>3 AND "aptidao" <>4
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (datasetfull$erodibilid == 'media')
+        & (
+            datasetfull$declividad > 20 & 
+            datasetfull$declividad <= 45
+        )
+        & (datasetfull$pluviosida < 1500)
+        & (datasetfull$aptidao == 0)
+        ] <- 3
+kable(table(datasetfull$aptidao))
+```
+
+
+
+## Regra -- BOA (4-Verde)
+
+### Regra 10 {#sec-Regra-10}
+
+"textura" IN ('argilosa_muito_argilosa', 'media_argilosa', 'media_argilosa_argilosa') AND "drenagem" = 'boa' AND "erodibilid" IN ('baixa', 'muito_baixa') AND "declividad" <=20 AND "pluviosida" >=1500 AND "def_hid_va" < = 100 AND "aptidao" <>1 AND "aptidao" <>2 
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'argilosa_ muito_argilosa' | 
+            datasetfull$textura == 'media_argilosa' | 
+            datasetfull$textura == 'media_argilosa_argilosa'
+        ) 
+        & (datasetfull$drenagem == 'boa')
+        & (
+            datasetfull$erodibilid == 'baixa'|
+            datasetfull$erodibilid == 'muito_baixa'
+        )
+        & (datasetfull$declividad <= 20)
+        & (datasetfull$pluviosida > 1500)
+        & (datasetfull$def_hid_va <= 100)        
+        & (datasetfull$aptidao == 0)
+        ] <- 4
+
+kable(table(datasetfull$aptidao))
+
+```
+
+### Regra 11  {#sec-Regra-11}
+
+"textura" IN ('argilosa_muito_argilosa', 'media_argilosa', 'media_argilosa_argilosa') AND "drenagem" = 'boa' AND "erodibilid" IN ('baixa', 'muito_baixa', 'media') AND "declividad" <=20 AND "pluviosida" >=1500 AND "def_hid_va" <= 100 AND "aptidao" <>1 AND "aptidao" <>2 AND "aptidao" <>4
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'argilosa_ muito_argilosa' | 
+            datasetfull$textura == 'media_argilosa' | 
+            datasetfull$textura == 'media_argilosa_argilosa'
+        ) 
+        & (datasetfull$drenagem == 'boa')
+        & (
+            datasetfull$erodibilid == 'baixa'|
+            datasetfull$erodibilid == 'muito_baixa'|
+            datasetfull$erodibilid == 'media'
+        )
+        & (datasetfull$declividad <= 20)
+        & (datasetfull$pluviosida >= 1500)
+        & (datasetfull$def_hid_va <= 100)        
+        & (datasetfull$aptidao == 0)
+        ] <- 4
+
+kable(table(datasetfull$aptidao))
+```
+
+### Regra 12  {#sec-Regra-12}
+
+"textura" IN ('argilosa_muito_argilosa', 'media_argilosa', 'media_argilosa_argilosa') AND "drenagem" = 'boa' AND "erodibilid" IN ('baixa', 'muito_baixa') AND "declividad" >20 AND "declividad" <=45 AND  "pluviosida" >=1500 AND "def_hid_va" <= 100 AND "aptidao" <>1 AND "aptidao" <>2 AND "aptidao" <>4
+
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'argilosa_ muito_argilosa' | 
+            datasetfull$textura == 'media_argilosa' | 
+            datasetfull$textura == 'media_argilosa_argilosa'
+        ) 
+        & (datasetfull$drenagem == 'boa')
+        & (
+            datasetfull$erodibilid == 'baixa'|
+            datasetfull$erodibilid == 'muito_baixa'
+        )
+        & (
+            datasetfull$declividad > 20 & 
+            datasetfull$declividad <= 45
+        )
+        & (datasetfull$pluviosida >= 1500)
+        & (datasetfull$def_hid_va <= 100)        
+        & (datasetfull$aptidao == 0)
+        ] <- 4
+
+kable(table(datasetfull$aptidao))
+```
+
+### Regra 13  {#sec-Regra-13}
+
+"textura" IN ('argilosa_muito_argilosa', 'media_argilosa', 'media_argilosa_argilosa') AND "drenagem" = 'boa' AND "erodibilid" IN ('baixa', 'muito_baixa') AND "declividad" <=20 AND "pluviosida" <1500 AND "def_hid_va" <= 100 AND "aptidao" <>1 AND "aptidao" <>2 AND "aptidao" <>4
+
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'argilosa_ muito_argilosa' | 
+            datasetfull$textura == 'media_argilosa' | 
+            datasetfull$textura == 'media_argilosa_argilosa'
+        ) 
+        & (datasetfull$drenagem == 'boa')
+        & (
+            datasetfull$erodibilid == 'baixa'|
+            datasetfull$erodibilid == 'muito_baixa'
+        )
+        & (datasetfull$declividad <=20)
+        & (datasetfull$pluviosida < 1500)
+        & (datasetfull$def_hid_va <= 100)        
+        & (datasetfull$aptidao == 0)
+        ] <- 4
+kable(table(datasetfull$aptidao))
+```
+
+
+### Regra 14  {#sec-Regra-14}
+
+"textura" IN ('argilosa_muito_argilosa', 'media_argilosa', 'media_argilosa_argilosa') AND "drenagem" = 'boa' AND "erodibilid" IN ('baixa', 'muito_baixa') AND "declividad" <=20 AND "pluviosida" >=1500 AND "def_hid_va" > 100 AND "aptidao" <>1 AND "aptidao" <>2  AND "aptidao" <>4
+
+
+```{r}
+#| tbl-cap: "Evidências classificadas"
+datasetfull$aptidao[
+        (
+            datasetfull$textura == 'argilosa_ muito_argilosa' | 
+            datasetfull$textura == 'media_argilosa' | 
+            datasetfull$textura == 'media_argilosa_argilosa'
+        ) 
+        & (datasetfull$drenagem == 'boa')
+        & (
+            datasetfull$erodibilid == 'baixa'|
+            datasetfull$erodibilid == 'muito_baixa'
+        )
+        & (datasetfull$declividad <=20)
+        & (datasetfull$pluviosida >= 1500)
+        & (datasetfull$def_hid_va > 100)        
+        & (datasetfull$aptidao == 0)
+        ] <- 4
+kable(table(datasetfull$aptidao))
+```
+
+
+```{r}
+#| label: fig-todas
+#| fig-cap: "Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras."
+#| warning: false
+nomeregra = "TODAS"
+
+ggplot(datasetfull, aes(x = datasetfull$POINT_X_normalizado, y = datasetfull$POINT_Y_normalizado, color = as.factor(datasetfull$aptidao))) +
+    geom_point() +
+    scale_color_manual(values = c("0" = "lightgray", "1" = "red", "2" = "yellow", "3" = "blue", "4" = "green")) +
+    theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
+```
+
+
+```{r}
+if(!file.exists("../dbf/regrasV4_aptidao_regras.rds")){
+    saveRDS(datasetfull, "../dbf/regrasV4_aptidao_regras.rds")
+}
+```
+
+## Rpart
+
+@fig-rpart mostra o resultado da aplicação do rpart 
+
+```{r}
+#| label: fig-rpart
+#| fig-cap: "Plotagem da area classificada com as regras aprendidas."
+#| warning: false
+#| echo: false
+nomeregra = "RPART"
+indice_treino <- which(datasetfull$aptidao != 0)
+conjunto_treino <- datasetfull[indice_treino, ]
+conjunto_teste <- datasetfull[-indice_treino, ]
+if(!file.exists("../dbf/regrasV4_aptidao_regras_modelo.rds")){
+    if(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}
+    library(rpart)
+    modelo_arvore <- rpart(aptidao ~ ., data = conjunto_treino, method = "class")
+    saveRDS(modelo_arvore, "../dbf/regrasV4_aptidao_regras_modelo.rds")
+}else{
+    modelo_arvore <- readRDS("../dbf/regrasV4_aptidao_regras_modelo.rds")
+}
+previsoes <- predict(modelo_arvore, newdata = conjunto_teste, type = "class")
+datasetfull[-indice_treino, "aptidao"] <- previsoes
+
+if(!file.exists("../dbf/regrasV4_aptidao_regras_modelo_rpart.rds")){
+    saveRDS(datasetfull, "../dbf/regrasV4_aptidao_regras_modelo_rpart.rds")
+}
+
+ggplot(datasetfull, aes(x = datasetfull$POINT_X_normalizado, y = datasetfull$POINT_Y_normalizado, color = as.factor(datasetfull$aptidao))) +
+    geom_point() +
+    scale_color_manual(values = c("0" = "lightgray", "1" = "red", "2" = "yellow", "3" = "blue", "4" = "green")) +
+    theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
+```

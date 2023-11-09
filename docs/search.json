@@ -320,5 +320,103 @@
     "title": "Aptidão Guaraná",
     "section": "",
     "text": "dataset\ndescrição\n\n\n\n\ndatasetfull.rds\ndataset completo\n\n\ndatasetfull_regras_r8.rds\ndataset com a aplicação das regras (R8)\n\n\ndatasetfull_regras_r8_rpart.rds\ndataset com a aplicação das regras (R8) e classificação rpart\n\n\ndatasetfull_regras.rds\ndataset com a aplicação de todas as regras\n\n\ndatasetfull_regras_rpart.rds\ndataset com a aplicação de todas as regras e classificação rpart\n\n\nmodelo_arvore_r8.rds\narvore rpart com 70% treino 30% teste no datasetfull_regras_r8\n\n\nmodelo_arvore.rds\narvore rpart com 70% treino 30% teste no datasetfull_regras\n\n\nmodelo_arvore_r8_full.rds\narvore rpart no datasetfull_regras_r8\n\n\nmodelo_arvore_full.rds\narvore rpart no datasetfull_regras"
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html",
+    "href": "analisesv4/regras_classificacao.html",
+    "title": "Regras para classificação V4",
+    "section": "",
+    "text": "Loading required package: ggplot2"
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html#regra-impróprio-1-vermelho",
+    "href": "analisesv4/regras_classificacao.html#regra-impróprio-1-vermelho",
+    "title": "Regras para classificação V4",
+    "section": "Regra – IMPRÓPRIO (1-Vermelho)",
+    "text": "Regra – IMPRÓPRIO (1-Vermelho)\n\nRegra 1\n“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3344952\n\n\n1\n888716"
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html#regra-restrita-2-amarelo",
+    "href": "analisesv4/regras_classificacao.html#regra-restrita-2-amarelo",
+    "title": "Regras para classificação V4",
+    "section": "Regra – RESTRITA (2-Amarelo)",
+    "text": "Regra – RESTRITA (2-Amarelo)\n\nRegra 2\n“erodibilid” = ‘alta’ AND “aptidao” &lt;&gt; 1\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3271182\n\n\n1\n888716\n\n\n2\n73770\n\n\n\n\n\n\n\nRegra 3\n(“declividad” &gt;45 AND “declividad” &lt;=75) AND “aptidao” &lt;&gt; 1 AND “aptidao” &lt;&gt;2\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3243622\n\n\n1\n888716\n\n\n2\n101330"
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html#regra-regular-3-azul",
+    "href": "analisesv4/regras_classificacao.html#regra-regular-3-azul",
+    "title": "Regras para classificação V4",
+    "section": "Regra – REGULAR (3-Azul)",
+    "text": "Regra – REGULAR (3-Azul)\n\nRegra 4\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3224527\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n19095\n\n\n\n\n\n\n\nRegra 5\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;= 1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3191900\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n51722\n\n\n\n\n\n\n\nRegra 6\n“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3133987\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n109635\n\n\n\n\n\n\n\nRegra 7\n“drenagem” = ‘moderada_boa’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3133980\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n109642\n\n\n\n\n\n\n\nRegra 8\n“erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n3126102\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520"
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html#regra-boa-4-verde",
+    "href": "analisesv4/regras_classificacao.html#regra-boa-4-verde",
+    "title": "Regras para classificação V4",
+    "section": "Regra – BOA (4-Verde)",
+    "text": "Regra – BOA (4-Verde)\n\nRegra 10\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt; = 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1661640\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n1464462\n\n\n\n\n\n\n\nRegra 11\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’, ‘media’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n1605346\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n1520756\n\n\n\n\n\n\n\nRegra 12\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n879393\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2246709\n\n\n\n\n\n\n\nRegra 13\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &lt;1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n675474\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2450628\n\n\n\n\n\n\n\nRegra 14\n“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &gt; 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4\n\n\n\nEvidências classificadas \n\n\nVar1\nFreq\n\n\n\n\n0\n663878\n\n\n1\n888716\n\n\n2\n101330\n\n\n3\n117520\n\n\n4\n2462224\n\n\n\n\n\n\n\n\n\n\nFigura 1: Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras."
+  },
+  {
+    "objectID": "analisesv4/regras_classificacao.html#rpart",
+    "href": "analisesv4/regras_classificacao.html#rpart",
+    "title": "Regras para classificação V4",
+    "section": "Rpart",
+    "text": "Rpart\nFigura 2 mostra o resultado da aplicação do rpart\n\n\n\n\n\nFigura 2: Plotagem da area classificada com as regras aprendidas."
+  },
+  {
+    "objectID": "analisesv4/Precisao_global_kappa.html",
+    "href": "analisesv4/Precisao_global_kappa.html",
+    "title": "Precisão global kappa",
+    "section": "",
+    "text": "A precisão global e o índice kappa são métricas comuns usadas para avaliar a precisão de modelos de classificação em R. O índice kappa leva em consideração a concordância observada entre as previsões do modelo e as classes reais, ajustando-a para a concordância esperada ao acaso. Ele fornece uma medida da precisão do modelo que leva em consideração a chance de acerto aleatório."
+  },
+  {
+    "objectID": "analisesv4/Precisao_global_kappa.html#carregando-dataset",
+    "href": "analisesv4/Precisao_global_kappa.html#carregando-dataset",
+    "title": "Precisão global kappa",
+    "section": "Carregando dataset",
+    "text": "Carregando dataset\n\ndatasetfull&lt;-readRDS(\"../dbf/regrasV4_aptidao_regras.rds\")\n\nnovo_dataset &lt;- scale(datasetfull[, c(\"text_code\",\n                                    \"dren_code\",\n                                    \"erod_code\",\n                                    \"declividad\",\n                                    \"pluviosida\",\n                                    \"def_hid_va\",\n                                    \"umidade_va\",\n                                    \"temperatur\",\n                                    \"altitude\",\n                                    \"aptidao\")\n                                    ])"
+  },
+  {
+    "objectID": "analisesv4/Precisao_global_kappa.html#carregando-libs",
+    "href": "analisesv4/Precisao_global_kappa.html#carregando-libs",
+    "title": "Precisão global kappa",
+    "section": "Carregando libs",
+    "text": "Carregando libs\n\nif(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(caret)\nif(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(rpart)\nif(!require('knitr')) {install.packages('knitr', repos='http://cran-r.c3sl.ufpr.br/')}\nlibrary(knitr)"
+  },
+  {
+    "objectID": "analisesv4/Precisao_global_kappa.html#amostra-dos-dados",
+    "href": "analisesv4/Precisao_global_kappa.html#amostra-dos-dados",
+    "title": "Precisão global kappa",
+    "section": "Amostra dos dados",
+    "text": "Amostra dos dados\n\nlibrary(knitr)\nkable(head(datasetfull))\n\n\n\nTabela 1: Exemplos dos dados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nPOINT_X\nPOINT_Y\ntextura\ntext_code\ndrenagem\ndren_code\nerodibilid\nerod_code\ndeclividad\npluviosida\ndef_hid_va\numidade_va\ntemperatur\naltitude\naptidao\nPOINT_Y_normalizado\nPOINT_X_normalizado\n\n\n\n\n1\n463484.4\n8540826\nargilosa_ muito_argilosa\n4\nboa\n4\nbaixa\n4\n0\n1525.620\n51.70340\n79.37140\n24.58993\n204\n4\n3525\n516\n\n\n2\n463514.4\n8540826\nargilosa_ muito_argilosa\n4\nboa\n4\nbaixa\n4\n0\n1525.859\n51.68119\n79.37177\n24.59034\n204\n4\n3525\n517\n\n\n3\n463544.4\n8540826\nargilosa_ muito_argilosa\n4\nboa\n4\nbaixa\n4\n0\n1526.099\n51.65906\n79.37214\n24.59076\n204\n4\n3525\n518\n\n\n4\n463574.4\n8540826\nargilosa_ muito_argilosa\n4\nboa\n4\nbaixa\n4\n0\n1526.341\n51.63700\n79.37251\n24.59118\n204\n4\n3525\n519\n\n\n5\n463454.4\n8540796\nargilosa_ muito_argilosa\n4\nboa\n4\nbaixa\n4\n0\n1525.219\n51.60953\n79.37157\n24.58881\n204\n4\n3524\n515\n\n\n6\n463484.4\n8540796\nargilosa_ muito_argilosa\n4\nboa\n4\nbaixa\n4\n0\n1525.458\n51.58762\n79.37194\n24.58922\n204\n4\n3524\n516\n\n\n\n\n\n\n\nlibrary(knitr)\nkable(head(novo_dataset))\n\n\n\nTabela 2: Exemplos dos dados normalizados\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntext_code\ndren_code\nerod_code\ndeclividad\npluviosida\ndef_hid_va\numidade_va\ntemperatur\naltitude\naptidao\n\n\n\n\n0.5152822\n0.6258776\n0.6833827\n-1.196301\n-1.042357\n0.8716703\n-1.545017\n-0.9574492\n0.7172267\n0.8042052\n\n\n0.5152822\n0.6258776\n0.6833827\n-1.196301\n-1.039810\n0.8706425\n-1.544289\n-0.9561411\n0.7172267\n0.8042052\n\n\n0.5152822\n0.6258776\n0.6833827\n-1.196301\n-1.037250\n0.8696183\n-1.543575\n-0.9548269\n0.7172267\n0.8042052\n\n\n0.5152822\n0.6258776\n0.6833827\n-1.196301\n-1.034679\n0.8685972\n-1.542862\n-0.9534946\n0.7172267\n0.8042052\n\n\n0.5152822\n0.6258776\n0.6833827\n-1.196301\n-1.046623\n0.8673258\n-1.544675\n-0.9610102\n0.7172267\n0.8042052\n\n\n0.5152822\n0.6258776\n0.6833827\n-1.196301\n-1.044083\n0.8663115\n-1.543962\n-0.9597142\n0.7172267\n0.8042052"
+  },
+  {
+    "objectID": "analisesv4/Precisao_global_kappa.html#selecionando-dados-para-treino-e-teste",
+    "href": "analisesv4/Precisao_global_kappa.html#selecionando-dados-para-treino-e-teste",
+    "title": "Precisão global kappa",
+    "section": "Selecionando dados para treino e teste",
+    "text": "Selecionando dados para treino e teste\n\n# Selecionando os dados classificados\nconjunto_de_dados &lt;- subset(datasetfull, aptidao != 0)\n\n# Defina a proporção desejada para treinamento (70%) e teste (30%)\nproporcao_treinamento &lt;- 0.7\n\n# Calcule o número de observações para treinamento\ntamanho_treinamento &lt;- round(nrow(conjunto_de_dados) * proporcao_treinamento)\n\n# Crie um vetor de índices aleatórios para as observações\nindices_aleatorios &lt;- sample(1:nrow(conjunto_de_dados))\n\n# Selecione as observações de treinamento com base nos índices aleatórios\nconjunto_treinamento &lt;- conjunto_de_dados[indices_aleatorios[1:tamanho_treinamento], ]\n\n# Selecione as observações de teste com base nos índices aleatórios restantes\nconjunto_teste &lt;- conjunto_de_dados[indices_aleatorios[(tamanho_treinamento + 1):nrow(conjunto_de_dados)], ]\nif(!file.exists(\"../dbf/regrasV4_aptidao_regras_modelo_kappa.rds\")){\n    modelo_arvore &lt;- rpart(aptidao ~ ., data = conjunto_treinamento, method = \"class\")\n    saveRDS(modelo_arvore, \"../dbf/regrasV4_aptidao_regras_modelo_kappa.rds\")\n}else{\n    modelo_arvore &lt;- readRDS(\"../dbf/regrasV4_aptidao_regras_modelo_kappa.rds\")\n}\n\nprevisoes &lt;- predict(modelo_arvore, newdata = conjunto_teste, type = \"class\")"
+  },
+  {
+    "objectID": "analisesv4/Precisao_global_kappa.html#calculando-matriz-de-confusão",
+    "href": "analisesv4/Precisao_global_kappa.html#calculando-matriz-de-confusão",
+    "title": "Precisão global kappa",
+    "section": "Calculando matriz de confusão",
+    "text": "Calculando matriz de confusão\n\nconf_matrix &lt;- confusionMatrix(previsoes, factor(conjunto_teste$aptidao))\n\nkable(conf_matrix$table)\n\n\n\nTabela 3: Matriz de confusão\n\n\n1\n2\n3\n4\n\n\n\n\n266602\n0\n0\n0\n\n\n97\n30561\n0\n0\n\n\n34\n84\n32512\n0\n\n\n0\n0\n2405\n738642"
+  },
+  {
+    "objectID": "analisesv4/Precisao_global_kappa.html#obtenha-a-precisão-global",
+    "href": "analisesv4/Precisao_global_kappa.html#obtenha-a-precisão-global",
+    "title": "Precisão global kappa",
+    "section": "Obtenha a precisão global",
+    "text": "Obtenha a precisão global\n\naccuracy &lt;- conf_matrix$overall[\"Accuracy\"]\ncat(\"Precisão Global:\", accuracy, \"\\n\")\n\nPrecisão Global: 0.9975535"
+  },
+  {
+    "objectID": "analisesv4/Precisao_global_kappa.html#obtenha-o-índice-kappa",
+    "href": "analisesv4/Precisao_global_kappa.html#obtenha-o-índice-kappa",
+    "title": "Precisão global kappa",
+    "section": "Obtenha o índice kappa",
+    "text": "Obtenha o índice kappa\n\nkappa &lt;- conf_matrix$overall[\"Kappa\"]\ncat(\"Índice Kappa:\", kappa, \"\\n\")\n\nÍndice Kappa: 0.9946692"
   }
 ]

@@ -1,5 +1,7 @@
 /.quarto/
 /rds/
+/dbf/
+/csv/
 /analises/regras_classificacao_cache
 /analises/regras_classificacao_files
 /analises/matriz_confusao_cache
@@ -11,4 +13,9 @@
 /analisesR8/regras_classificacao_cache
 /analisesR8/regras_classificacao_files
 /analisesR8/matriz_confusao_cache
+/analisesv4/Precisao_global_kappa_cache
+/analisesv4/regras_classificacao_cache
+/analisesv4/regras_classificacao_files
+
 /_freeze
+V4.r

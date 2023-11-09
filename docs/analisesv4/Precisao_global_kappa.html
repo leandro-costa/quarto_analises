@@ -156,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analises/correlacao_entre_atributos.html">Analises</a></li><li class="breadcrumb-item"><a href="../analises/Precisao_global_kappa.html">Precisão global kappa</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analisesv4/Precisao_global_kappa.html">Analisesv4</a></li><li class="breadcrumb-item"><a href="../analisesv4/Precisao_global_kappa.html">Precisão global kappa</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analises/Precisao_global_kappa.html" class="sidebar-item-text sidebar-link active">
+  <a href="../analises/Precisao_global_kappa.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Precisão global kappa</span></a>
   </div>
 </li>
@@ -247,6 +247,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analisesv4/Precisao_global_kappa.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Precisão global kappa</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../analisesv4/regras_classificacao.html" class="sidebar-item-text sidebar-link">
@@ -315,22 +321,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A precisão global e o índice kappa são métricas comuns usadas para avaliar a precisão de modelos de classificação em R. O índice kappa leva em consideração a concordância observada entre as previsões do modelo e as classes reais, ajustando-a para a concordância esperada ao acaso. Ele fornece uma medida da precisão do modelo que leva em consideração a chance de acerto aleatório.</p>
 <section id="carregando-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="carregando-dataset">Carregando dataset</h2>
-<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-1_8fb7281fa46d3d8dc1d301d5190f107b">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>datasetfull<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">"../rds/datasetfull_regras.rds"</span>)</span>
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-1_e14468d3c374d563ba9bfd35e967087f">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>datasetfull<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">"../dbf/regrasV4_aptidao_regras.rds"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>novo_dataset <span class="ot">&lt;-</span> <span class="fu">scale</span>(datasetfull[, <span class="fu">c</span>(<span class="st">"declividade_valor"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"def_hid_valor"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"dist_sede_municipal_valor"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"dist_vias_municipais_valor"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"drenagem_cd_aptidao"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"erodibilidade_cd_aptidao"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"pluviosidade_valor"</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"temperatura_valor"</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"textura_cd_aptidao"</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"umidade_valor"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"uso_cd_aptidao"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                                  ,<span class="st">"aptidao"</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                                  )])</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>novo_dataset <span class="ot">&lt;-</span> <span class="fu">scale</span>(datasetfull[, <span class="fu">c</span>(<span class="st">"text_code"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"dren_code"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"erod_code"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"declividad"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"pluviosida"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"def_hid_va"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"umidade_va"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"temperatur"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"altitude"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"aptidao"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                                    ])</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="carregando-libs" class="level2">
@@ -346,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="amostra-dos-dados" class="level2">
 <h2 class="anchored" data-anchor-id="amostra-dos-dados">Amostra dos dados</h2>
-<div class="cell" data-hash="Precisao_global_kappa_cache/html/tbl-example-datasetfull_9e5af7d996d26795407a255dc125a386">
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/tbl-example-datasetfull_a0f6c67874ead809a2a44f1e61cac60d">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(datasetfull))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -354,101 +358,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="table table-sm table-striped small">
 <caption>Tabela&nbsp;1: Exemplos dos dados</caption>
 <colgroup>
-<col style="width: 0%">
 <col style="width: 1%">
-<col style="width: 0%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 2%">
+<col style="width: 4%">
 <col style="width: 3%">
+<col style="width: 12%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 4%">
 <col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 1%">
-<col style="width: 2%">
-<col style="width: 2%">
-<col style="width: 0%">
+<col style="width: 9%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: right;">ID</th>
 <th style="text-align: right;">POINT_X</th>
 <th style="text-align: right;">POINT_Y</th>
-<th style="text-align: right;">declividade_valor</th>
-<th style="text-align: left;">declividade_revelo</th>
-<th style="text-align: left;">declividade_aptidao</th>
-<th style="text-align: right;">declividade_cd_aptidao</th>
-<th style="text-align: right;">def_hid_valor</th>
-<th style="text-align: left;">def_hid_interval</th>
-<th style="text-align: left;">def_hid_aptidao</th>
-<th style="text-align: right;">def_hid_cd_aptidao</th>
-<th style="text-align: right;">dist_sede_municipal_valor</th>
-<th style="text-align: left;">dist_sede_municipal_interval</th>
-<th style="text-align: left;">dist_sede_municipal_aptidao</th>
-<th style="text-align: right;">dist_sede_municipal_cd_aptidao</th>
-<th style="text-align: right;">dist_vias_municipais_valor</th>
-<th style="text-align: left;">dist_vias_municipais_interval</th>
-<th style="text-align: left;">dist_vias_municipais_aptidao</th>
-<th style="text-align: right;">dist_vias_municipais_cd_aptidao</th>
-<th style="text-align: left;">drenagem</th>
-<th style="text-align: left;">drenagem_aptidao</th>
-<th style="text-align: right;">drenagem_cd_aptidao</th>
-<th style="text-align: left;">erodibilidade</th>
-<th style="text-align: left;">erodibilidade_aptidao</th>
-<th style="text-align: right;">erodibilidade_cd_aptidao</th>
-<th style="text-align: right;">pluviosidade_valor</th>
-<th style="text-align: left;">pluviosidade_interval</th>
-<th style="text-align: left;">pluviosidade_aptidao</th>
-<th style="text-align: right;">pluviosidade_cd_aptidao</th>
-<th style="text-align: right;">temperatura_valor</th>
-<th style="text-align: left;">temperatura_interval</th>
-<th style="text-align: left;">temperatura_aptidao</th>
-<th style="text-align: right;">temperatura_cd_aptidao</th>
 <th style="text-align: left;">textura</th>
-<th style="text-align: left;">textura_aptidao</th>
-<th style="text-align: right;">textura_cd_aptidao</th>
-<th style="text-align: right;">umidade_valor</th>
-<th style="text-align: left;">umidade_interval</th>
-<th style="text-align: left;">umidade_aptidao</th>
-<th style="text-align: right;">umidade_cd_aptidao</th>
-<th style="text-align: left;">uso</th>
-<th style="text-align: left;">uso_aptidao</th>
-<th style="text-align: right;">uso_cd_aptidao</th>
+<th style="text-align: right;">text_code</th>
+<th style="text-align: left;">drenagem</th>
+<th style="text-align: right;">dren_code</th>
+<th style="text-align: left;">erodibilid</th>
+<th style="text-align: right;">erod_code</th>
+<th style="text-align: right;">declividad</th>
+<th style="text-align: right;">pluviosida</th>
+<th style="text-align: right;">def_hid_va</th>
+<th style="text-align: right;">umidade_va</th>
+<th style="text-align: right;">temperatur</th>
+<th style="text-align: right;">altitude</th>
+<th style="text-align: right;">aptidao</th>
 <th style="text-align: right;">POINT_Y_normalizado</th>
 <th style="text-align: right;">POINT_X_normalizado</th>
-<th style="text-align: right;">aptidao</th>
 </tr>
 </thead>
 <tbody>
@@ -456,289 +404,232 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">463484.4</td>
 <td style="text-align: right;">8540826</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">plano</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">51.70340</td>
-<td style="text-align: left;">0_100</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">34107.89</td>
-<td style="text-align: left;">30000_40000</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">150</td>
-<td style="text-align: left;">0_3000</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">boa</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1525.620</td>
-<td style="text-align: left;">1500_1700</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">24.58993</td>
-<td style="text-align: left;">24_25</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: left;">argilosa_ muito_argilosa</td>
-<td style="text-align: left;">media</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">79.37140</td>
-<td style="text-align: left;">79_80</td>
-<td style="text-align: left;">alta</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: left;">mosaico_usos</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: left;">boa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">baixa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1525.620</td>
+<td style="text-align: right;">51.70340</td>
+<td style="text-align: right;">79.37140</td>
+<td style="text-align: right;">24.58993</td>
+<td style="text-align: right;">204</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">3525</td>
 <td style="text-align: right;">516</td>
-<td style="text-align: right;">4</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">463514.4</td>
 <td style="text-align: right;">8540826</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">plano</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">51.68119</td>
-<td style="text-align: left;">0_100</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">34082.75</td>
-<td style="text-align: left;">30000_40000</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">180</td>
-<td style="text-align: left;">0_3000</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">boa</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1525.859</td>
-<td style="text-align: left;">1500_1700</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">24.59034</td>
-<td style="text-align: left;">24_25</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: left;">argilosa_ muito_argilosa</td>
-<td style="text-align: left;">media</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">79.37177</td>
-<td style="text-align: left;">79_80</td>
-<td style="text-align: left;">alta</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: left;">mosaico_usos</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: left;">boa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">baixa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1525.859</td>
+<td style="text-align: right;">51.68119</td>
+<td style="text-align: right;">79.37177</td>
+<td style="text-align: right;">24.59034</td>
+<td style="text-align: right;">204</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">3525</td>
 <td style="text-align: right;">517</td>
-<td style="text-align: right;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">463544.4</td>
 <td style="text-align: right;">8540826</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">plano</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">51.65906</td>
-<td style="text-align: left;">0_100</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">34057.61</td>
-<td style="text-align: left;">30000_40000</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">210</td>
-<td style="text-align: left;">0_3000</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">boa</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1526.099</td>
-<td style="text-align: left;">1500_1700</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">24.59076</td>
-<td style="text-align: left;">24_25</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: left;">argilosa_ muito_argilosa</td>
-<td style="text-align: left;">media</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">79.37214</td>
-<td style="text-align: left;">79_80</td>
-<td style="text-align: left;">alta</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: left;">mosaico_usos</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: left;">boa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">baixa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1526.099</td>
+<td style="text-align: right;">51.65906</td>
+<td style="text-align: right;">79.37214</td>
+<td style="text-align: right;">24.59076</td>
+<td style="text-align: right;">204</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">3525</td>
 <td style="text-align: right;">518</td>
-<td style="text-align: right;">4</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">463574.4</td>
 <td style="text-align: right;">8540826</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">plano</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">51.63700</td>
-<td style="text-align: left;">0_100</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">34032.48</td>
-<td style="text-align: left;">30000_40000</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">240</td>
-<td style="text-align: left;">0_3000</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">boa</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1526.341</td>
-<td style="text-align: left;">1500_1700</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">24.59118</td>
-<td style="text-align: left;">24_25</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: left;">argilosa_ muito_argilosa</td>
-<td style="text-align: left;">media</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">79.37251</td>
-<td style="text-align: left;">79_80</td>
-<td style="text-align: left;">alta</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: left;">mosaico_usos</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: left;">boa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">baixa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1526.341</td>
+<td style="text-align: right;">51.63700</td>
+<td style="text-align: right;">79.37251</td>
+<td style="text-align: right;">24.59118</td>
+<td style="text-align: right;">204</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">3525</td>
 <td style="text-align: right;">519</td>
-<td style="text-align: right;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">463454.4</td>
 <td style="text-align: right;">8540796</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">plano</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">51.60953</td>
-<td style="text-align: left;">0_100</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">34116.70</td>
-<td style="text-align: left;">30000_40000</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">120</td>
-<td style="text-align: left;">0_3000</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">boa</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1525.219</td>
-<td style="text-align: left;">1500_1700</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">24.58881</td>
-<td style="text-align: left;">24_25</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: left;">argilosa_ muito_argilosa</td>
-<td style="text-align: left;">media</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">79.37157</td>
-<td style="text-align: left;">79_80</td>
-<td style="text-align: left;">alta</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: left;">mosaico_usos</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: left;">boa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">baixa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1525.219</td>
+<td style="text-align: right;">51.60953</td>
+<td style="text-align: right;">79.37157</td>
+<td style="text-align: right;">24.58881</td>
+<td style="text-align: right;">204</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">3524</td>
 <td style="text-align: right;">515</td>
-<td style="text-align: right;">4</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">463484.4</td>
 <td style="text-align: right;">8540796</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">plano</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">51.58762</td>
-<td style="text-align: left;">0_100</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">34091.54</td>
-<td style="text-align: left;">30000_40000</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">150</td>
-<td style="text-align: left;">0_3000</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">boa</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">baixa</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1525.458</td>
-<td style="text-align: left;">1500_1700</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">24.58922</td>
-<td style="text-align: left;">24_25</td>
-<td style="text-align: left;">alta</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: left;">argilosa_ muito_argilosa</td>
-<td style="text-align: left;">media</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">79.37194</td>
-<td style="text-align: left;">79_80</td>
-<td style="text-align: left;">alta</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: left;">mosaico_usos</td>
-<td style="text-align: left;">muito_alta</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: left;">boa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">baixa</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1525.458</td>
+<td style="text-align: right;">51.58762</td>
+<td style="text-align: right;">79.37194</td>
+<td style="text-align: right;">24.58922</td>
+<td style="text-align: right;">204</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">3524</td>
 <td style="text-align: right;">516</td>
-<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/tbl-example-novo_dataset_c21c5778eb933d4c4e3aef2907a1d78f">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(novo_dataset))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="tbl-example-novo_dataset" class="anchored">
+<table class="table table-sm table-striped small">
+<caption>Tabela&nbsp;2: Exemplos dos dados normalizados</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">text_code</th>
+<th style="text-align: right;">dren_code</th>
+<th style="text-align: right;">erod_code</th>
+<th style="text-align: right;">declividad</th>
+<th style="text-align: right;">pluviosida</th>
+<th style="text-align: right;">def_hid_va</th>
+<th style="text-align: right;">umidade_va</th>
+<th style="text-align: right;">temperatur</th>
+<th style="text-align: right;">altitude</th>
+<th style="text-align: right;">aptidao</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.5152822</td>
+<td style="text-align: right;">0.6258776</td>
+<td style="text-align: right;">0.6833827</td>
+<td style="text-align: right;">-1.196301</td>
+<td style="text-align: right;">-1.042357</td>
+<td style="text-align: right;">0.8716703</td>
+<td style="text-align: right;">-1.545017</td>
+<td style="text-align: right;">-0.9574492</td>
+<td style="text-align: right;">0.7172267</td>
+<td style="text-align: right;">0.8042052</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.5152822</td>
+<td style="text-align: right;">0.6258776</td>
+<td style="text-align: right;">0.6833827</td>
+<td style="text-align: right;">-1.196301</td>
+<td style="text-align: right;">-1.039810</td>
+<td style="text-align: right;">0.8706425</td>
+<td style="text-align: right;">-1.544289</td>
+<td style="text-align: right;">-0.9561411</td>
+<td style="text-align: right;">0.7172267</td>
+<td style="text-align: right;">0.8042052</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.5152822</td>
+<td style="text-align: right;">0.6258776</td>
+<td style="text-align: right;">0.6833827</td>
+<td style="text-align: right;">-1.196301</td>
+<td style="text-align: right;">-1.037250</td>
+<td style="text-align: right;">0.8696183</td>
+<td style="text-align: right;">-1.543575</td>
+<td style="text-align: right;">-0.9548269</td>
+<td style="text-align: right;">0.7172267</td>
+<td style="text-align: right;">0.8042052</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.5152822</td>
+<td style="text-align: right;">0.6258776</td>
+<td style="text-align: right;">0.6833827</td>
+<td style="text-align: right;">-1.196301</td>
+<td style="text-align: right;">-1.034679</td>
+<td style="text-align: right;">0.8685972</td>
+<td style="text-align: right;">-1.542862</td>
+<td style="text-align: right;">-0.9534946</td>
+<td style="text-align: right;">0.7172267</td>
+<td style="text-align: right;">0.8042052</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.5152822</td>
+<td style="text-align: right;">0.6258776</td>
+<td style="text-align: right;">0.6833827</td>
+<td style="text-align: right;">-1.196301</td>
+<td style="text-align: right;">-1.046623</td>
+<td style="text-align: right;">0.8673258</td>
+<td style="text-align: right;">-1.544675</td>
+<td style="text-align: right;">-0.9610102</td>
+<td style="text-align: right;">0.7172267</td>
+<td style="text-align: right;">0.8042052</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.5152822</td>
+<td style="text-align: right;">0.6258776</td>
+<td style="text-align: right;">0.6833827</td>
+<td style="text-align: right;">-1.196301</td>
+<td style="text-align: right;">-1.044083</td>
+<td style="text-align: right;">0.8663115</td>
+<td style="text-align: right;">-1.543962</td>
+<td style="text-align: right;">-0.9597142</td>
+<td style="text-align: right;">0.7172267</td>
+<td style="text-align: right;">0.8042052</td>
 </tr>
 </tbody>
 </table>
@@ -748,44 +639,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="selecionando-dados-para-treino-e-teste" class="level2">
 <h2 class="anchored" data-anchor-id="selecionando-dados-para-treino-e-teste">Selecionando dados para treino e teste</h2>
-<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-4_331dcd07c754f196c275305c348bf6f2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando os dados classificados</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>conjunto_de_dados <span class="ot">&lt;-</span> <span class="fu">subset</span>(datasetfull, aptidao <span class="sc">!=</span> <span class="dv">0</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Defina a proporção desejada para treinamento (70%) e teste (30%)</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>proporcao_treinamento <span class="ot">&lt;-</span> <span class="fl">0.7</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcule o número de observações para treinamento</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>tamanho_treinamento <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">nrow</span>(conjunto_de_dados) <span class="sc">*</span> proporcao_treinamento)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Crie um vetor de índices aleatórios para as observações</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>indices_aleatorios <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(conjunto_de_dados))</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecione as observações de treinamento com base nos índices aleatórios</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>conjunto_treinamento <span class="ot">&lt;-</span> conjunto_de_dados[indices_aleatorios[<span class="dv">1</span><span class="sc">:</span>tamanho_treinamento], ]</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecione as observações de teste com base nos índices aleatórios restantes</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>conjunto_teste <span class="ot">&lt;-</span> conjunto_de_dados[indices_aleatorios[(tamanho_treinamento <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span><span class="fu">nrow</span>(conjunto_de_dados)], ]</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"../rds/modelo_arvore.rds"</span>)){</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    modelo_arvore <span class="ot">&lt;-</span> <span class="fu">rpart</span>(aptidao <span class="sc">~</span> ., <span class="at">data =</span> conjunto_treinamento, <span class="at">method =</span> <span class="st">"class"</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saveRDS</span>(modelo_arvore, <span class="st">"../rds/modelo_arvore.rds"</span>)</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    modelo_arvore <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../rds/modelo_arvore.rds"</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>previsoes <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo_arvore, <span class="at">newdata =</span> conjunto_teste, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-5_8573b17051cc38c26ebbcc15b6deb506">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando os dados classificados</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>conjunto_de_dados <span class="ot">&lt;-</span> <span class="fu">subset</span>(datasetfull, aptidao <span class="sc">!=</span> <span class="dv">0</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Defina a proporção desejada para treinamento (70%) e teste (30%)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>proporcao_treinamento <span class="ot">&lt;-</span> <span class="fl">0.7</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcule o número de observações para treinamento</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>tamanho_treinamento <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">nrow</span>(conjunto_de_dados) <span class="sc">*</span> proporcao_treinamento)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Crie um vetor de índices aleatórios para as observações</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>indices_aleatorios <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(conjunto_de_dados))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecione as observações de treinamento com base nos índices aleatórios</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>conjunto_treinamento <span class="ot">&lt;-</span> conjunto_de_dados[indices_aleatorios[<span class="dv">1</span><span class="sc">:</span>tamanho_treinamento], ]</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecione as observações de teste com base nos índices aleatórios restantes</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>conjunto_teste <span class="ot">&lt;-</span> conjunto_de_dados[indices_aleatorios[(tamanho_treinamento <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span><span class="fu">nrow</span>(conjunto_de_dados)], ]</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"../dbf/regrasV4_aptidao_regras_modelo_kappa.rds"</span>)){</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    modelo_arvore <span class="ot">&lt;-</span> <span class="fu">rpart</span>(aptidao <span class="sc">~</span> ., <span class="at">data =</span> conjunto_treinamento, <span class="at">method =</span> <span class="st">"class"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saveRDS</span>(modelo_arvore, <span class="st">"../dbf/regrasV4_aptidao_regras_modelo_kappa.rds"</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    modelo_arvore <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../dbf/regrasV4_aptidao_regras_modelo_kappa.rds"</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>previsoes <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo_arvore, <span class="at">newdata =</span> conjunto_teste, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="calculando-matriz-de-confusão" class="level2">
 <h2 class="anchored" data-anchor-id="calculando-matriz-de-confusão">Calculando matriz de confusão</h2>
 <div class="cell" data-hash="Precisao_global_kappa_cache/html/tbl-matriz-confusao_6f306405a2ff8c02e57da45125efbbb2">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(previsoes, <span class="fu">factor</span>(conjunto_teste<span class="sc">$</span>aptidao))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(conf_matrix<span class="sc">$</span>table)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(previsoes, <span class="fu">factor</span>(conjunto_teste<span class="sc">$</span>aptidao))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(conf_matrix<span class="sc">$</span>table)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="tbl-matriz-confusao" class="anchored">
 <table class="table table-sm table-striped small">
-<caption>Tabela&nbsp;2: Matriz de confusão</caption>
+<caption>Tabela&nbsp;3: Matriz de confusão</caption>
 <thead>
 <tr class="header">
 <th style="text-align: right;">1</th>
@@ -796,28 +687,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">266718</td>
+<td style="text-align: right;">266602</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">87</td>
-<td style="text-align: right;">30397</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">30561</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">44</td>
-<td style="text-align: right;">89</td>
-<td style="text-align: right;">33081</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">32512</td>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">2379</td>
-<td style="text-align: right;">738594</td>
+<td style="text-align: right;">2405</td>
+<td style="text-align: right;">738642</td>
 </tr>
 </tbody>
 </table>
@@ -827,21 +718,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="obtenha-a-precisão-global" class="level2">
 <h2 class="anchored" data-anchor-id="obtenha-a-precisão-global">Obtenha a precisão global</h2>
-<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-6_21f84bb6ddcf452d17e3462f16843217">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> conf_matrix<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Precisão Global:"</span>, accuracy, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-7_d80bd1903157268cfbfabe7e4be14780">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> conf_matrix<span class="sc">$</span>overall[<span class="st">"Accuracy"</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Precisão Global:"</span>, accuracy, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Precisão Global: 0.9975742 </code></pre>
+<pre><code>Precisão Global: 0.9975535 </code></pre>
 </div>
 </div>
 </section>
 <section id="obtenha-o-índice-kappa" class="level2">
 <h2 class="anchored" data-anchor-id="obtenha-o-índice-kappa">Obtenha o índice kappa</h2>
-<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-7_b0cb1ae04bd515218444877f2df6d009">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>kappa <span class="ot">&lt;-</span> conf_matrix<span class="sc">$</span>overall[<span class="st">"Kappa"</span>]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Índice Kappa:"</span>, kappa, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="Precisao_global_kappa_cache/html/unnamed-chunk-8_b7590fbd8f6cbdaddcf44dfc06a20837">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>kappa <span class="ot">&lt;-</span> conf_matrix<span class="sc">$</span>overall[<span class="st">"Kappa"</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Índice Kappa:"</span>, kappa, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Índice Kappa: 0.9947194 </code></pre>
+<pre><code>Índice Kappa: 0.9946692 </code></pre>
 </div>
 </div>
 

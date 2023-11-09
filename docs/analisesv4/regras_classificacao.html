@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Aptidão Guaraná - Regras para classificação V4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Aptidão Guaraná</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-analises-boa-full" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Analises BOA Full</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-analises-boa-full">    
+        <li>
+    <a class="dropdown-item" href="../analises/regras_classificacao.html" rel="" target="">
+ <span class="dropdown-text">Regras para classificação</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../analises/matriz_confusao.html" rel="" target="">
+ <span class="dropdown-text">Matriz de confusão</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-analises-boa-r8" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Analises BOA R8</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-analises-boa-r8">    
+        <li>
+    <a class="dropdown-item" href="../analisesR8/regras_classificacao.html" rel="" target="">
+ <span class="dropdown-text">Regras para classificação R8</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../analisesR8/matriz_confusao.html" rel="" target="">
+ <span class="dropdown-text">Matriz de confusão R8</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analisesv4/regras_classificacao.html">Analisesv4</a></li><li class="breadcrumb-item"><a href="../analisesv4/regras_classificacao.html">Regras para classificação V4</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Analises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analises/correlacao_entre_atributos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gráfico de correlação entre os atributos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analises/matriz_confusao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matriz de confusão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analises/Precisao_global_kappa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Precisão global kappa</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analises/regras_classificacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regras para classificação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analises/regressao_linear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regressão linear</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analises/regressao_linear_cd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regressão linear CD</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">AnalisesR8</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analisesR8/matriz_confusao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matriz de confusão R8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analisesR8/regras_classificacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regras para classificação R8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Analisesv4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analisesv4/regras_classificacao.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Regras para classificação V4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Rds</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rds/Readme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Readme</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#regra-impróprio-1-vermelho" id="toc-regra-impróprio-1-vermelho" class="nav-link active" data-scroll-target="#regra-impróprio-1-vermelho">Regra – IMPRÓPRIO (1-Vermelho)</a>
+  <ul class="collapse">
+  <li><a href="#sec-Regra-1" id="toc-sec-Regra-1" class="nav-link" data-scroll-target="#sec-Regra-1">Regra 1</a></li>
+  </ul></li>
+  <li><a href="#regra-restrita-2-amarelo" id="toc-regra-restrita-2-amarelo" class="nav-link" data-scroll-target="#regra-restrita-2-amarelo">Regra – RESTRITA (2-Amarelo)</a>
+  <ul class="collapse">
+  <li><a href="#sec-Regra-2" id="toc-sec-Regra-2" class="nav-link" data-scroll-target="#sec-Regra-2">Regra 2</a></li>
+  <li><a href="#sec-Regra-3" id="toc-sec-Regra-3" class="nav-link" data-scroll-target="#sec-Regra-3">Regra 3</a></li>
+  </ul></li>
+  <li><a href="#regra-regular-3-azul" id="toc-regra-regular-3-azul" class="nav-link" data-scroll-target="#regra-regular-3-azul">Regra – REGULAR (3-Azul)</a>
+  <ul class="collapse">
+  <li><a href="#sec-Regra-4" id="toc-sec-Regra-4" class="nav-link" data-scroll-target="#sec-Regra-4">Regra 4</a></li>
+  <li><a href="#sec-Regra-5" id="toc-sec-Regra-5" class="nav-link" data-scroll-target="#sec-Regra-5">Regra 5</a></li>
+  <li><a href="#sec-Regra-6" id="toc-sec-Regra-6" class="nav-link" data-scroll-target="#sec-Regra-6">Regra 6</a></li>
+  <li><a href="#sec-Regra-7" id="toc-sec-Regra-7" class="nav-link" data-scroll-target="#sec-Regra-7">Regra 7</a></li>
+  <li><a href="#sec-Regra-8" id="toc-sec-Regra-8" class="nav-link" data-scroll-target="#sec-Regra-8">Regra 8</a></li>
+  </ul></li>
+  <li><a href="#regra-boa-4-verde" id="toc-regra-boa-4-verde" class="nav-link" data-scroll-target="#regra-boa-4-verde">Regra – BOA (4-Verde)</a>
+  <ul class="collapse">
+  <li><a href="#sec-Regra-10" id="toc-sec-Regra-10" class="nav-link" data-scroll-target="#sec-Regra-10">Regra 10</a></li>
+  <li><a href="#sec-Regra-11" id="toc-sec-Regra-11" class="nav-link" data-scroll-target="#sec-Regra-11">Regra 11</a></li>
+  <li><a href="#sec-Regra-12" id="toc-sec-Regra-12" class="nav-link" data-scroll-target="#sec-Regra-12">Regra 12</a></li>
+  <li><a href="#sec-Regra-13" id="toc-sec-Regra-13" class="nav-link" data-scroll-target="#sec-Regra-13">Regra 13</a></li>
+  <li><a href="#sec-Regra-14" id="toc-sec-Regra-14" class="nav-link" data-scroll-target="#sec-Regra-14">Regra 14</a></li>
+  </ul></li>
+  <li><a href="#rpart" id="toc-rpart" class="nav-link" data-scroll-target="#rpart">Rpart</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Regras para classificação V4</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-1_4c6f7afdf5e936a14cef972aea60b517">
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+</div>
+<section id="regra-impróprio-1-vermelho" class="level2">
+<h2 class="anchored" data-anchor-id="regra-impróprio-1-vermelho">Regra – IMPRÓPRIO (1-Vermelho)</h2>
+<section id="sec-Regra-1" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-1">Regra 1</h3>
+<p>“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-2_1862fa4c0d10fc0090c15e3b217104a8">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3344952</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="regra-restrita-2-amarelo" class="level2">
+<h2 class="anchored" data-anchor-id="regra-restrita-2-amarelo">Regra – RESTRITA (2-Amarelo)</h2>
+<section id="sec-Regra-2" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-2">Regra 2</h3>
+<p>“erodibilid” = ‘alta’ AND “aptidao” &lt;&gt; 1</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-3_5cced3c45ba255dc7c43554dbf465021">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3271182</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">73770</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sec-Regra-3" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-3">Regra 3</h3>
+<p>(“declividad” &gt;45 AND “declividad” &lt;=75) AND “aptidao” &lt;&gt; 1 AND “aptidao” &lt;&gt;2</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-4_8012493cc945d32d4de3d689914474dc">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3243622</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="regra-regular-3-azul" class="level2">
+<h2 class="anchored" data-anchor-id="regra-regular-3-azul">Regra – REGULAR (3-Azul)</h2>
+<section id="sec-Regra-4" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-4">Regra 4</h3>
+<p>“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-5_d057a73cf6e594bb9093fe02e3be27f5">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3224527</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">19095</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sec-Regra-5" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-5">Regra 5</h3>
+<p>“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;= 1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-6_0e922df6abb9fce30b74b0002eafdb62">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3191900</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">51722</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sec-Regra-6" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-6">Regra 6</h3>
+<p>“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-7_ed40e140feda00e04f6df861f75e5dab">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3133987</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">109635</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sec-Regra-7" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-7">Regra 7</h3>
+<p>“drenagem” = ‘moderada_boa’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-8_350e6d7d5417c25acfc8965f9b32aed1">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3133980</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">109642</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sec-Regra-8" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-8">Regra 8</h3>
+<p>“erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-9_4626f8e6d0c131a45b9a3bd65da7c548">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">3126102</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">117520</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="regra-boa-4-verde" class="level2">
+<h2 class="anchored" data-anchor-id="regra-boa-4-verde">Regra – BOA (4-Verde)</h2>
+<section id="sec-Regra-10" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-10">Regra 10</h3>
+<p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt; = 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-10_df444f39d0e80bc0838409c5a9da681d">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">1661640</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">117520</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">1464462</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sec-Regra-11" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-11">Regra 11</h3>
+<p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’, ‘media’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-11_ae46ca765c005dc7f10c847daab79e7e">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">1605346</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">117520</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">1520756</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sec-Regra-12" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-12">Regra 12</h3>
+<p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-12_e9e753c04501f07873e100f178ef66d0">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">879393</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">117520</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">2246709</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sec-Regra-13" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-13">Regra 13</h3>
+<p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &lt;1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-13_37f0d35cd7a652649eef612d3abb3b07">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">675474</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">117520</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">2450628</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="sec-Regra-14" class="level3">
+<h3 class="anchored" data-anchor-id="sec-Regra-14">Regra 14</h3>
+<p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &gt; 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-14_20012daaab56313fc0c878fdbac9cb8e">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Evidências classificadas </caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">663878</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">888716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">101330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">117520</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">2462224</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell" data-hash="regras_classificacao_cache/html/fig-todas_04b122da8541ab813bf333537ce06800">
+<div class="cell-output-display">
+<div id="fig-todas" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regras_classificacao_files/figure-html/fig-todas-1.png" class="img-fluid figure-img" width="768"></p>
+<figcaption class="figure-caption">Figura&nbsp;1: Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="rpart" class="level2">
+<h2 class="anchored" data-anchor-id="rpart">Rpart</h2>
+<p><a href="#fig-rpart">Figura&nbsp;2</a> mostra o resultado da aplicação do rpart</p>
+<div class="cell" data-hash="regras_classificacao_cache/html/fig-rpart_253c013c5303acf1091a790c1604ea2f">
+<div class="cell-output-display">
+<div id="fig-rpart" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="regras_classificacao_files/figure-html/fig-rpart-1.png" class="img-fluid figure-img" width="768"></p>
+<figcaption class="figure-caption">Figura&nbsp;2: Plotagem da area classificada com as regras aprendidas.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiada");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiada");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
