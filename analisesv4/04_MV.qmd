@@ -1,0 +1,58 @@
+---
+title: "Máxima Verossimilhança"
+lang: pt
+format: 
+  html:
+    fig-width: 8
+    fig-height: 12
+execute:
+  echo: false
+#  freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
+  freeze: auto
+  cache: true 
+---
+
+A Máxima Verossimilhança é uma técnica usada para estimar os parâmetros do modelo de maneira a maximizar a probabilidade de observar os dados, dadas as estimativas dos parâmetros. Quando se trata de classificação, a regressão logística é frequentemente usada para modelar a probabilidade de pertencer a uma classe específica.
+
+Para realizar classificação em mais de duas classes em R, você pode usar um modelo de regressão logística multinomial. A regressão logística multinomial é uma extensão da regressão logística binomial que permite prever uma variável de resposta categórica com mais de duas categorias.
+
+## multinom
+
+@fig-multinom mostra o resultado da aplicação do multinom 
+
+```{r}
+#| label: fig-multinom
+#| fig-cap: "Plotagem da area classificada com as regras aprendidas."
+#| warning: false
+#| echo: false
+if(!require('ggplot2')) {install.packages('ggplot2', repos='http://cran-r.c3sl.ufpr.br/')}
+library(ggplot2)
+if(!require('nnet')) {install.packages('nnet', repos='http://cran-r.c3sl.ufpr.br/')}
+library(nnet)
+if(file.exists("../dbf/regrasV4_aptidao_regras.rds")){
+    datasetfull <- readRDS("../dbf/regrasV4_aptidao_regras.rds")
+    nomeregra = "MULTINOM"
+    indice_treino <- which(datasetfull$aptidao != 0)
+    conjunto_treino <- datasetfull[indice_treino, ]
+    conjunto_teste <- datasetfull[-indice_treino, ]
+    if(!file.exists("../dbf/regrasV4_aptidao_regras_modelo_multinom.rds")){
+        modelo <- multinom(aptidao ~ ., data = conjunto_treino)
+        saveRDS(modelo, "../dbf/regrasV4_aptidao_regras_modelo_multinom.rds")
+    }else{
+        modelo <- readRDS("../dbf/regrasV4_aptidao_regras_modelo_multinom.rds")
+    }
+    previsoes <- predict(modelo, newdata = conjunto_teste, type = "class")
+    datasetfull[-indice_treino, "aptidao"] <- previsoes
+
+    if(!file.exists("../dbf/regrasV4_aptidao_regras_modelo_multinom_aplicado.rds")){
+        saveRDS(datasetfull, "../dbf/regrasV4_aptidao_regras_modelo_multinom_aplicado.rds")
+    }
+
+    ggplot(datasetfull, aes(x = datasetfull$POINT_X_normalizado, y = datasetfull$POINT_Y_normalizado, color = as.factor(datasetfull$aptidao))) +
+        geom_point() +
+        scale_color_manual(values = c("0" = "lightgray", "1" = "red", "2" = "yellow", "3" = "blue", "4" = "green")) +
+        theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
+}
+```
+
+

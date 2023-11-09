@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analisesv4/Precisao_global_kappa.html">Analisesv4</a></li><li class="breadcrumb-item"><a href="../analisesv4/regras_classificacao.html">Regras para classificação V4</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analisesv4/01_regras_classificacao.html">Analisesv4</a></li><li class="breadcrumb-item"><a href="../analisesv4/01_regras_classificacao.html">Regras para classificação V4</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -108,14 +108,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analisesv4/Precisao_global_kappa.html" class="sidebar-item-text sidebar-link">
+  <a href="../analisesv4/01_regras_classificacao.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Regras para classificação V4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analisesv4/02_Precisao_global_kappa.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Precisão global kappa</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analisesv4/regras_classificacao.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Regras para classificação V4</span></a>
+  <a href="../analisesv4/03_rpart.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rpart</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analisesv4/04_MV.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Máxima Verossimilhança</span></a>
   </div>
 </li>
       </ul>
@@ -155,7 +167,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sec-Regra-13" id="toc-sec-Regra-13" class="nav-link" data-scroll-target="#sec-Regra-13">Regra 13</a></li>
   <li><a href="#sec-Regra-14" id="toc-sec-Regra-14" class="nav-link" data-scroll-target="#sec-Regra-14">Regra 14</a></li>
   </ul></li>
-  <li><a href="#rpart" id="toc-rpart" class="nav-link" data-scroll-target="#rpart">Rpart</a></li>
   </ul>
 </nav>
     </div>
@@ -179,12 +190,17 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-1_36cd0fe620eee937f8c3fee29002cd73">
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+</div>
 <section id="regra-impróprio-1-vermelho" class="level2">
 <h2 class="anchored" data-anchor-id="regra-impróprio-1-vermelho">Regra – IMPRÓPRIO (1-Vermelho)</h2>
 <section id="sec-Regra-1" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-1">Regra 1</h3>
 <p>“textura” IN (‘indiscriminada’, ‘arenosa’, ‘corpos_dagua’) OR “drenagem” IN (‘corpos_dagua’, ‘mal_drenado’, ‘excessiva’, ‘imperfeita’) OR “erodibilid” = ‘muito_alta’ OR “declividad”&gt;75</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-2_1862fa4c0d10fc0090c15e3b217104a8">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-2_d48eb545ee3751947367706ab25ab487">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -214,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-2" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-2">Regra 2</h3>
 <p>“erodibilid” = ‘alta’ AND “aptidao” &lt;&gt; 1</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-3_5cced3c45ba255dc7c43554dbf465021">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-3_f7ef7db5728eb4ed9f195614f2277765">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -245,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-3" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-3">Regra 3</h3>
 <p>(“declividad” &gt;45 AND “declividad” &lt;=75) AND “aptidao” &lt;&gt; 1 AND “aptidao” &lt;&gt;2</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-4_8012493cc945d32d4de3d689914474dc">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-4_58e80394ba281949a967926cf427a211">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -279,7 +295,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-4" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-4">Regra 4</h3>
 <p>“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-5_d057a73cf6e594bb9093fe02e3be27f5">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-5_ab6161739c8b1bf90f0101e6f483911a">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -314,7 +330,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-5" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-5">Regra 5</h3>
 <p>“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;= 1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-6_0e922df6abb9fce30b74b0002eafdb62">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-6_ac9307f54507737057ae8c91c1c6a015">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -349,7 +365,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-6" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-6">Regra 6</h3>
 <p>“drenagem” = ‘moderada_boa’ AND “erodibilid” = ‘media’ AND pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-7_ed40e140feda00e04f6df861f75e5dab">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-7_a960c54b28f4f2ae54bd67e6e653623b">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -384,7 +400,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-7" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-7">Regra 7</h3>
 <p>“drenagem” = ‘moderada_boa’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-8_350e6d7d5417c25acfc8965f9b32aed1">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-8_825473b48064394b6bd79a78a0bfceec">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -419,7 +435,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-8" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-8">Regra 8</h3>
 <p>“erodibilid” = ‘media’ AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &lt;1500 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;3 AND “aptidao” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-9_4626f8e6d0c131a45b9a3bd65da7c548">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-9_05b5b2a09543c55908fae1d6ed6f7b72">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -457,7 +473,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-10" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-10">Regra 10</h3>
 <p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt; = 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-10_df444f39d0e80bc0838409c5a9da681d">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-10_425f0584b77e5257918b747f362da5b5">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -496,7 +512,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-11" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-11">Regra 11</h3>
 <p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’, ‘media’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-11_ae46ca765c005dc7f10c847daab79e7e">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-11_472f4b6877ff9aa8b10f10500e0c4d80">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -535,7 +551,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-12" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-12">Regra 12</h3>
 <p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &gt;20 AND “declividad” &lt;=45 AND “pluviosida” &gt;=1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-12_e9e753c04501f07873e100f178ef66d0">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-12_b6a3cd74492edf9300487b386efff2e3">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -574,7 +590,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-13" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-13">Regra 13</h3>
 <p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &lt;1500 AND “def_hid_va” &lt;= 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-13_37f0d35cd7a652649eef612d3abb3b07">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-13_4b8f4035eb352a5aa9a224c4cc1f784e">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -613,7 +629,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-Regra-14" class="level3">
 <h3 class="anchored" data-anchor-id="sec-Regra-14">Regra 14</h3>
 <p>“textura” IN (‘argilosa_muito_argilosa’, ‘media_argilosa’, ‘media_argilosa_argilosa’) AND “drenagem” = ‘boa’ AND “erodibilid” IN (‘baixa’, ‘muito_baixa’) AND “declividad” &lt;=20 AND “pluviosida” &gt;=1500 AND “def_hid_va” &gt; 100 AND “aptidao” &lt;&gt;1 AND “aptidao” &lt;&gt;2 AND “aptidao” &lt;&gt;4</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/unnamed-chunk-14_20012daaab56313fc0c878fdbac9cb8e">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/unnamed-chunk-14_d4efce177decf98c3ae45130af62ef5f">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Evidências classificadas </caption>
@@ -648,33 +664,19 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
-<div class="cell" data-hash="regras_classificacao_cache/html/fig-todas_04b122da8541ab813bf333537ce06800">
+<div class="cell" data-hash="01_regras_classificacao_cache/html/fig-todas_ae906cf5c6dc484ac3a0862d318171d9">
 <div class="cell-output-display">
 <div id="fig-todas" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="regras_classificacao_files/figure-html/fig-todas-1.png" class="img-fluid figure-img" width="768"></p>
+<p><img src="01_regras_classificacao_files/figure-html/fig-todas-1.png" class="img-fluid figure-img" width="768"></p>
 <figcaption class="figure-caption">Figura&nbsp;1: Plotagem da area classificada como BOA, REGULAR, RESTRITA e IMPRÓPRIO pelas regras.</figcaption>
 </figure>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="rpart" class="level2">
-<h2 class="anchored" data-anchor-id="rpart">Rpart</h2>
-<p><a href="#fig-rpart">Figura&nbsp;2</a> mostra o resultado da aplicação do rpart</p>
-<div class="cell" data-hash="regras_classificacao_cache/html/fig-rpart_253c013c5303acf1091a790c1604ea2f">
-<div class="cell-output-display">
-<div id="fig-rpart" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="regras_classificacao_files/figure-html/fig-rpart-1.png" class="img-fluid figure-img" width="768"></p>
-<figcaption class="figure-caption">Figura&nbsp;2: Plotagem da area classificada com as regras aprendidas.</figcaption>
-</figure>
-</div>
-</div>
-</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

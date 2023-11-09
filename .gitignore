@@ -13,9 +13,8 @@
 /analisesR8/regras_classificacao_cache
 /analisesR8/regras_classificacao_files
 /analisesR8/matriz_confusao_cache
-/analisesv4/Precisao_global_kappa_cache
-/analisesv4/regras_classificacao_cache
-/analisesv4/regras_classificacao_files
+/analisesv4/*_cache
+/analisesv4/*_files
 /old/
 
 /_freeze

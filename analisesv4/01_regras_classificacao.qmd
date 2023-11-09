@@ -358,36 +358,3 @@ if(!file.exists("../dbf/regrasV4_aptidao_regras.rds")){
 }
 ```
 
-## Rpart
-
-@fig-rpart mostra o resultado da aplicação do rpart 
-
-```{r}
-#| label: fig-rpart
-#| fig-cap: "Plotagem da area classificada com as regras aprendidas."
-#| warning: false
-#| echo: false
-nomeregra = "RPART"
-indice_treino <- which(datasetfull$aptidao != 0)
-conjunto_treino <- datasetfull[indice_treino, ]
-conjunto_teste <- datasetfull[-indice_treino, ]
-if(!file.exists("../dbf/regrasV4_aptidao_regras_modelo.rds")){
-    if(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}
-    library(rpart)
-    modelo_arvore <- rpart(aptidao ~ ., data = conjunto_treino, method = "class")
-    saveRDS(modelo_arvore, "../dbf/regrasV4_aptidao_regras_modelo.rds")
-}else{
-    modelo_arvore <- readRDS("../dbf/regrasV4_aptidao_regras_modelo.rds")
-}
-previsoes <- predict(modelo_arvore, newdata = conjunto_teste, type = "class")
-datasetfull[-indice_treino, "aptidao"] <- previsoes
-
-if(!file.exists("../dbf/regrasV4_aptidao_regras_modelo_rpart.rds")){
-    saveRDS(datasetfull, "../dbf/regrasV4_aptidao_regras_modelo_rpart.rds")
-}
-
-ggplot(datasetfull, aes(x = datasetfull$POINT_X_normalizado, y = datasetfull$POINT_Y_normalizado, color = as.factor(datasetfull$aptidao))) +
-    geom_point() +
-    scale_color_manual(values = c("0" = "lightgray", "1" = "red", "2" = "yellow", "3" = "blue", "4" = "green")) +
-    theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
-```

@@ -1,0 +1,55 @@
+---
+title: "Rpart"
+lang: pt
+format: 
+  html:
+    fig-width: 8
+    fig-height: 12
+execute:
+  echo: false
+#  freeze: true  # never re-render during project render #  freeze: auto  # re-render only when source changes
+  freeze: auto
+  cache: true 
+---
+
+## Rpart
+
+@fig-rpart mostra o resultado da aplicação do rpart 
+
+
+```{r}
+#| label: fig-rpart
+#| fig-cap: "Plotagem da area classificada com as regras aprendidas."
+#| warning: false
+#| echo: false
+
+if(!require('ggplot2')) {install.packages('ggplot2', repos='http://cran-r.c3sl.ufpr.br/')}
+library(ggplot2)
+if(!require('rpart')) {install.packages('rpart', repos='http://cran-r.c3sl.ufpr.br/')}
+library(rpart)
+
+if(file.exists("../dbf/regrasV4_aptidao_regras.rds")){
+    datasetfull<-readRDS("../dbf/regrasV4_aptidao_regras.rds")
+    nomeregra = "RPART"
+    indice_treino <- which(datasetfull$aptidao != 0)
+    conjunto_treino <- datasetfull[indice_treino, ]
+    conjunto_teste <- datasetfull[-indice_treino, ]
+    if(!file.exists("../dbf/regrasV4_aptidao_regras_modelo_rpart.rds")){
+        modelo_arvore <- rpart(aptidao ~ ., data = conjunto_treino, method = "class")
+        saveRDS(modelo_arvore, "../dbf/regrasV4_aptidao_regras_modelo_rpart.rds")
+    }else{
+        modelo_arvore <- readRDS("../dbf/regrasV4_aptidao_regras_modelo_rpart.rds")
+    }
+    previsoes <- predict(modelo_arvore, newdata = conjunto_teste, type = "class")
+    datasetfull[-indice_treino, "aptidao"] <- previsoes
+
+    if(!file.exists("../dbf/regrasV4_aptidao_regras_modelo_rpart_aplicado.rds")){
+        saveRDS(datasetfull, "../dbf/regrasV4_aptidao_regras_modelo_rpart_aplicado.rds")
+    }
+
+    ggplot(datasetfull, aes(x = datasetfull$POINT_X_normalizado, y = datasetfull$POINT_Y_normalizado, color = as.factor(datasetfull$aptidao))) +
+        geom_point() +
+        scale_color_manual(values = c("0" = "lightgray", "1" = "red", "2" = "yellow", "3" = "blue", "4" = "green")) +
+        theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
+}
+```
