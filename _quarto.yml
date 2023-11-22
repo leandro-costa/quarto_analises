@@ -5,6 +5,7 @@ project:
     - "*.qmd"
     - "!analises/"
     - "!analisesR8/"
+    - "!analisesv4/"
   
 website:
   title: "Aptidão Guaraná"
