@@ -1,3 +1,4 @@
+if(!require('rio')) {install.packages('rio', repos='http://cran-r.c3sl.ufpr.br/')}
 library(rio)
 regrasV5_aptidao_regras <- import("dbf/regrasV5_aptidao_regras.rds")
 regrasV5_aptidao_regras_modelo_multinom_aplicado <- import("dbf/regrasV5_aptidao_regras_modelo_multinom_aplicado.rds")
@@ -11,5 +12,7 @@ regrasV5_aptidao_regras["aptidao_rpart"] <- regrasV5_aptidao_regras_modelo_rpart
 
 head(regrasV5_aptidao_regras)
 
-export(regrasV5_aptidao_regras, "rds/regrasV5_aptidao_regras_multinom_rpart.dbf")
-
+export(regrasV5_aptidao_regras, "dbf/regrasV5_aptidao_regras_multinom_rpart.dbf")
+if(!require('foreign')) {install.packages('foreign', repos='http://cran-r.c3sl.ufpr.br/')}
+library(foreign)
+write.dbf(regrasV5_aptidao_regras, "rds/regrasV5_aptidao_regras_multinom_rpart.dbf")
