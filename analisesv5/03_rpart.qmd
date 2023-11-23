@@ -30,6 +30,7 @@ library(rpart)
 
 if(file.exists("../dbf/regrasV5_aptidao_regras.rds")){
     datasetfull<-readRDS("../dbf/regrasV5_aptidao_regras.rds")
+    conjunto_de_dados <- subset(datasetfull, aptidao != -1)
     nomeregra = "RPART"
     indice_treino <- which(datasetfull$aptidao != -1)
     conjunto_treino <- datasetfull[indice_treino, ]
@@ -52,4 +53,46 @@ if(file.exists("../dbf/regrasV5_aptidao_regras.rds")){
         scale_color_manual(values = c("-1" = "lightgray", "0" = "red", "1" = "yellow", "2" = "blue", "3" = "orange", "4" = "green")) +
         theme_minimal() + xlab("X") + ylab("Y") + labs(color = nomeregra)
 }
+```
+
+## Calculando matriz de confusão
+```{r}
+#| label: tbl-matriz-confusao
+#| tbl-cap: "Matriz de confusão"
+if(!require('caret')) {install.packages('caret', repos='http://cran-r.c3sl.ufpr.br/')}
+library(caret)
+
+# Defina a proporção desejada para treinamento (70%) e teste (30%)
+proporcao_treinamento <- 0.7
+
+# Calcule o número de observações para treinamento
+tamanho_treinamento <- round(nrow(conjunto_de_dados) * proporcao_treinamento)
+
+# Crie um vetor de índices aleatórios para as observações
+indices_aleatorios <- sample(1:nrow(conjunto_de_dados))
+
+# Selecione as observações de treinamento com base nos índices aleatórios
+conjunto_treinamento <- conjunto_de_dados[indices_aleatorios[1:tamanho_treinamento], ]
+
+# Selecione as observações de teste com base nos índices aleatórios restantes
+conjunto_teste <- conjunto_de_dados[indices_aleatorios[(tamanho_treinamento + 1):nrow(conjunto_de_dados)], ]
+
+previsoes <- predict(modelo_arvore, newdata = conjunto_teste, type = "class")
+conf_matrix <- confusionMatrix(previsoes, factor(conjunto_teste$aptidao))
+
+kable(conf_matrix$table)
+```
+
+## Obtenha a precisão global
+
+```{r}
+accuracy <- conf_matrix$overall["Accuracy"]
+cat("Precisão Global:", accuracy, "\n")
+```
+
+## Obtenha o índice kappa
+
+```{r}
+kappa <- conf_matrix$overall["Kappa"]
+cat("Índice Kappa:", kappa, "\n")
 ```
